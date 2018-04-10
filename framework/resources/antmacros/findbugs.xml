@@ -1,0 +1,16 @@
+<project>
+	<property name="findbugs.home" value="${framework.dir}/resources/findbugs-3.0.0" />
+	<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpath="${findbugs.home}/lib/findbugs-ant.jar" />
+	<property name="findbugs.dir.reports" value="hybris/temp/findbugs" />
+	<macrodef name="runFindBugs">
+		<sequential>
+			<delete dir="${findbugs.dir.reports}" />
+			<mkdir dir="${findbugs.dir.reports}" />
+			<groovy src="framework/resources/groovyscripts/findbugs.groovy">
+				<arg value="${basedir}/extensions" />
+				<arg value="${testclasses.extensions}" />
+			</groovy>
+			<echo>findbugs reports are published here: ${findbugs.dir.reports}</echo>
+		</sequential>
+	</macrodef>
+</project>

@@ -1,0 +1,30 @@
+<project>
+	<property name="pmd.home" value="${framework.dir}/resources/pmd-5.0.5" />
+	<path id="pmd.classpath">
+		<fileset dir="${pmd.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<path path="${build.classpath}" />
+		<pathelement path="${framework.dir}/resources/pmdRuleSet" />
+
+	</path>
+	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.classpath" />
+	<property name="pmd.dir" value="hybris/temp/pmd" />
+	<property name="pmd.dir.reports" value="${pmd.dir}/reports" />
+	<macrodef name="runPmd" description="runs pmd reports">
+		<sequential>
+			<delete dir="${pmd.dir.reports}" />
+			<mkdir dir="${pmd.dir.reports}" />
+			<pmd shortFilenames="true">
+				<ruleset>${framework.dir}/resources/pmdRuleSet/hybris_ps_ruleset.xml</ruleset>
+
+				<formatter type="html" toFile="${pmd.dir.reports}/pmd_report.html" />
+				<formatter type="xml" toFile="${pmd.dir.reports}/pmd_report.xml" />
+				<fileset dir="./extensions/">
+					<include name="**/*.java" />
+				</fileset>
+			</pmd>
+			<echo>pmd reports are published here: ${pmd.dir.reports}</echo>
+		</sequential>
+	</macrodef>
+</project>

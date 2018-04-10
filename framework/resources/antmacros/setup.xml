@@ -1,0 +1,9 @@
+<project name="lib-setup">
+  <property name="framework.dir" value="../../../framework"/>
+  <property name="framework.config.dir" value="../../../config"/>
+ <!-- 3rd party libs -->
+  <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy" classpath="${framework.dir}/lib/groovy-all-1.8.0.jar" />
+  <target name="initproject">
+    <groovy src="${framework.dir}/resources/groovyscripts/setup.groovy" />
+  </target>
+</project>

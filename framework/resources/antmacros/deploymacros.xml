@@ -1,0 +1,33 @@
+<project name="lib-deploy">
+
+        <macrodef name="remote">
+                <attribute name="command" />
+                <attribute name="failonerror" default="true" />
+                <sequential>
+                        <fail unless="deploy.remote.host">deploy.remote.host was not set</fail>
+
+                        <sshexec host="${deploy.remote.host}" trust="true" username="${deploy.remote.username}" password="${deploy.remote.password}" command="@{command}" usepty="true" keyfile="${deploy.remote.key}" failonerror="${failonerror}" />
+                </sequential>
+        </macrodef>
+        <macrodef name="upload-withkey">
+                <attribute name="localfile" />
+                <attribute name="remotefile" />
+                <sequential>
+                        <fail unless="deploy.remote.host">deploy.remote.host was not set</fail>
+
+                        <echo>uploading @{localfile} to @{remotefile}</echo>
+                        <scp file="@{localfile}" todir="${deploy.remote.username}@${deploy.remote.host}:@{remotefile}" verbose="true" trust="true" password="${deploy.remote.password}"  keyfile="${deploy.remote.key}"/>
+                </sequential>
+        </macrodef>
+        <macrodef name="upload">
+                <attribute name="localfile" />
+                <attribute name="remotefile" />
+                <sequential>
+                        <fail unless="deploy.remote.host">deploy.remote.host was not set</fail>
+
+                        <echo>uploading @{localfile} to @{remotefile}</echo>
+                        <scp file="@{localfile}" todir="${deploy.remote.username}@${deploy.remote.host}:@{remotefile}" verbose="true" trust="true" password="${deploy.remote.password}" sftp="true" />
+                </sequential>
+        </macrodef>
+
+</project>

@@ -1,0 +1,129 @@
+<project>
+	<property name="cobertura.dir" value="${framework.dir}/resources/cobertura-2.0.3" />
+	<property name="codeCoverage.dir" value="hybris/temp/coverage" />
+	<property name="codeCoverage.dir-instrument" value="${codeCoverage.dir}/ser" />
+	<property name="codeCoverage.dir.reports" value="${codeCoverage.dir}/reports" />
+	<property name="extensions.dir" value="${basedir}/extensions" />
+	<property name="hybris.bin.dir" value="${basedir}/hybris/bin" />
+	<property name="coverage.dir" value="${basedir}/hybris/temp/hybris/coverage" />
+	<property name="coverage.lib.dir" value="${extension}/lib" />
+	<property name="cobertura.out.instr.dir" value="${basedir}/hybris/temp/hybris/coberturaoutinstr" />
+	<property name="platformhome" location="${basedir}/hybris/bin/platform" />
+
+
+
+	<path id="cobertura.classpath">
+		<fileset dir="${cobertura.dir}">
+			<include name="cobertura*.jar" />
+			<include name="lib/**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+
+	<macrodef name="coberturaInitialSetup">
+		<sequential>
+			<cobertura-clean />
+			<cobertura-setup />
+			<cobertura-classes />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="cobertura-clean">
+		<sequential>
+			<echo>cleanup the old coverage reports</echo>
+			<delete dir="${codeCoverage.dir-instrument}" />
+			<delete dir="${codeCoverage.dir.reports}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="cobertura-setup">
+		<sequential>
+			<cobertura-clean />
+			<echo>setting up Cobertura</echo>
+			<mkdir dir="${codeCoverage.dir-instrument}" />
+			<mkdir dir="${codeCoverage.dir.reports}" />
+			<groovy src="framework/resources/groovyscripts/cobertura-instrument.groovy">
+				<arg value="${extensions.dir}" />
+				<arg value="${projectExtensions}" />
+			</groovy>
+			<move file="${basedir}/cobertura.ser" todir="${codeCoverage.dir-instrument}" failonerror="false"/>
+		</sequential>
+	</macrodef>
+
+
+	<macrodef name="copyCoverageJars" description="copy cobetura jar to platform">
+		<sequential>
+			<copy todir="${basedir}/hybris/bin/platform/ext/core/lib" overwrite="true" failonerror="false">
+				<fileset dir="${cobertura.dir}" includes="cobertura*.jar" />
+			</copy>
+		</sequential>
+	</macrodef>
+
+        <macrodef name="removeCoverageJars" description="remove cobetura jar to platform">
+	  <sequential>
+             <delete>
+               <fileset dir="${basedir}/hybris/bin/platform/ext/core/lib" includes="cobertura*.jar"/>
+             </delete>
+	  </sequential>
+	</macrodef>
+
+
+
+	<macrodef name="instrument-classes">
+		<attribute name="extensionsClass" />
+		<sequential>
+			<echo>extension being instrumented:@{extensionsClass}</echo>
+			<cobertura-instrument>
+				<ignore regex="de.hybris.*" />
+				<ignore regex="com.hybris.*" />
+				<ignore regex="org.apache.*" />
+				<fileset dir="@{extensionsClass}">
+					<include name="**/*.class" />
+					<exclude name="**/*Test.class" />
+                                        <exclude name="**/*Constants.class" />
+				</fileset>
+				<fileset dir="${hybris.bin.dir}">
+					<exclude name="**/gensrc/**" />
+					<exclude name="**/Generated/**" />
+					<exclude name="**/testsrc/**" />
+					<exclude name="**/jalo/**" />
+                                        <include name="**/com/rf/**" />
+				</fileset>
+			</cobertura-instrument>
+
+		</sequential>
+	</macrodef>
+
+
+
+	<macrodef name="mergeSessions" description="merge all ser files together to one session">
+		<sequential>
+			<echo>merging all ser files together to one session</echo>
+			<cobertura-merge>
+				<fileset dir="${codeCoverage.dir-instrument}">
+					<include name="**/*cobertura.ser" />
+				</fileset>
+			</cobertura-merge>
+		</sequential>
+	</macrodef>
+
+
+
+	<macrodef name="codeCoverage-report" description="Generates the coverage report">
+		<sequential>
+			<echo>Generating the coverage report</echo>
+			<cobertura-report format="xml" destdir="${codeCoverage.dir.reports}" datafile="${codeCoverage.dir-instrument}/cobertura.ser">
+                          <!-- you have to add your src dir's manually -->
+			</cobertura-report>
+
+			<cobertura-report format="html" destdir="${codeCoverage.dir.reports}" datafile="${codeCoverage.dir-instrument}/cobertura.ser">
+                           <!-- you have to add your src dir's manually -->
+			</cobertura-report>
+
+			<cobertura-report format="html" destdir="${codeCoverage.dir.reports}" datafile="${codeCoverage.dir-instrument}/cobertura.ser">
+			</cobertura-report>
+
+		</sequential>
+	</macrodef>
+</project>

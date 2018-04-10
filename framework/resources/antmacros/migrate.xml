@@ -1,0 +1,25 @@
+<project name="lib-migrate">
+
+  <macrodef name="moveCustomExts" description="migrates the custom dir on hybris to the framework">
+    <sequential>
+      <copy todir="extensions" overwrite="true" failonerror="true">
+        <fileset dir="hybris/bin/custom" includes="**/*" />
+      </copy>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="moveAccleratorCustomExts" description="migrates the acclerator custom dir on hybris to the framework">
+    <sequential>
+       <groovy src="${framework.dir}/resources/groovyscripts/moveAcclerator.groovy" />
+    </sequential>
+  </macrodef>
+
+  <macrodef name="cleanCustomBinDir" description="clen up extentions from bin/custom">
+   <sequential>
+     <delete includeemptydirs="true">
+       <fileset dir="hybris/bin/custom" includes="**/*"/>
+    </delete>
+    </sequential>
+  </macrodef>
+
+</project>

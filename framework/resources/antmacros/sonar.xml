@@ -1,0 +1,53 @@
+<project>
+	<property name="sonar.dir" value="hybris/temp/sonar" />
+	<property name="sonar.dir.reports" value="${sonar.dir}/reports" />
+        <property name="sonar.host.url" value="http://sonar01.vdc.crownpartners.com:9000/sonar" />
+        <property name="sonar.jdbc.url" value="jdbc:mysql://codequality-mysql01.vdc.crownpartners.com:3306/sonar?useUnicode=true&amp;characterEncoding=utf8&amp;rewriteBatchedStatements=true&amp;useConfigs=maxPerformance" />
+	<property name="sonar.jdbc.driverClassName" value="com.mysql.jdbc.Driver" />
+	<property name="sonar.jdbc.username" value="sonar" />
+	<property name="sonar.jdbc.password" value="sonaronly01" />
+        <property name="sonar.projectKey" value="SPX" />
+        <property name="sonar.projectName" value="SPX" />
+        <property name="sonar.projectVersion" value="0" />
+	<property name="sonar.dynamicAnalysis" value="reuseReports" />
+        <property name="sonar.cobertura.reportPath" value="${basedir}/hybris/temp/coverage/reports/coverage.xml" />
+        <property name="sonar.junit.reportsPath" value="${basedir}/hybris/log/junit/*.xml" />
+
+
+	<path id="sonar.classpath">
+		<fileset dir="${framework.dir}/lib" includes="**/sonar-ant-task-2.3.jar" />
+	</path>
+	<path id='sonar.libraries.classpath'>
+		<fileset dir="${platformhome}/lib/">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${platformhome}/bootstrap/bin/">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${bundled.tomcat.home}/lib/">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${platformhome}/resources/configtemplates/develop/licence/">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+		<classpath refid="sonar.classpath" />
+	</taskdef>
+
+
+	<macrodef name="runSonar" description="runs Sonar push">
+		<sequential>
+			<delete dir="${sonar.dir.reports}" />
+			<mkdir dir="${sonar.dir.reports}" />
+			<groovy src="framework/resources/groovyscripts/sonar.groovy">
+				<arg value="${basedir}/extensions" />
+				<arg value="${projectExtensions}" />
+			</groovy>
+			<sonar:sonar xmlns:sonar="antlib:org.sonar.ant">
+			</sonar:sonar>
+		</sequential>
+	</macrodef>
+
+</project>
