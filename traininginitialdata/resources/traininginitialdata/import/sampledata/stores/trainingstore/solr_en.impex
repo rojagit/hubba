@@ -17,7 +17,7 @@ $facetSearchConfigName=trainingstoreIndex
 $indexedType=trainingstoreProductType
 $contentCatalogName=trainingstoreContentCatalog
 $contentCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalogName]),CatalogVersion.version[default=Staged])[default=$contentCatalogName:Staged]
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $productCatalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 # Solr Indexed Property

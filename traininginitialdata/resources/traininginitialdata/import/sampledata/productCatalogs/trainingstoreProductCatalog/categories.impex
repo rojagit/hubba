@@ -11,7 +11,7 @@
 # ImpEx for Importing Categories into Apparel Store
 
 # Macros / Replacement Parameter definitions
-$catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),version[default='Staged'])[unique=true,default='apparelProductCatalog:Staged']
+$catalogVersion=catalogVersion(catalog(id[default='myProductCatalog']),version[default='Staged'])[unique=true,default='myProductCatalog:Staged']
 $categories=target(code, $catalogVersion)[unique=true]
 $supercategories=source(code, $catalogVersion)[unique=true]
 

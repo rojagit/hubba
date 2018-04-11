@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------
 #******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
 
-$catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),version[default='Staged'])[unique=true,default='apparelProductCatalog:Staged']
+$catalogVersion=catalogVersion(catalog(id[default='myProductCatalog']),version[default='Staged'])[unique=true,default='myProductCatalog:Staged']
 $categories=target(code, $catalogVersion)[unique=true]
 $supercategories=source(code, $catalogVersion)[unique=true]
 $lang=en

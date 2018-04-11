@@ -14,7 +14,7 @@
 $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged] 
  
-$productCatalog=apparelProductCatalog 
+$productCatalog=myProductCatalog
 $productCatalogName=Apparel Product Catalog 
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged] 
 $picture=media(code, $contentCV) ;

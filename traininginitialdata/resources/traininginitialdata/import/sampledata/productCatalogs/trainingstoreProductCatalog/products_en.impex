@@ -13,7 +13,7 @@
 
 # Macros / Replacement Parameter definitions
 $lang=en
-$catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),version[default='Staged'])[unique=true,default='apparelProductCatalog:Staged']
+$catalogVersion=catalogVersion(catalog(id[default='myProductCatalog']),version[default='Staged'])[unique=true,default='myProductCatalog:Staged']
 
 
 # Update allProducts with localisations

@@ -12,7 +12,7 @@
 # ImpEx for Importing Categories into Apparel Store 
 
 # Macros / Replacement Parameter definitions
-$catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),version[default='Staged'])[unique=true,default='apparelProductCatalog:Staged']
+$catalogVersion=catalogVersion(catalog(id[default='myProductCatalog']),version[default='Staged'])[unique=true,default='myProductCatalog:Staged']
 
 # Language
 $lang=en

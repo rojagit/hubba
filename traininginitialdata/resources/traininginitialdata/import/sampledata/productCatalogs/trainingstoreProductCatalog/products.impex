@@ -12,7 +12,7 @@
 #% impex.setLocale( Locale.GERMAN ); 
 
 # Macros / Replacement Parameter definitions
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $productCatalogName=Apparel Product Catalog
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $baseProduct=baseProduct(code, catalogVersion(catalog(id[default='$productCatalog']),version[default='Staged']))

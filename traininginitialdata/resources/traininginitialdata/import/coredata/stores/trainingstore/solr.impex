@@ -12,10 +12,10 @@
 #
 # Import the Solr configuration for the Apparel UK store
 #
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $catalogVersions=catalogVersions(catalog(id),version);
 $facetSearchConfigName=trainingstoreIndex
-$facetSearchConfigDescription=Apparel UK Solr Index
+$facetSearchConfigDescription=Training Store Solr Index
 $searchIndexNamePrefix=trainingstore
 $solrIndexedType=trainingstoreProductType
 $indexBaseSite=trainingstore

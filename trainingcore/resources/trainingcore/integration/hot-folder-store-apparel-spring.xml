@@ -42,7 +42,7 @@
 	<int:service-activator input-channel="batchFilesApparelProc" output-channel="batchFilesHeaderInit" ref="apparelHeaderSetupTask"
 		method="execute" />
 	<bean id="apparelHeaderSetupTask" class="de.hybris.platform.acceleratorservices.dataimport.batch.task.HeaderSetupTask">
-		<property name="catalog" value="apparelProductCatalog" />
+		<property name="catalog" value="myProductCatalog" />
 		<property name="net" value="false" />
 		<property name="storeBaseDirectory" ref="baseDirectoryApparel" />
 	</bean>

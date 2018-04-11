@@ -11,7 +11,7 @@
 # ImpEx for Related Products into Apparel Store
 
 # Macros / Replacement Parameter definitions
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 
 # Insert Product References

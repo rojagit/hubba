@@ -11,7 +11,7 @@
 # ImpEx for Importing Products stock levels into Apparel Store
 
 # Macros / Replacement Parameter definitions
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $productCatalogName=Apparel Product Catalog
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $vendor=apparello
