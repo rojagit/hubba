@@ -17,4 +17,4 @@ $lang=en
 
 # Create Content Catalog
 UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
- ;trainingstoreContentCatalog;"Apparel UK Content Catalog"
+ ;trainingstoreContentCatalog;"TraininStore USA Content Catalog"

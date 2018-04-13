@@ -1,0 +1,81 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+######################
+# IntelliJ
+######################
+.idea/
+*.iml
+*.iws
+hybris4intellij.properties
+
+######################
+# Windows
+######################
+ 
+# Windows image file caches
+Thumbs.db 
+ 
+# Folder config file
+Desktop.ini
+
+######################
+# macOS
+######################
+.DS_Store
+.svn
+ 
+# Thumbnails
+._*
+ 
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# SAP Hybris
+######################
+extensions/*.class
+gensrc/
+/hybris
+rackroombackoffice_bof.jar
+extensions/*/bin
+extensions/*/hmc/bin
+extensions/*/build.xml
+extensions/*/classes/
+extensions/*/extensioninfo.xsd
+extensions/*/gensrc/
+extensions/*/jaxbgensrc/
+extensions/*/platformhome.properties
+extensions/*/resources/items.xsd
+extensions/*/resources/beans.xsd
+extensions/*/web/testclasses/
+extensions/*/.settings/
+extensions/*/web/webroot/WEB-INF/classes
+extensions/*/resources/*/*-testclasses.xml
+extensions/*/resources/*/*-webtestclasses.xml
+extensions/*/web/commonwebsrc/acceleratorstorefrontcommons/*
+
+extensions/rackroomstorefront/web/commonwebsrc/acceleratorstorefrontcommons/*
+extensions/rackroomstorefront/web/addonsrc/*
+extensions/rackroomstorefront/web/webroot/_ui/addons/*
+extensions/rackroomstorefront/web/webroot/WEB-INF/views/addons/*
+extensions/rackroomstorefront/web/webroot/WEB-INF/tags/addons/*
+extensions/rackroomstorefront/web/webroot/*/addons/*
+extensions/rackroomstorefront/web/webroot/WEB-INF/messages/addons/*
+extensions/rackroomstorefront/web/webroot/WEB-INF/tld/addons/*
+extensions/rackroomstorefront/web/webroot/WEB-INF/_ui-src/addons/*
+
+# jrebel
+rebel.xml
+jrebel.lic
+
+# xrebel
+xrebel.lic

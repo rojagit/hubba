@@ -1,0 +1,192 @@
+<project name="RRS-Framework" default="all">
+  <!-- varables -->
+	<property name="framework.dir" value="framework"/>
+	<property name="framework.config.dir" value="config"/>
+	<property name="framework.dbdrivers.dir" value="${framework.dir}/resources/dbdrivers"/>
+	<property name="framework.core-libs.dir" value="${framework.dir}/resources/core-libs"/>
+	<property name="hybris.home.zip" location="/opt/atlassian/downloads/hybris"/>
+	<property name="hybris.version" value="6.6"/>
+	<property name="hybris.home" value="hybris/bin/platform"/>
+	<property name="hybris.config.dir" value="hybris/config"/>
+	<property name="hybris.patch.dir" value="${framework.dir}/resources/hybrispatches"/>
+	<property name="build.environment" value="${env}"/>
+  	<property name="projectExtensions" value="rackroomcockpits,rackroomcore,rackroomfacades,rackroomfulfilmentprocess,rackroominitialdata,rackroomstorefront,rackroomtest" />
+	<property name="testclasses.extensions" value="${projectExtensions}" />
+
+	<!-- 3rd party libs -->
+	<taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy" classpath="${framework.dir}/lib/groovy-all-1.8.0.jar" />
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${framework.dir}/lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+
+	<!-- ant macros -->
+	<import file="${framework.dir}/resources/antmacros/deploymacros.xml" />
+	<import file="${framework.dir}/resources/antmacros/findbugs.xml" />
+	<import file="${framework.dir}/resources/antmacros/pmd.xml" />
+	<import file="${framework.dir}/resources/antmacros/sonar.xml" />
+	<import file="${framework.dir}/resources/antmacros/cobertura.xml" />
+	<import file="${framework.dir}/resources/antmacros/migrate.xml" />
+	<import file="${framework.dir}/resources/antmacros/deploymacros.xml" />
+	<import file="${framework.dir}/resources/antmacros/findbugs.xml" />
+	<import file="${framework.dir}/resources/antmacros/pmd.xml" />
+
+
+    <target name="config">
+		<groovy src="${framework.dir}/resources/groovyscripts/config.groovy" />
+	</target>
+
+        <target name="migrate" >
+          <moveCustomExts />
+        </target>
+
+	<target name="extgen">
+		<ant dir="hybris/bin/platform" target="extgen" inheritrefs="true" />
+                <moveCustomExts />
+                <cleanCustomBinDir />
+	</target>
+
+	<target name="modulegen">
+		<ant dir="hybris/bin/platform" target="modulegen" inheritrefs="true" />
+                <moveCustomExts />
+                <cleanCustomBinDir />
+	</target>
+
+	<target name="all" depends="config,patch" description="build and deploy">
+		<ant dir="hybris/bin/platform" target="all" inheritrefs="true" />
+	</target>
+
+	<target name="build" depends="config" description="build">
+		<ant dir="hybris/bin/platform" target="build" inheritrefs="true" />
+	</target>
+
+	<target name="clean" depends="config" description="clean platform and all extensions">
+		<ant dir="hybris/bin/platform" target="clean" inheritrefs="true" />
+	</target>
+
+	<target name="updatesystem" description="Performs an update system on master tenant and loads essential and fixture data">
+		<ant dir="hybris/bin/platform" target="updatesystem" inheritrefs="true">
+			<property name="tenant" value="master" />
+		</ant>
+	</target>
+
+	<target name="junitinit" description="Initializes JUnit tenant">
+		<property name="tenant" value="junit" />
+		<ant dir="hybris/bin/platform" target="yunitinit" inheritrefs="true" />
+	</target>
+
+	<target name="initialize" description="Initialize the hybris system and loads all necessary data">
+		<ant dir="hybris/bin/platform" target="initialize" inheritall="true">
+			<property name="tenant" value="master" />
+		</ant>
+	</target>
+
+	<target name="test" description="runs back-end junit tests (testsrc)">
+		<ant dir="hybris/bin/platform" target="alltests" inheritrefs="true" />
+	</target>
+
+	<target name="webtests" description="runs junit web tests (web/testsrc)">
+		<ant dir="hybris/bin/platform" target="allwebtests" inheritrefs="true" />
+	</target>
+
+        <target name="pmd" description="Runs the pmd report">
+                <runPmd />
+        </target>
+
+        <target name="findbugs" description="Runs the findbugs report">
+                <runFindBugs/>
+        </target>
+
+       	<target name="sonar" description="Runs sonar and pushes reports to sonar">
+		<runSonar />
+	</target>
+
+        <target name="test-and-reporting" description="generates the code coverage report">
+		<sequential>
+			<ant target="clean" inheritrefs="true" />
+			<copyCoverageJars />
+			<ant target="all" inheritrefs="true" />
+			<cobertura-setup />
+			<ant target="junitinit" inheritrefs="true" />
+			<ant target="test" inheritrefs="true" />
+			<codeCoverage-report />
+                        <removeCoverageJars />
+                        <antcall target="pmd"/>
+                        <antcall target="findbugs"/>
+                        <antcall target="sonar"/>
+		</sequential>
+	</target>
+
+
+	<target name="package" depends="clean,all" description="builds production ZIP files">
+		<ant dir="hybris/bin/platform" target="production" inheritrefs="true" />
+
+		<!-- create demo configuration -->
+		<!-- <replace file="hybris/config/localextensions.xml" token="../../extensions/" value="custom/" /> -->
+		<!-- <zip destfile="hybris/temp/hybris/hybrisServer/hybrisServer-Config.zip" basedir="hybris/config" /> -->
+		<!-- <antcall target="config" /> -->
+	</target>
+
+<!-- 	<target name="deploy" description="automated deployment">
+		<echo>uploading files...</echo>
+		<upload-withkey localfile="hybris/temp/hybrisServer/hybrisServer-Platform.zip" remotefile="~/hybrisServer-Platform.zip" />
+		<upload-withkey localfile="hybris/temp/hybrisServer/hybrisServer-AllExtensions.zip" remotefile="~/hybrisServer-AllExtensions.zip" />
+		<upload-withkey localfile="hybris/temp/hybris/hybrisServer/hybrisServer-Config-${build.environment}.zip" remotefile="~/hybrisServer-Config-${build.environment}.zip" />
+		<echo>start deployment...</echo>
+		<remote command="sudo ./deploy-script.sh" />
+		<remote command="sudo /etc/init.d/hybris start" />
+		<echo>deployment complete...</echo>
+	</target> -->
+
+<!-- 	<target name="clientupload" description="upload deployment to client sftp" >
+		<echo>uploading files...</echo>
+		<upload localfile="hybris/temp/hybrisServer/hybrisServer-Platform.zip" remotefile="data/deployments/hybrisServer-Platform.zip" />
+		<upload localfile="hybris/temp/hybrisServer/hybrisServer-AllExtensions.zip" remotefile="data/deployments/hybrisServer-AllExtensions.zip" />
+		<upload localfile="hybris/temp/hybris/hybrisServer/hybrisServer-Config-dev.zip" remotefile="data/deployments/hybrisServer-Config-dev.zip" />
+		<upload localfile="hybris/temp/hybris/hybrisServer/hybrisServer-Config-qa.zip" remotefile="data/deployments/hybrisServer-Config-qa.zip" />
+		<upload localfile="hybris/temp/hybris/hybrisServer/hybrisServer-Config-prod.zip" remotefile="data/deployments/hybrisServer-Config-prod.zip" />
+	</target> -->
+
+	<target name="patch" description="patch hybris platform">
+		<copy file="${hybris.patch.dir}/pmd/.pmd"
+			  tofile="hybris/bin/platform/.pmd"
+			  overwrite="true" description="Don't handle pmd violations as errors" />
+	</target>
+
+	<target name="unziphybris" description="unzip hybris to the root of your working directory">
+		<unzip dest="." overwrite="false">
+			<fileset dir="${hybris.home.zip}/${hybris.version}">
+				<include name="**/*.zip" />
+			</fileset>
+			<fileset dir="${framework.dir}/resources/hybrisextensions">
+				<include name="**/*.zip" />
+			</fileset>
+		</unzip>
+		<!-- delete unnecessary hybris modules -->
+		<delete dir="hybris-oms"/>
+		<delete dir="hybris-mobile-apps"/>
+		<delete dir="hybris-sbg"/>
+		<delete dir="licenses"/>
+		<delete dir="Mobile-Commerce-SDK"/>
+		<delete dir="hybris-Mobile-Apps-SDK"/>
+		<delete dir="hybris-ems"/>
+		<delete dir="hybris-dependencies"/>
+		<ant target="installDBDrivers" />
+		<ant target="installCoreLibs" />
+	</target>
+
+	<target name="installDBDrivers" description="Installs DB Drivers">
+		<copy todir="hybris/bin/platform/lib/dbdriver" overwrite="true" failonerror="true">
+			<fileset dir="${framework.dbdrivers.dir}" includes="*.jar" />
+		</copy>
+	</target>
+
+	<target name="installCoreLibs" description="Installs Additional Core Libraries">
+		<copy todir="hybris/bin/platform/ext/core/lib" overwrite="true" failonerror="true">
+			<fileset dir="${framework.core-libs.dir}" includes="*.jar" />
+		</copy>
+	</target>
+
+</project>

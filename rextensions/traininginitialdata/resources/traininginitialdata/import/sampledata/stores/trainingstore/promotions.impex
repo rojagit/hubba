@@ -12,7 +12,7 @@
 #% impex.setLocale( Locale.GERMAN ); 
 
 $defaultPromoGrp=apparelUKPromoGrp
-$productCatalog=apparelProductCatalog
+$productCatalog=myProductCatalog
 $catalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Online])[default=$productCatalog:Online]
 $regulargroup=regulargroup
 
