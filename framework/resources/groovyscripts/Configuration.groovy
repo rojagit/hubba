@@ -1,4 +1,5 @@
 import static Util.*
+import static Util.ant
 import static groovy.io.FileType.*
 
 class Configuration
@@ -11,6 +12,14 @@ class Configuration
     def baseDir = get_attribute("basedir")
 
     def config() {
+//        ant.mkdir("hybris/bin/platform/.sass-cache");
+        def hybrisDir = new File("hybris/bin/platform/.sass-cache")
+        if (!hybrisDir.exists()) {
+            ant.echo "HALLELUJAH ...acting sassy" +
+            hybrisDir.mkdir()
+        }
+
+        ant.echo hybrisDir
         def dbdrivers_dir = convert_to_os_path(get_attribute("framework.dbdrivers.dir"))
         def hybris_db_dir = convert_to_os_path(get_attribute("hybris.db.dir", "hybris/bin/platform/lib/dbdriver"))
 
@@ -121,6 +130,8 @@ class Configuration
 
 
     String extensionsTemplateXml(xml) {
+
+
         def extsFolder = new File("extensions")
         def listOfExts = new String("")
         if (extsFolder.exists())
