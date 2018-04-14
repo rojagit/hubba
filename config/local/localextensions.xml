@@ -1,6 +1,8 @@
 <hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
   <extensions>
     <path dir='${HYBRIS_BIN_DIR}' autoload='false'/>
+    <!--<path autoload="true" dir="${HYBRIS_BIN_DIR}/../../rextensions/"/>-->
+
     <extension name='mcc'/>
     <extension name='hmc'/>
 
@@ -8,12 +10,15 @@
     <extension name='adaptivesearchbackoffice'/>
     <extension name='adaptivesearchsamplesaddon'/>
     <extension name='commerceservicesbackoffice'/>
+
     <extension name='solrfacetsearchbackoffice'/>
     <extension name='solrserver'/>
+    <extension name="solrfacetsearch" />
+    <extension name="backofficesolrsearch" />
 
 
     <extension name='electronicsstore'/>
-    <extension name='apparelstore'/>
+<!--    <extension name='apparelstore'/>-->
     <extension name='acceleratorwebservicesaddon'/>
     <extension name='orderselfserviceaddon'/>
     <extension name='customersupportbackoffice'/>
@@ -51,7 +56,19 @@
     <extension name='promotionengineatddtests'/>
     <extension name='textfieldconfiguratortemplateatddtests'/>
     <extension name='pcmbackofficesamplesaddon'/>
-	
+    <extension name='datahubadapter' />
+    <extension name='datahubbackoffice' />
+    <extension name='y2ysync' />
+    <extension name='y2ysyncbackoffice' />
+    <extension name='ordermanagementaddon' />
+    <extension name='warehousingwebservices' />
+    <extension name='ordermanagementwebservices' />
+    <extension name='warehousingbackoffice' />
+    <!--<extension name='yacceleratorordermanagement' />-->
+
+
+
+
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingcockpits'/>
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingcore'/>
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingfacades'/>
@@ -59,7 +76,6 @@
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/traininginitialdata'/>
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingstorefront'/>
     <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingtest'/>
-    <!--<extension dir='${HYBRIS_BIN_DIR}/../../rextensions\trainingcommercewebservices'/>-->
-
-    </extensions>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingbackoffice'/>
+  </extensions>
 </hybrisconfig>

@@ -20,16 +20,28 @@
         </widget>
     </widget-extension>
 
+
     <widget-extension widgetId="hmc2" >
         <setting key="eastDisabled" type="Boolean" value="false"/>
     </widget-extension>
-    <widget-extension widgetId="explorerTree">
-        <move widgetId="leftSlotContainer" targetWidgetId="hmc2" targetSlotId="rightSlot" failOnError="true" />
+    <widget-extension widgetId="leftSlotContainer" >
+        <setting key="southDisabled" type="Boolean">true</setting>
     </widget-extension>
-    <widget-extension widgetId="hmc2">
-        <remove widgetId="savedQueries"/>
-    </widget-extension>
-    <widget-extension widgetId="hmc2">
-        <widget id="portal" widgetDefinitionId="com.hybris.cockpitng.defaultportalwidget" slotId="leftSlot"/>
-    </widget-extension>
+    <!--<widget-extension widgetId="collapsibleContainer">-->
+        <!--<remove widgetId="editorArea"/>-->
+    <!--</widget-extension>-->
+    <!--<widget-extension widgetId="explorerTree">-->
+        <!--<move widgetId="leftSlotContainer" targetWidgetId="hmc2" targetSlotId="rightSlot" failOnError="true" />-->
+    <!--</widget-extension>-->
+    <!--<widget-extension widgetId="savedQueries">-->
+        <!--<move widgetId="leftSlotContainer" targetWidgetId="hmc2" targetSlotId="rightSlot" failOnError="true" />-->
+    <!--</widget-extension>-->
+    <!--<widget-extension widgetId="hmc2">-->
+        <!--<widget-extension widgetId="leftSlotContainer">-->
+            <!--<remove widgetId="savedQueries"/>-->
+        <!--</widget-extension>-->
+    <!--</widget-extension>-->
+    <!--<widget-extension widgetId="hmc2">-->
+        <!--<widget id="portal" widgetDefinitionId="com.hybris.cockpitng.defaultportalwidget" slotId="leftSlot"/>-->
+    <!--</widget-extension>-->
 </widgets>
