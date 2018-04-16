@@ -11,7 +11,6 @@
 # Test batch configuration
 #
 $productCatalog=apparelProductCatalog
-$defaultCurrency=EUR
 $languages=en
 $defaultLanguage=en
 $prices=europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
@@ -23,7 +22,6 @@ INSERT_UPDATE Language;isocode[unique=true];active
 ;en;true
 
 INSERT_UPDATE Currency;isocode[unique=true];name[lang=de];name[lang=en];active;base;conversion;digits;symbol
-;EUR;Euro;Euro;true;true;1;2;€
 
 INSERT_UPDATE Catalog;id[unique=true];name[lang=de];name[lang=en];defaultCatalog
 ;$productCatalog;$productCatalog;$productCatalog;true

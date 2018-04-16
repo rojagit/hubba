@@ -9,8 +9,6 @@
 # Information and shall use it only in accordance with the terms of the
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
-$currencies=EUR
-$defaultCurrency=EUR
 $defaultLanguage=en
 $deliveryCountries=US
 
@@ -32,7 +30,6 @@ INSERT_UPDATE Unit;unitType[unique=true];code[unique=true];name[lang=de];name[la
 ;pieces;pieces;pieces;pieces;1
 
 INSERT_UPDATE Currency;isocode[unique=true];name[lang=de];name[lang=en];active;base;conversion;digits;symbol;;;;;;;;;;;;;;
-;EUR;Euro;Euro;true;true;1;2;E
 ;USD;US-Dollar;US Dollar;true;false;1,38;2;$
 
 INSERT_UPDATE Title;code[unique=true];name[lang=de];name[lang=en];;;;;;;;;;;;;;;;;;;
@@ -51,7 +48,6 @@ INSERT_UPDATE Customer;uid[unique=true];customerID;name;description;sessionLangu
 ;ahertz;K2006-C0005;Anja Hertz;;en;USD;customergroup;1234;;;;;;;;;;;;;;
 ;abrode;K2006-C0006;Arin Brode;;en;USD;customergroup;1234;;;;;;;;;;;;;;
 ;dejol;K2006-C0007;Max de Jol;;en;USD;customergroup;1234;;;;;;;;;;;;;;
-;promoted;K2006-C0007;Max promo;;en;EUR;customergroup;1234;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE Address;owner(Customer.uid)[unique=true];streetname[unique=true];streetnumber[unique=true];postalcode[unique=true];duplicate[unique=true];town;country(isocode);billingAddress;contactAddress;shippingAddress;unloadingAddress;firstname;lastname;email;gender(code);middlename;phone1;title(code);url;company;fax;department
 ;ahertz;Zennerstrasse;45;28277;false;Bremen;DE;false;false;false;true;Anja;Hertz;ahertz@na-du.de;FEMALE;;;;;hybris GmbH;;
@@ -66,23 +62,14 @@ INSERT_UPDATE Catalog;id[unique=true];name[lang=de];name[lang=en];defaultCatalog
 ;$catalog-id;$catalog-id;$catalog-id;true;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE CatalogVersion; catalog(id)[unique=true]; version[unique=true]; active;defaultCurrency(isocode);;;;;;;;;;;;;;;;;;
-;$catalog-id;$catalog-version;true;EUR;de,en;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE Category;code[unique=true];$catalogversion;name[lang=de];name[lang=en];$supercategories;;;;;;;;;;;;;;;;;
 ;$testCategory0-id;;$testCategory0-id;$testCategory0-id;;;;;;;;;;;;;;;;;;
 ;$testCategory1-id;;$testCategory1-id;$testCategory1-id;$testCategory0-id;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE Product;code[unique=true];$catalogversion;name[lang=de];name[lang=en];unit(code);$prices;approvalStatus(code);owner(Principal.uid);startLineNumber;$supercategories;;;;;;;;;;;;
-;HW1210-3422;;testDE;testEN;pieces;57,95 EUR;approved;ahertz;0;$testCategory0-id;;;;;;;;;;;;
-;HW1210-3423;;test2DE;test2EN;pieces;67,95 EUR;approved;ahertz;0;$testCategory1-id;;;;;;;;;;;;
-;HW1210-3424;;test3DE;test3EN;pieces;32,95 EUR;approved;ahertz;0;$testCategory1-id;;;;;;;;;;;;
-;HW1210-3425;;test3DE;test4EN;pieces;95 EUR;approved;ahertz;0;$testCategory1-id;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE Cart;user(uid);code[unique=true];currency(isocode);date[dateformat=dd.MM.yyyy HH:mm:ss];net;calculated;;;;;;;;;;;;;;;;
-;ahertz;ahertzCart;EUR;27.04.2010 00:00:00;true;false;;;;;;;;;;;;;;;;
-;abrode;abrodeCart;EUR;27.04.2010 00:00:00;true;false;;;;;;;;;;;;;;;;
-;dejol;dejolStored;EUR;27.04.2010 00:00:00;true;false;;;;;;;;;;;;;;;;
-;promoted;promotedStored;EUR;27.04.2010 00:00:00;true;false;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT CartEntry;order(Cart.code);creationTime[dateformat=dd.MM.yyyy HH:mm:ss];product(code,catalogVersion(catalog(id),version));quantity;unit(code);entryNumber;;;;;;;;;;;;;;;;
 ;ahertzCart;27.04.2010 00:00:00;HW1210-3422:$catalog-id:$catalog-version;2;pieces;1;;;;;;;;;;;;;;;;
@@ -97,10 +84,8 @@ INSERT_UPDATE PromotionGroup;Identifier[unique=true];;;;;;;;;;;;;;;;;;;;;
 ;default;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE PromotionPriceRow;currency(isocode)[unique=true];price[unique=true];;;;;;;;;;;;;;;;;;;;
-;EUR;12;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE ProductFixedPricePromotion;code[unique=true];title;description;enabled;products(code,catalogVersion(catalog(id),version));productFixedUnitPrice(price,currency(isocode));productBanner(code);PromotionGroup(Identifier);endDate[dateformat=yyyy-MM-dd];;;;;;;;;;;;;
-;FixedPriceDefault;clearance sale;Fixed Price for default;true;HW1210-3425:$catalog-id:$catalog-version;12:EUR;;default;2400-01-01;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 INSERT_UPDATE Vendor;code[unique=true];name[lang=en];name[lang=de];;;;;;;;;;;;;;;;;;;
 ;electro;Electro;Electro;;;;;;;;;;;;;;;;;;;

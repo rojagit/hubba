@@ -100,7 +100,7 @@ public abstract class AbstractProcessDemoTest extends ServicelayerTest
 		final CatalogModel catalog = createCatalog("test");
 		final CatalogVersionModel catalogVersion = createCatalogVersion(catalog, "online", Boolean.TRUE);
 		final UnitModel pieces = getOrCreateUnit("pieces");
-		final CurrencyModel currency = createOrGetCurrency("EUR");
+		final CurrencyModel currency = createOrGetCurrency("USD");
 		final VendorModel vendor = createVendor("testVendor");
 		final WarehouseModel warehouse1 = createWarehouse("testWarehouse1", vendor);
 		final WarehouseModel warehouse2 = createWarehouse("testWarehouse2", vendor);
@@ -294,7 +294,7 @@ public abstract class AbstractProcessDemoTest extends ServicelayerTest
 		card.setExpirationYear(Integer.valueOf(Calendar.getInstance().get(Calendar.YEAR) + 2));
 
 		final PaymentTransactionModel paymentTransaction = paymentService.authorize("code1", BigDecimal.ONE,
-				Currency.getInstance("EUR"), address, address, card).getPaymentTransaction();
+				Currency.getInstance("USD"), address, address, card).getPaymentTransaction();
 		order.setPaymentTransactions(Collections.singletonList(paymentTransaction));
 		modelService.save(order);
 

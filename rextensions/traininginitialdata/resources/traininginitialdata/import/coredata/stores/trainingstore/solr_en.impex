@@ -13,7 +13,7 @@
 #
 
 # Index Type
-$solrIndexedType=apparelProductType
+$solrIndexedType=trainingstoreProductType
 
 # Language
 $lang=en

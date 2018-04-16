@@ -9,7 +9,6 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 $storeUid=trainingstore
-$defaultCurrency=GBP
 $defaultLanguage=en
 $googleHost=setthethirdpartyhost
 $googleUserName=setgoogleusername

@@ -16,8 +16,8 @@ $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $picture=media(code, $contentCV);
 $wideContent=CMSImageComponent,BannerComponent
-$jarResource=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import
-$siteResource=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport
+$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
 
 # Language
 $lang=en

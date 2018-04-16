@@ -332,7 +332,6 @@ public class AcceleratorTestOrderData
 		final CardInfo cardInfo = new CardInfo();
 		cardInfo.setCardHolderFullName("John Doe");
 		cardInfo.setCardNumber("5555555555554444");
-		cardInfo.setCardType(CreditCardType.MASTERCARD_EUROCARD);
 		cardInfo.setExpirationMonth(Integer.valueOf(11));
 		cardInfo.setExpirationYear(Integer.valueOf(2050));
 		return cardInfo;
@@ -389,13 +388,11 @@ public class AcceleratorTestOrderData
 		products = new HashMap<String, Long>();
 		products.put("300310086", Long.valueOf(1)); // Bag Dakine Factor Pack bomber
 		products.put("300147511", Long.valueOf(1)); // T-Shirt Men Playboard Logo Tee irish green M
-		createSampleOrder("apparel-uk", CUSTOMER_UID, "GBP", products, createUkAddressData(), null, false);
 
 		// Create sample order in the apparel-de site
 		products = new HashMap<String, Long>();
 		products.put("300020465", Long.valueOf(1)); // Protector Dainese Waistcoat S7 black/silver M
 		products.put("300044623", Long.valueOf(1)); // Shades Anon Legion crystal & black gray
-		createSampleOrder("apparel-de", CUSTOMER_UID, "EUR", products, createGermanAddressData(), null, false);
 	}
 
 	protected void wireTicketAndOrder(final OrderModel order, final String... tickets)
@@ -421,7 +418,6 @@ public class AcceleratorTestOrderData
 		products = new HashMap<String, Long>();
 		products.put("300737290", Long.valueOf(1)); // System Tee SS dirty plum S
 		products.put("300737281", Long.valueOf(1)); // System Tee SS lime M
-		createSampleOrder("apparel-uk", CUSTOMER_UID, "GBP", products, createUkAddressData(), "Newcastle upon Tyne College", false);
 	}
 
 	public OrderModel createSampleOrder(final String siteUid, final String customerUid, final String currencyIso,

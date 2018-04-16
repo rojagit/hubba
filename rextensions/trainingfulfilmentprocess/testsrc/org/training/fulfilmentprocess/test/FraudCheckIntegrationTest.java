@@ -311,7 +311,7 @@ public class FraudCheckIntegrationTest extends ServicelayerTest
 		final ZoneDeliveryModeValueModel zoneDeliveryModeValueModel = new ZoneDeliveryModeValueModel();
 		zoneDeliveryModeValueModel.setDeliveryMode(zoneDeliveryModeModel);
 		zoneDeliveryModeValueModel.setValue(Double.valueOf(0.00));
-		zoneDeliveryModeValueModel.setCurrency(commonI18NService.getCurrency("EUR"));
+		zoneDeliveryModeValueModel.setCurrency(commonI18NService.getCurrency("USD"));
 		zoneDeliveryModeValueModel.setMinimum(Double.valueOf(0.00));
 		final ZoneModel zoneModel = new ZoneModel();
 		zoneModel.setCode("de");
@@ -335,7 +335,7 @@ public class FraudCheckIntegrationTest extends ServicelayerTest
 		card.setExpirationYear(Integer.valueOf(Calendar.getInstance().get(Calendar.YEAR) + 2));
 		card.setCv2Number("123");
 		final PaymentTransactionModel paymentTransaction = paymentService.authorize("code3" + codeNo++, BigDecimal.ONE,
-				Currency.getInstance("EUR"), deliveryAddress, deliveryAddress, card).getPaymentTransaction();
+				Currency.getInstance("USD"), deliveryAddress, deliveryAddress, card).getPaymentTransaction();
 
 		cart.setPaymentTransactions(Collections.singletonList(paymentTransaction));
 		modelService.save(cart);

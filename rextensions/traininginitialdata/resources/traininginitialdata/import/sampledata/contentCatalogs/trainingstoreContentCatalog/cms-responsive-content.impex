@@ -8,24 +8,24 @@
 # Information and shall use it only in accordance with the terms of the
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
-# 
-# ImpEx for Responsive Apparel UK Site CMS Content 
-# 
+#
+# ImpEx for Responsive Apparel UK Site CMS Content
+#
 $contentCatalog=trainingstoreContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged] 
- 
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
 $productCatalog=myProductCatalog
 $productCatalogName=my Product Catalog
-$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged] 
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $picture=media(code, $contentCV) ;
-$siteResource=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/cockpits/cmscockpit
+$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/cockpits/cmscockpit
 
 # Load the storefront context root config param
 $storefrontContextRoot=$config-storefrontContextRoot
 
 
-# CMS Site Settings 
+# CMS Site Settings
 UPDATE CMSSite;uid[unique=true];defaultPreviewCategory(code, $productCV);defaultPreviewProduct(code, $productCV);;;;;
 ;trainingstore;caps;300441142;;;;;
 
@@ -64,7 +64,7 @@ INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&c
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
 ;;MiniCartSlot;OrderComponent,MiniCart
 
-## NavigationBar slot: ApparelUKCategoryNavComponent and BredcrumbComponent 
+## NavigationBar slot: ApparelUKCategoryNavComponent and BredcrumbComponent
 INSERT_UPDATE CategoryNavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef);wrapAfter
 ;;ApparelUKCategoryNavComponent;Trainingstore Category Navigation Component;;ApparelUKCategoryNavComponent;ApparelUKCategoryNavNode;10
 
@@ -184,7 +184,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 #INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid,$contentCV)
 #;;SideContentSlot;MobileAppBanner
 #;;TopContentSlot;FacebookOffersBanner
- 
+
 
 
 # The following will create stuff for each page, we do the following steps
@@ -250,7 +250,7 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;homepage;homepagePreview;;;;;
-###### Homepage End ###### 
+###### Homepage End ######
 
 
 ###### Apparel Surf Collection Landing Page Start (this page is not responsive) ######
@@ -296,7 +296,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;Section1Slot-ProductGridPage;Section1 Slot for Product Grid Page;true;;;;
 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='productGrid'];contentSlot(uid,$contentCV)[unique=true];;;
-;;Section1-ProductGridPage;Section1;;Section1Slot-ProductGridPage;;; 
+;;Section1-ProductGridPage;Section1;;Section1Slot-ProductGridPage;;;
 
 # component in section1
 #INSERT_UPDATE DynamicBannerComponent;$contentCV[unique=true];uid[unique=true];name;mediaCodePattern
@@ -313,17 +313,17 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, 
 ###### Brands Caregory Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;Section1Slot-Brands;Section1 Slot for Brands Page;true;BrandsImageMapComponent;;;
- 
+
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='BrandsCategoryPage'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;Section1-Brands;Section1;;Section1Slot-Brands;;;
 
 # component in section1
 INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef;;;
 ;;BrandsImageMapComponent;Brands ImageMapComponent;"<area shape=""rect"" coords=""19,20,289,110"" alt=""vans"" href=""$storefrontContextRoot/Brands/Vans/c/Vans"" /><area shape=""rect"" coords=""20,110,289,190"" alt=""dainese"" href=""$storefrontContextRoot/Brands/Dainese/c/Dainese"" /><area shape=""rect"" coords=""20,190,251,284"" alt=""toko"" href=""$storefrontContextRoot/Brands/Toko/c/Toko"" /><area shape=""rect"" coords=""20,284,271,341"" alt=""dakine"" href=""$storefrontContextRoot/Brands/Dakine/c/Dakine"" /><area shape=""rect"" coords=""20,341,290,447"" alt=""blue tomato"" href=""$storefrontContextRoot/Brands/Blue-Tomato/c/Blue Tomato"" /><area shape=""rect"" coords=""289,20,527,110"" alt=""von zipper"" href=""$storefrontContextRoot/Brands/Von-Zipper/c/Von Zipper"" /><area shape=""rect"" coords=""527,20,767,121"" alt=""playboard"" href=""$storefrontContextRoot/Brands/Playboard/c/Playboard"" /><area shape=""rect"" coords=""289,111,527,190"" alt=""fox"" href=""$storefrontContextRoot/Brands/Fox/c/Fox"" /><area shape=""rect"" coords=""549,122,767,242"" alt=""anon"" href=""$storefrontContextRoot/Brands/Anon/c/Anon"" /><area shape=""rect"" coords=""549,243,767,341"" alt=""f2"" href=""$storefrontContextRoot/Brands/F2-FTWO/c/F2-FTWO"" /><area shape=""rect"" coords=""503,342,767,447"" alt=""quicksilver"" href=""$storefrontContextRoot/Brands/Quiksilver/c/Quiksilver"" /><area shape=""rect"" coords=""291,326,502,446"" alt=""ripcurl"" href=""$storefrontContextRoot/Brands/Rip-Curl/c/Rip Curl"" /><area shape=""rect"" coords=""404,191,548,325"" alt=""roxy"" href=""$storefrontContextRoot/Brands/Roxy/c/Roxy"" /><area shape=""rect"" coords=""260,191,402,325"" alt=""pro-tec"" href=""$storefrontContextRoot/Brands/Pro-Tec/c/Pro Tec"" />";BrandsImageMapComponent;;;
- 
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;brandsCategoryPagePreview;text/png;BrandsCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/BrandsCategoryPage.png;;;
- 
+
 UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;BrandsCategoryPage;brandsCategoryPagePreview;;;;;
 
@@ -335,17 +335,17 @@ INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];na
 ###### Shirt Category Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;Section1Slot-Shirts;Section1 Slot for Shirts Page;true;ShirtsImageMapComponent;;;
- 
+
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='ShirtsCategoryPage'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;Section1-Shirts;Section1;;Section1Slot-Shirts;;;
 
 # component in section1
 INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef;;;
 ;;ShirtsImageMapComponent;Shirts ImageMapComponent;<area shape='circle' alt='T-Shirt Men Playboard Logo' coords='284,328,98' href='$storefrontContextRoot/Brands/Playboard/T-Shirt-Men-Playboard-Logo/p/300067375' /><area shape='circle' alt='T-Shirt Men Playboard Raster SS' coords='496,66,93' href='$storefrontContextRoot/Brands/Playboard/T-Shirt-Men-Playboard-Raster-SS/p/300046043' /><area shape='circle' alt='T-Shirt Men Playboard Raster SS' coords='652,410,108' href='$storefrontContextRoot/Brands/Playboard/T-Shirt-Men-Playboard-Raster-SS/p/300046028' /><area shape='circle' alt='T-Shirt Men Playboard Logo' coords='687,92,109' href='$storefrontContextRoot/Brands/Playboard/T-Shirt-Men-Playboard-Logo/p/300147511' /><area shape='circle' alt='T-Shirt Men Playboard Raster SS' coords='710,251,94' href='$storefrontContextRoot/Brands/Playboard/T-Shirt-Men-Playboard-Raster-SS/p/300067366' />;ShirtsImageMapComponent;;;
- 
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;shirtsCategoryPagePreview;text/png;ShirtsCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/ShirtsCategoryPage.png;;;
- 
+
 UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;ShirtsCategoryPage;shirtsCategoryPagePreview;;;;;
 
@@ -390,7 +390,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;MiddleContent-searchEmpty;Middle Slot for searchEmpty;true;;;;
 ;;SideContent-searchEmpty;Narrow Slot for searchEmpty;true;;;;
 ;;TopContent-searchEmpty;Top Slot for searchEmpty;true;;;;
- 
+
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='searchEmpty'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;Middle-searchEmpty;MiddleContent;;MiddleContent-searchEmpty;;;
 ;;Side-searchEmpty;SideContent;;SideContent-searchEmpty;;;
@@ -402,7 +402,7 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;searchEmpty;searchResultsEmptyPagePreview;;;;;
 ###### Search Empty Page End ######
- 
+
 
 ###### Category Page Start ######
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
@@ -411,8 +411,8 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;category;defaultCategoryPagePreview;;;;;
 ###### Category Page End ######
- 
- 
+
+
 ###### Sunglasses Category Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;Section2Slot-Sunglasses;Section2 Slot for Sunglasses Page;true;SunglassesImageMapComponent;;;
@@ -423,7 +423,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # component in section2, other sections are empty
 INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef
 ;;SunglassesImageMapComponent;Sunglasses ImageMapComponent;"<area shape=""rect"" coords=""10,51,256,231"" href=""$storefrontContextRoot/Anon/Sonnenbrille-Anon-Convict-black-fade-gray-gradient/p/300044617"" alt=""Sonnenbrille Anon Convict black fade gray gradient"" title=""Sonnenbrille Anon Convict black fade gray gradient ""/>	<area shape=""rect"" coords=""274,54,520,234"" href=""$storefrontContextRoot/Fox/Sonnenbrille-Fox-The-Median-polished-black-warm-gray/p/300024964"" alt=""Sonnenbrille Fox The Median polished black warm gray"" title=""Sonnenbrille Fox The Median polished black warm gray""/>	<area shape=""rect"" coords=""539,50,763,234"" href=""$storefrontContextRoot/Quiksilver/Sonnenbrille-Quiksilver-Dinero-black-white-red-gray/p/300045375"" alt=""Sonnenbrille Quiksilver Dinero black white red gray"" title=""Sonnenbrille Quiksilver Dinero black white red gray""/>	<area shape=""rect"" coords=""131,250,368,444"" href=""$storefrontContextRoot/Roxy/Damen-Sonnenbrille-Roxy-Tee-Dee-Gee-dark-tortoise-brown-gray/p/300047195"" alt=""Damen Sonnenbrille Roxy Tee Dee Gee dark tortoise brown gray "" title=""Damen Sonnenbrille Roxy Tee Dee Gee dark tortoise brown gray""/>	<area shape=""rect"" coords=""400,265,649,444"" href=""$storefrontContextRoot/Von-Zipper/Shades-Von-Zipper-Fernstein-gold-moss-gradient/p/300015407"" alt=""Shades Von Zipper Fernstein gold moss gradient"" title=""Shades Von Zipper Fernstein gold moss gradient""/>";SunglassesImageMapComponent
- 
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;sunglassesCategoryPagePreview;text/png;SunglassesCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/SunglassesCategoryPage.png;;;
 
@@ -483,7 +483,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
 ;;faqMenuParagraph;FAQ Paragraph;FAQMenuParagraph;;;;
 ;;faqTextParagraph;FAQ Paragraph;FAQTextParagraph;;;;
- 
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;frequentlyAskedQuestionsPage;text/png;FrequentlyAskedQuestionsPage.png;$jarResourceCms/preview-images/apparel_uk/FrequentlyAskedQuestionsPage.png;;;
 
@@ -575,8 +575,8 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);;;;;
 ;;add-edit-address;addEditAddressPagePreview;;;;;
 ###### Account Add Edit Address Page End ######
- 
- 
+
+
 ###### Account Payment Detail Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;SideContentSlot-payment-details;Side Content Slot for My Account payment-details;true;;;;
@@ -678,8 +678,8 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
 ;;UpdateProfileComponent;Update Profile Component;accountProfileEditPage.jsp;;UpdateProfileComponent
 ###### Account Update Profile Page End ######
- 
- 
+
+
 ###### Account Update Email Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;SideContentSlot-update-email;Side Content Slot for Update Email;true;;;;
@@ -817,7 +817,7 @@ INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;
 
 INSERT_UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];name;productReferenceTypes(code);maximumNumberProducts;filterPurchased;&componentRef
 ;;CartSuggestions;Cart Suggestions;CROSSELLING,DIFF_ORDERUNIT,CONSISTS_OF,FOLLOWUP,OTHERS;20;true;CartSuggestions
- 
+
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;cartPagePreview;text/png;CartPage.png;$jarResourceCms/preview-images/apparel_uk/CartPage.png;;;
 
@@ -879,7 +879,7 @@ UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $
 ###### Multi Step Checkout SummaryPage Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
 ;;SideContentSlot-multiStepCheckoutSummaryPage;Side Slot for multiStepCheckoutSummaryPage;true;HelpParagraphComponent;;;
- 
+
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true];contentSlot(uid,$contentCV)[unique=true];;;
 ;;SideContent-multiStepCheckoutSummaryPage;SideContent;multiStepCheckoutSummaryPage;SideContentSlot-multiStepCheckoutSummaryPage;;;
 
@@ -1105,21 +1105,21 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 
 ## level 5 -- children of above NavNodes ## (the following order of children is the display order on the site)
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);&nodeRef;children(uid,$contentCV);links(&linkRef);
-# children of BrandsNavNode 
+# children of BrandsNavNode
 ;AllBrandsNavNode;;Brand Links;BrandsNavNode;AllBrandsNavNode;667NavNode,686NavNode,69SlamNavNode,adidasOriginalsNavNode,AlMerrickNavNode,AlienWorkshopNavNode,AnalogNavNode,AnonNavNode,ArmadaNavNode,BenchNavNode,BillabongNavNode,BlueTomatoNavNode,BurtonNavNode,CarharttNavNode,DCNavNode,DaineseNavNode,DakineNavNode,DalbelloNavNode,droidNavNode,ElementNavNode,ElmNavNode,F2-FTWONavNode,FemipleasureNavNode,FoursquareNavNode,FoxNavNode,HorsefeathersNavNode,HurleyNavNode,LandingNavNode,NikeNavNode,Nike6.0NavNode,NixonNavNode,OakleyNavNode,OrageNavNode,PYUANavNode,PlayboardNavNode,ProTecNavNode,QuiksilverNavNode,RedNavNode,ReefNavNode,RipCurlNavNode,RoxyNavNode,SessionsNavNode,SpecialBlendNavNode,TokoNavNode,VIVONavNode,VansNavNode,VolcomNavNode,VonZipperNavNode,WLDNavNode,ZimtsternNavNode
-# children of StreetwearNavigationNode 
+# children of StreetwearNavigationNode
 ;StreetwearMenNavNodeMenu;;Streetwear Men Menu;StreetwearNavigationNode;StreetwearMenNavNodeMenu;StreetwearMenBagsNavNode,StreetwearMensBeltsNavNode,StreetwearMenShortsNavNode,StreetwearMenTShirtsNavNode
 ;StreetwearWomenNavNodeMenu;;Streetwear Women Menu;StreetwearNavigationNode;StreetwearWomenNavNodeMenu;StreetwearWomenBagsNavNode,StreetwearWomenPantsNavNode,StreetwearWomenTShirtsNavNode,StreetwearWomenTopsNavNode,StreetwearWomenSkirtsNavNode
 ;StreetwearYouthNavNodeMenu;;Streetwear Youth Menu;StreetwearNavigationNode;StreetwearYouthNavNodeMenu;StreetwearYouthBoardshortsNavNodeMenu,StreetwearYouthTShirtNavNodeMenu
-# children of SnowNavigationNode 
+# children of SnowNavigationNode
 ;SnowwearMenNavNodeMenu;;Snowwear Men Menu;SnowNavigationNode;SnowwearMenNavNodeMenu;SnowwearMensJacketsNavNode,SnowwearMenPantsNavNode
 ;SnowwearWomenNavNodeMenu;;Snowwear Women Menu;SnowNavigationNode;SnowwearWomenNavNodeMenu;SnowwearWomensJacketsNavNode,SnowwearWomensPantsNavNode
 ;SnowwearYouthNavNodeMenu;;Snowwear Youth Menu;SnowNavigationNode;SnowwearYouthNavNodeMenu;SnowwearYouthJacketsNavNode,SnowwearYouthPantsNavNode
 ;SnowKitNavNodeMenu;;Snowwear Kit Menu;SnowNavigationNode;SnowKitNavNodeMenu;SnowboardsNavNode,BindingsNavNode,HelmetsNavNode,ToolsNavNode
-# children of AccessoriesNavigationNode 
+# children of AccessoriesNavigationNode
 ;AccessoriesMenNavNodeMenu;;Accessories Men Menu;AccessoriesNavigationNode;AccessoriesMenNavNodeMenu;AccessoriesBandanasNavNode,AccessoriesBeaniesNavNode,AccessoriesBeltsNavNode,AccessoriesCapsNavNode,AccessoriesGlovesNavNode,AccessoriesSocksNavNode,AccessoriesWatchesNavNode,BrowseAllAccessoriesNavNode
 ;AccessoriesWomenNavNodeMenu;;Accessories Women Menu;AccessoriesNavigationNode;AccessoriesWomenNavNodeMenu;AccessoriesWomenBagsNavNode,AccessoriesWomenBeltsNavNode,AccessoriesWomenWatchesNavNode,BrowseAllAccessoriesWomenNavNode
-# children of StreetwearYouthNavNode 
+# children of StreetwearYouthNavNode
 ;StreetwearYouthBoardshortsNavNode;;Youth Board Shorts;StreetwearYouthNavNode;StreetwearYouthBoardshortsNavNode;StreetwearYouthBoardshortsBillabongNavNode,StreetwearYouthBoardshorts69SlamNavNode,StreetwearYouthBoardshortsQuiksilverNavNode,StreetwearYouthBoardshortsVolcomNavNode,BrowseAllStreetwearYouthBoardshortsNavNode
 ;StreetwearYouthTShirtNavNode;;Youth TShirt;StreetwearYouthNavNode;StreetwearYouthTShirtNavNode;StreetwearYouthTShirtsBillabongNavNode,StreetwearYouthTShirtsBlueTomatoNavNode,StreetwearYouthTShirtsBurtonNavNode,StreetwearYouthTShirtsDCNavNode,StreetwearYouthTShirtsQuiksilverNavNode,BrowseAllStreetwearYouthTShirtsNavNode
 
@@ -1503,8 +1503,8 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 
 
 
-# Brand banners 
-# Media 
+# Brand banners
+# Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;apparel-category-banner;;apparel-category-banner.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-category-banner.jpg;;;
 ;;apparel-brand-banner-69 Slam;;apparel-brand-banner_69slam.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_69slam.jpg;;;
@@ -1631,33 +1631,33 @@ INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;
 #;;SurfLink;Surf Link;;surf;;;
 #;;VansShoesLink;Vans Shoes Link;/Brands/Vans/c/Vans?q=:relevance:category:shoes;;;;
 #;;VonZipperSunglassesLink;Von Zipper Sunglasses Link;/Brands/Von-Zipper/c/Von%20Zipper?q=:relevance:category:sunglasses;;;;
-#;;SandalsLink;Sandals Link;;sandals;;; 
+#;;SandalsLink;Sandals Link;;sandals;;;
 #;;BrowseAllSandalsLink;Browse Sandals Link;;sandals;;;
 #;;SandalsReefLink;Sandals Reef Link;/Collections/Surf/Sandals/c/sandals?q=:relevance:brand:Reef;;;;
 #;;SandalsRoxyLink;Sandals Roxy Link;/Collections/Surf/Sandals/c/sandals?q=:relevance:brand:Roxy;;;;
 #;;SandalsVolcomLink;Sandals Volcom Link;/Collections/Surf/Sandals/c/sandals?q=:relevance:brand:Volcom;;;;
-#;;ShadesBrowseAllLink;Shades Link;;210100;;; 
-#;;ShadesAnonLink;Shades Anon Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Anon;;;; 
-#;;ShadesFoxLink;Shades Fox Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Fox;;;; 
-#;;ShadesRoxyLink;Shades Roxy Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Roxy;;;; 
-#;;ShadesQuiksilverLink;Shades Quiksilver Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Quiksilver;;;; 
-#;;ShadesVonZipperLink;Shades VonZipper Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Von+Zipper;;;; 
+#;;ShadesBrowseAllLink;Shades Link;;210100;;;
+#;;ShadesAnonLink;Shades Anon Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Anon;;;;
+#;;ShadesFoxLink;Shades Fox Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Fox;;;;
+#;;ShadesRoxyLink;Shades Roxy Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Roxy;;;;
+#;;ShadesQuiksilverLink;Shades Quiksilver Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Quiksilver;;;;
+#;;ShadesVonZipperLink;Shades VonZipper Link;/Collections/Surf/Shades/c/210100?q=:relevance:brand:Von+Zipper;;;;
 #;;BoardsBrowseAllLink;Browse all Boards Link;;boards;;;
-#;;BoardsAlMerrickLink;Boards Al Merrick Link;Collections/Surf/Boards/c/boards?q=:relevance:brand:Al+Merrick;;;; 
-#;;BoardsSkimOneLink;Boards SkimOne Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Skim+One;;;; 
-#;;BoardsSouthpointLink;Boards Southpoint Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Southpoint;;;; 
-#;;BoardsSurftechLink;Boards Surftech Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Surftech;;;; 
+#;;BoardsAlMerrickLink;Boards Al Merrick Link;Collections/Surf/Boards/c/boards?q=:relevance:brand:Al+Merrick;;;;
+#;;BoardsSkimOneLink;Boards SkimOne Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Skim+One;;;;
+#;;BoardsSouthpointLink;Boards Southpoint Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Southpoint;;;;
+#;;BoardsSurftechLink;Boards Surftech Link;/Collections/Surf/Boards/c/boards?q=:relevance:brand:Surftech;;;;
 #;;TShirtsLink;T-Shirts Link;;tshirts;;;
 #;;TShirtsBrowseAllLink;Browse T-Shirts Link;;tshirts;;;
-#;;TShirtsAlienWorkshopLink;T-Shirts Alien Workshop Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Alien+Workshop;;;; 
-#;;TShirtsBillabongLink;T-Shirts Billabong Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Billabong;;;; 
-#;;TShirtsBurtonLink;T-Shirts Burton Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Burton;;;; 
-#;;TShirtsBlueTomatoLink;T-Shirts Blue Tomato Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Blue+Tomato;;;; 
-#;;TShirtsCarharttLink;T-Shirts Carhartt Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Carhartt;;;; 
-#;;TShirtsDCLink;T-Shirts DC Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:DC;;;; 
-#;;TShirtsElementLink;T-Shirts Element Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Element;;;; 
-#;;TShirtsHorsefeathersLink;T-Shirts Horsefeathers Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Horsefeathers;;;;   
+#;;TShirtsAlienWorkshopLink;T-Shirts Alien Workshop Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Alien+Workshop;;;;
+#;;TShirtsBillabongLink;T-Shirts Billabong Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Billabong;;;;
+#;;TShirtsBurtonLink;T-Shirts Burton Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Burton;;;;
+#;;TShirtsBlueTomatoLink;T-Shirts Blue Tomato Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Blue+Tomato;;;;
+#;;TShirtsCarharttLink;T-Shirts Carhartt Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Carhartt;;;;
+#;;TShirtsDCLink;T-Shirts DC Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:DC;;;;
+#;;TShirtsElementLink;T-Shirts Element Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Element;;;;
+#;;TShirtsHorsefeathersLink;T-Shirts Horsefeathers Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Horsefeathers;;;;
 #;;TShirtsQuiksilverLink;T-Shirts Quiksilver Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Quiksilver;;;;
 #;;TShirtsRoxyLink;T-Shirts Roxy Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Roxy;;;;
-#;;TShirtsVolcomLink;T-Shirts Volcom Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Volcom;;;; 
+#;;TShirtsVolcomLink;T-Shirts Volcom Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Volcom;;;;
 #;;TShirtsZimtsternLink;T-Shirts Zimtstern Link;/Collections/Surf/T-Shirts/c/tshirts?q=:relevance:brand:Zimtstern;;;
