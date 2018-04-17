@@ -8,7 +8,7 @@
 # Information and shall use it only in accordance with the terms of the
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
-# Import the Responsive CMS content for the Apparel UK site
+# Import the Responsive CMS content for the Apparel US site
 #
 $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
@@ -18,7 +18,7 @@ UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.Conf
 $jarResourceCms=$config-jarResourceCmsValue
 
 
-# Create ContentSlots which are standard slots shown in most of templates 
+# Create ContentSlots which are standard slots shown in most of templates
 # Standard slots are SiteLogo, HeaderLinks, MiniCart and NavigationBar (that all appear in the Header), and the Footer, etc.
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
 ;;SiteLogoSlot;Default Site Logo Slot;true

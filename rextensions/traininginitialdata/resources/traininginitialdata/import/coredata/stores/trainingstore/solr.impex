@@ -10,7 +10,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the Solr configuration for the Apparel UK store
+# Import the Solr configuration for the Apparel US store
 #
 $productCatalog=myProductCatalog
 $catalogVersions=catalogVersions(catalog(id),version);

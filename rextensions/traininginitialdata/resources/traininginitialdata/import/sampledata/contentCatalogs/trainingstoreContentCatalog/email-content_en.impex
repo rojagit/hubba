@@ -9,15 +9,15 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-#	ImpEx for Apparel UK Site Email CMS Content, English localisations
+#	ImpEx for Apparel US Site Email CMS Content, English localisations
 #
 
 $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
 $picture=media(code, $contentCV);
 $wideContent=CMSImageComponent,BannerComponent
-$jarResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport
-$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
+$jarResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
 
 # Language
 $lang=en

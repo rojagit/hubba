@@ -10,7 +10,7 @@
 # -----------------------------------------------------------------------
 #******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
 #
-#	ImpEx for Apparel UK Site CMS Content, en localisations
+#	ImpEx for Apparel US Site CMS Content, en localisations
 #
 
 $contentCatalog=trainingstoreContentCatalog
@@ -18,8 +18,8 @@ $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCata
 $productCatalog=myProductCatalog
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $picture=media(code, $contentCV)
-$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/cockpits/cmscockpit
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/cockpits/cmscockpit
 
 # Language
 $lang=en
@@ -196,7 +196,7 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
 ;;AccountProfileNavNode;"Profile"
 ;;AllBrandsNavNode;"All Brands"
 ;;AllCategoriesNavNode;"All Categories"
-;;ApparelUKNavNode;"Apparel UK Site"
+;;apparelusNavNode;"Apparel US Site"
 ;;BackpacksBrandsNavNode;"Brands"
 ;;BackpacksNavNode;"Backpacks"
 ;;BrandsNavNode;"Brands"
@@ -268,7 +268,7 @@ UPDATE ProductReferencesComponent;$contentCV[unique=true];uid[unique=true];title
 UPDATE CartSuggestionComponent;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
 ;;CartSuggestions;"You may also like..."
 
-# Apparel UK Homepage
+# Apparel US Homepage
 
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];altText;&imageRef;folder(qualifier)[default='images']

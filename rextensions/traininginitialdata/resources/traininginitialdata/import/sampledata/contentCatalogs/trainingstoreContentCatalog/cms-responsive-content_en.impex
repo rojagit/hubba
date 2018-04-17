@@ -11,7 +11,7 @@
 # -----------------------------------------------------------------------
 #******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
 #
-#	ImpEx for Apparel UK Site CMS Content, en localisations
+#	ImpEx for Apparel US Site CMS Content, en localisations
 #
 
 $contentCatalog=trainingstoreContentCatalog
@@ -21,8 +21,8 @@ $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='
 $picture=media(code, $contentCV)
 $medias=medias(code, $contentCV);
 $mediaContainer=media(qualifier, $contentCV)[lang=$lang];
-$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/cockpits/cmscockpit
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/cockpits/cmscockpit
 
 # Language
 $lang=en
@@ -89,10 +89,10 @@ UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];imageMapHTML[l
 ;;SunglassesImageMapComponent;"<area shape=""rect"" coords=""10,51,256,231"" href=""$storefrontContextRoot/Anon/Sonnenbrille-Anon-Convict-black-fade-gray-gradient/p/300044617"" alt=""Sonnenbrille Anon Convict black fade gray gradient"" title=""Sonnenbrille Anon Convict black fade gray gradient ""/>	<area shape=""rect"" coords=""274,54,520,234"" href=""$storefrontContextRoot/Fox/Sonnenbrille-Fox-The-Median-polished-black-warm-gray/p/300024964"" alt=""Sonnenbrille Fox The Median polished black warm gray"" title=""Sonnenbrille Fox The Median polished black warm gray""/>	<area shape=""rect"" coords=""539,50,763,234"" href=""$storefrontContextRoot/Quiksilver/Sonnenbrille-Quiksilver-Dinero-black-white-red-gray/p/300045375"" alt=""Sonnenbrille Quiksilver Dinero black white red gray"" title=""Sonnenbrille Quiksilver Dinero black white red gray""/>	<area shape=""rect"" coords=""131,250,368,444"" href=""$storefrontContextRoot/Roxy/Damen-Sonnenbrille-Roxy-Tee-Dee-Gee-dark-tortoise-brown-gray/p/300047195"" alt=""Damen Sonnenbrille Roxy Tee Dee Gee dark tortoise brown gray "" title=""Damen Sonnenbrille Roxy Tee Dee Gee dark tortoise brown gray""/>	<area shape=""rect"" coords=""400,265,649,444"" href=""$storefrontContextRoot/Von-Zipper/Shades-Von-Zipper-Fernstein-gold-moss-gradient/p/300015407"" alt=""Shades Von Zipper Fernstein gold moss gradient"" title=""Shades Von Zipper Fernstein gold moss gradient""/>";Appa_788x467_SunglassesBrands_EN_01.jpg
 
 
-# Apparel UK Homepage
+# Apparel US Homepage
 UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];title[lang=en]
- ;;ApparelUKHomepageProductCarouselComponent;"Best Selling Products"
- ;;NewApparelUKHomepageProductCarouselComponent;"What's New"
+ ;;apparelusHomepageProductCarouselComponent;"Best Selling Products"
+ ;;NewapparelusHomepageProductCarouselComponent;"What's New"
 
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];realfilename;altText;mime[default='image/jpeg'];$contentCV[unique=true];folder(qualifier)[default=images];
 ;widescreen;Appa_1400x50_Save_EN_01_1400W.jpg;$siteResource/images/banners/homepage/responsive/Appa_1400x50_Save_EN_01_1400W.jpg;Appa_1400x50_Save_EN_01_1400W.jpg;"Save Big on Select Streetwear";
@@ -146,17 +146,17 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=tr
 ;trainingstore-homepage-youth-en;Appa_200x240_Youth_EN_01_200W.jpg,Appa_240x290_Youth_EN_01_240W.jpg,Appa_350x430_Youth_EN_01_350W.jpg
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-;;ApparelUKHomepageBrandsBannerComponent;trainingstore-homepage-brands-en
-;;ApparelUKHomepageFreeDelBannerComponent;trainingstore-homepage-discount-en
-;;ApparelUKHomepageMenStreetBannerComponent;trainingstore-homepage-men-en
-;;ApparelUKHomepageSaveBannerComponent;trainingstore-homepage-save-en
-;;ApparelUKHomepageServiceBannerComponent;trainingstore-homepage-service-en
-;;ApparelUKHomepageShipmentBannerComponent;trainingstore-homepage-shipment-en
-;;ApparelUKHomepageShopBannerComponent;trainingstore-homepage-shop-en
-;;ApparelUKHomepageSmDiscountBannerComponent;trainingstore-homepage-sm-discount-en
-;;ApparelUKHomepageSplashBannerComponent;trainingstore-homepage-spalsh-en
-;;ApparelUKHomepageStreetYouthBannerComponent;trainingstore-homepage-youth-en
-;;ApparelUKHomepageWomenStreetBannerComponent;trainingstore-homepage-women-street-en
+;;apparelusHomepageBrandsBannerComponent;trainingstore-homepage-brands-en
+;;apparelusHomepageFreeDelBannerComponent;trainingstore-homepage-discount-en
+;;apparelusHomepageMenStreetBannerComponent;trainingstore-homepage-men-en
+;;apparelusHomepageSaveBannerComponent;trainingstore-homepage-save-en
+;;apparelusHomepageServiceBannerComponent;trainingstore-homepage-service-en
+;;apparelusHomepageShipmentBannerComponent;trainingstore-homepage-shipment-en
+;;apparelusHomepageShopBannerComponent;trainingstore-homepage-shop-en
+;;apparelusHomepageSmDiscountBannerComponent;trainingstore-homepage-sm-discount-en
+;;apparelusHomepageSplashBannerComponent;trainingstore-homepage-spalsh-en
+;;apparelusHomepageStreetYouthBannerComponent;trainingstore-homepage-youth-en
+;;apparelusHomepageWomenStreetBannerComponent;trainingstore-homepage-women-street-en
 
 
 # Apparel Snow Category Landing Page
@@ -191,14 +191,14 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=tr
 ;trainingstore-snow-trope-banner-en;Appa_200x200_Category02_EN_01_200W.jpg,Appa_350x350_Category02_EN_01_350W.jpg
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-;;ApparelUKSnowAccessoriesBannerComponent;trainingstore-shop-accessories-banner-en
-;;ApparelUKSnowAndoverJcktBannerComponent;trainingstore-snow-andover-jckt-banner-en
-;;ApparelUKSnowBeaconJcktBannerComponent;trainingstore-snow-beacon-jckt-banner-en
-;;ApparelUKSnowBeanieBannerComponent;trainingstore-snow-beanie-banner-en
-;;ApparelUKSnowKryptonBannerComponent;trainingstore-snow-krypton-banner-en
-;;ApparelUKSnowSludgeJcktBannerComponent;trainingstore-snow-sludge-jckt-banner-en
-;;ApparelUKSnowSplashBannerComponent;trainingstore-snow-splash-en
-;;ApparelUKSnowTropeBeanieBannerComponent;trainingstore-snow-trope-banner-en
+;;apparelusSnowAccessoriesBannerComponent;trainingstore-shop-accessories-banner-en
+;;apparelusSnowAndoverJcktBannerComponent;trainingstore-snow-andover-jckt-banner-en
+;;apparelusSnowBeaconJcktBannerComponent;trainingstore-snow-beacon-jckt-banner-en
+;;apparelusSnowBeanieBannerComponent;trainingstore-snow-beanie-banner-en
+;;apparelusSnowKryptonBannerComponent;trainingstore-snow-krypton-banner-en
+;;apparelusSnowSludgeJcktBannerComponent;trainingstore-snow-sludge-jckt-banner-en
+;;apparelusSnowSplashBannerComponent;trainingstore-snow-splash-en
+;;apparelusSnowTropeBeanieBannerComponent;trainingstore-snow-trope-banner-en
 
 
 # Apparel Not Found Page
@@ -212,7 +212,7 @@ INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$contentCV[unique=tr
 ;trainingstore-errorpage-pagenotfound;Appa_480x170_ErrorPage_EN_480W.svg,Appa_770x221_ErrorPage_EN_770W.svg,Appa_960x275_ErrorPage_EN_960W.svg,Appa_1400x401_ErrorPage_EN_1400W.svg
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];$mediaContainer
-;;ApparelUKErrorpageBannerComponent;trainingstore-errorpage-pagenotfound
+;;apparelusErrorpageBannerComponent;trainingstore-errorpage-pagenotfound
 
 
 # Apparel Cart Page
@@ -390,8 +390,8 @@ UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=en]
 ;;AllBrandsNavNode;"All Brands"
 ;;AnalogNavNode;""
 ;;AnonNavNode;""
-;;ApparelUKCategoryNavNode;""
-;;ApparelUKNavNode;"Apparel UK Site"
+;;apparelusCategoryNavNode;""
+;;apparelusNavNode;"Apparel US Site"
 ;;ArmadaNavNode;""
 ;;BenchNavNode;""
 ;;BillabongNavNode;""

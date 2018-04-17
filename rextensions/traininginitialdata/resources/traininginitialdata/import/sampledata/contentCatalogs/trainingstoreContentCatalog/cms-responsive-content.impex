@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# ImpEx for Responsive Apparel UK Site CMS Content
+# ImpEx for Responsive Apparel US Site CMS Content
 #
 $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
@@ -18,8 +18,8 @@ $productCatalog=myProductCatalog
 $productCatalogName=my Product Catalog
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $picture=media(code, $contentCV) ;
-$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/cockpits/cmscockpit
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/cockpits/cmscockpit
 
 # Load the storefront context root config param
 $storefrontContextRoot=$config-storefrontContextRoot
@@ -64,15 +64,15 @@ INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&c
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
 ;;MiniCartSlot;OrderComponent,MiniCart
 
-## NavigationBar slot: ApparelUKCategoryNavComponent and BredcrumbComponent
+## NavigationBar slot: apparelusCategoryNavComponent and BredcrumbComponent
 INSERT_UPDATE CategoryNavigationComponent;$contentCV[unique=true];uid[unique=true];name;styleClass;&componentRef;navigationNode(&nodeRef);wrapAfter
-;;ApparelUKCategoryNavComponent;Trainingstore Category Navigation Component;;ApparelUKCategoryNavComponent;ApparelUKCategoryNavNode;10
+;;apparelusCategoryNavComponent;Trainingstore Category Navigation Component;;apparelusCategoryNavComponent;apparelusCategoryNavNode;10
 
 INSERT_UPDATE BreadcrumbComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
 ;;breadcrumbComponent;Breadcrumb CMS Component;breadcrumbComponent
 
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents(uid, $contentCV)
-;;NavigationBarSlot;ApparelUKCategoryNavComponent,breadcrumbComponent
+;;NavigationBarSlot;apparelusCategoryNavComponent,breadcrumbComponent
 
 ## Footer slot: Footer FooterNavigationComponent
 INSERT_UPDATE FooterNavigationComponent;$contentCV[unique=true];uid[unique=true];wrapAfter;&componentRef;showLanguageCurrency;navigationNode(&nodeRef)
@@ -197,13 +197,13 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 #
 ###### Homepage Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-;;Section1Slot-Homepage;Section1 Slot for ApparelUKHomepage;true;ApparelUKHomepageSplashBannerComponent,ApparelUKHomepageSaveBannerComponent
-;;Section2ASlot-Homepage;Section2A Slot for ApparelUKHomepage;true;ApparelUKHomepageWomenStreetBannerComponent,ApparelUKHomepageMenStreetBannerComponent
-;;Section2BSlot-Homepage;Section2B Slot for ApparelUKHomepage;true;ApparelUKHomepageStreetYouthBannerComponent,ApparelUKHomepageBrandsBannerComponent
-;;Section2CSlot-Homepage;Section2C Slot for ApparelUKHomepage;true;
-;;Section3Slot-Homepage;Section3 Slot for ApparelUKHomepage;true;ApparelUKHomepageProductCarouselComponent,NewApparelUKHomepageProductCarouselComponent
-;;Section4Slot-Homepage;Section4 Slot for ApparelUKHomepage;true;ApparelUKHomepageSmDiscountBannerComponent,ApparelUKHomepageShopBannerComponent,ApparelUKHomepageShipmentBannerComponent,ApparelUKHomepageServiceBannerComponent
-;;Section5Slot-Homepage;Section5 Slot for ApparelUKHomepage;true;ApparelUKHomepageFreeDelBannerComponent
+;;Section1Slot-Homepage;Section1 Slot for apparelusHomepage;true;apparelusHomepageSplashBannerComponent,apparelusHomepageSaveBannerComponent
+;;Section2ASlot-Homepage;Section2A Slot for apparelusHomepage;true;apparelusHomepageWomenStreetBannerComponent,apparelusHomepageMenStreetBannerComponent
+;;Section2BSlot-Homepage;Section2B Slot for apparelusHomepage;true;apparelusHomepageStreetYouthBannerComponent,apparelusHomepageBrandsBannerComponent
+;;Section2CSlot-Homepage;Section2C Slot for apparelusHomepage;true;
+;;Section3Slot-Homepage;Section3 Slot for apparelusHomepage;true;apparelusHomepageProductCarouselComponent,NewapparelusHomepageProductCarouselComponent
+;;Section4Slot-Homepage;Section4 Slot for apparelusHomepage;true;apparelusHomepageSmDiscountBannerComponent,apparelusHomepageShopBannerComponent,apparelusHomepageShipmentBannerComponent,apparelusHomepageServiceBannerComponent
+;;Section5Slot-Homepage;Section5 Slot for apparelusHomepage;true;apparelusHomepageFreeDelBannerComponent
 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='homepage'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;Section1-Homepage;Section1;;Section1Slot-Homepage;;;
@@ -216,34 +216,34 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # components in section1
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKHomepageSplashBannerComponent;ApparelUK Homepage Splash Banner Component;/Collections/Snow/c/snow;ApparelUKHomepageSplashBannerComponent
-;;ApparelUKHomepageSaveBannerComponent;ApparelUK Homepage Discount Banner Component;/Collections/Streetwear/c/streetwear;ApparelUKHomepageSaveBannerComponent
+;;apparelusHomepageSplashBannerComponent;apparelus Homepage Splash Banner Component;/Collections/Snow/c/snow;apparelusHomepageSplashBannerComponent
+;;apparelusHomepageSaveBannerComponent;apparelus Homepage Discount Banner Component;/Collections/Streetwear/c/streetwear;apparelusHomepageSaveBannerComponent
 
 # components in section2A
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKHomepageWomenStreetBannerComponent;ApparelUK Homepage Women Dress Banner Component;/search?q=women%3Arelevance%3Agender%3AFEMALE;ApparelUKHomepageWomenStreetBannerComponent
-;;ApparelUKHomepageMenStreetBannerComponent;ApparelUK Homepage Men Shirt Banner Component;/search?q=men%3Arelevance%3Agender%3AMALE;ApparelUKHomepageMenStreetBannerComponent
+;;apparelusHomepageWomenStreetBannerComponent;apparelus Homepage Women Dress Banner Component;/search?q=women%3Arelevance%3Agender%3AFEMALE;apparelusHomepageWomenStreetBannerComponent
+;;apparelusHomepageMenStreetBannerComponent;apparelus Homepage Men Shirt Banner Component;/search?q=men%3Arelevance%3Agender%3AMALE;apparelusHomepageMenStreetBannerComponent
 
 # components in section2B
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKHomepageStreetYouthBannerComponent;ApparelUK Homepage Youth Shorts Banner Component;/Categories/Streetwear-youth/c/270000;ApparelUKHomepageStreetYouthBannerComponent
-;;ApparelUKHomepageBrandsBannerComponent;ApparelUK Homepage Brands Banner Component Child;Brands/c/brands;ApparelUKHomepageBrandsBannerComponent
+;;apparelusHomepageStreetYouthBannerComponent;apparelus Homepage Youth Shorts Banner Component;/Categories/Streetwear-youth/c/270000;apparelusHomepageStreetYouthBannerComponent
+;;apparelusHomepageBrandsBannerComponent;apparelus Homepage Brands Banner Component Child;Brands/c/brands;apparelusHomepageBrandsBannerComponent
 
 # components in section3
 INSERT_UPDATE ProductCarouselComponent;$contentCV[unique=true];uid[unique=true];name;products(code,$productCV);scroll(code);popup;&componentRef
-;;ApparelUKHomepageProductCarouselComponent;Best Selling Products;29533,45572,M33477_B,300310300,300045375,300022356,300047513;allVisible;false;ApparelUKHomepageProductCarouselComponent
-;;NewApparelUKHomepageProductCarouselComponent;What's New ApparelUK Homepage Product Carousel;29531,300046592,300015407,300040462,M27160_B,M33477_B,300310300,300044599,300005449,300441142;allVisible;false;NewApparelUKHomepageProductCarouselComponent
+;;apparelusHomepageProductCarouselComponent;Best Selling Products;29533,45572,M33477_B,300310300,300045375,300022356,300047513;allVisible;false;apparelusHomepageProductCarouselComponent
+;;NewapparelusHomepageProductCarouselComponent;What's New apparelus Homepage Product Carousel;29531,300046592,300015407,300040462,M27160_B,M33477_B,300310300,300044599,300005449,300441142;allVisible;false;NewapparelusHomepageProductCarouselComponent
 
 # components in section4
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKHomepageSmDiscountBannerComponent;ApparelUK Homepage Small Discount Banner Component;/Categories/Accessories/Belts/Maguro-Pu-Belt/p/300785814;ApparelUKHomepageSmDiscountBannerComponent
-;;ApparelUKHomepageShopBannerComponent;ApparelUK Homepage Shop Banner Component;/Categories/Bags%2BBoardbags/Backpacks/Airline-Bag/p/300618506;ApparelUKHomepageShopBannerComponent
-;;ApparelUKHomepageShipmentBannerComponent;ApparelUK Homepage Shipment Banner Component;/Categories/Accessories/Caps/Adapt-New-Era/p/300398794;ApparelUKHomepageShipmentBannerComponent
-;;ApparelUKHomepageServiceBannerComponent;ApparelUK Homepage Service Banner Component;/Brands/VonZipper/Shades-Von-Zipper-Papa-Gblack-gloss-black-gloss-grey/p/30404;ApparelUKHomepageServiceBannerComponent
+;;apparelusHomepageSmDiscountBannerComponent;apparelus Homepage Small Discount Banner Component;/Categories/Accessories/Belts/Maguro-Pu-Belt/p/300785814;apparelusHomepageSmDiscountBannerComponent
+;;apparelusHomepageShopBannerComponent;apparelus Homepage Shop Banner Component;/Categories/Bags%2BBoardbags/Backpacks/Airline-Bag/p/300618506;apparelusHomepageShopBannerComponent
+;;apparelusHomepageShipmentBannerComponent;apparelus Homepage Shipment Banner Component;/Categories/Accessories/Caps/Adapt-New-Era/p/300398794;apparelusHomepageShipmentBannerComponent
+;;apparelusHomepageServiceBannerComponent;apparelus Homepage Service Banner Component;/Brands/VonZipper/Shades-Von-Zipper-Papa-Gblack-gloss-black-gloss-grey/p/30404;apparelusHomepageServiceBannerComponent
 
 # components in section5
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKHomepageFreeDelBannerComponent;ApparelUK Homepage Free Delivery Banner Component;/faq;ApparelUKHomepageFreeDelBannerComponent
+;;apparelusHomepageFreeDelBannerComponent;apparelus Homepage Free Delivery Banner Component;/faq;apparelusHomepageFreeDelBannerComponent
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;homepagePreview;text/png;Homepage.png;$jarResourceCms/preview-images/apparel_uk/Homepage.png;;;
@@ -437,9 +437,9 @@ INSERT_UPDATE CMSCategoryRestriction;$contentCV[unique=true];uid[unique=true];na
 
 ###### Snow Category Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef)
-;;Section1Slot-Snow;Section1 Slot for Snow Page;true;ApparelUKSnowSplashBannerComponent,ApparelUKSnowAccessoriesBannerComponent
-;;Section2Slot-Snow;Section2 Slot for Snow Page;true;ApparelUKSnowBeanieBannerComponent,ApparelUKSnowKryptonBannerComponent,ApparelUKSnowAndoverJcktBannerComponent,ApparelUKSnowBeaconJcktBannerComponent,ApparelUKSnowTropeBeanieBannerComponent,ApparelUKSnowSludgeJcktBannerComponent
-;;Section3Slot-Snow;Section3 Slot for Snow Page;true;ApparelUKHomepageFreeDelBannerComponent
+;;Section1Slot-Snow;Section1 Slot for Snow Page;true;apparelusSnowSplashBannerComponent,apparelusSnowAccessoriesBannerComponent
+;;Section2Slot-Snow;Section2 Slot for Snow Page;true;apparelusSnowBeanieBannerComponent,apparelusSnowKryptonBannerComponent,apparelusSnowAndoverJcktBannerComponent,apparelusSnowBeaconJcktBannerComponent,apparelusSnowTropeBeanieBannerComponent,apparelusSnowSludgeJcktBannerComponent
+;;Section3Slot-Snow;Section3 Slot for Snow Page;true;apparelusHomepageFreeDelBannerComponent
 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='SnowCategoryPage'];contentSlot(uid,$contentCV)[unique=true]
 ;;Section1-Snow;Section1;;Section1Slot-Snow
@@ -448,17 +448,17 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # components in section1
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKSnowSplashBannerComponent;Snow Splash Banner Component;;ApparelUKSnowSplashBannerComponent
-;;ApparelUKSnowAccessoriesBannerComponent;Snow Accessories Banner Component;Categories/Accessories/c/220000;ApparelUKSnowAccessoriesBannerComponent
+;;apparelusSnowSplashBannerComponent;Snow Splash Banner Component;;apparelusSnowSplashBannerComponent
+;;apparelusSnowAccessoriesBannerComponent;Snow Accessories Banner Component;Categories/Accessories/c/220000;apparelusSnowAccessoriesBannerComponent
 
 # components in section2
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;urlLink;&componentRef
-;;ApparelUKSnowBeanieBannerComponent;Apparel UK Snow Beanie Banner Component;Categories/Accessories/Beanies/The-Life-Beanie/p/300476946;ApparelUKSnowBeanieBannerComponent
-;;ApparelUKSnowKryptonBannerComponent;Apparel UK Snow Krypton Banner Component;Categories/Freeski/Ski-Boots/KyrptonRampage-11-12/p/300467248;ApparelUKSnowKryptonBannerComponent
-;;ApparelUKSnowAndoverJcktBannerComponent;Apparel UK Snow Andover Jacket Banner Component;Categories/Snowwear-men/Snow-Jackets/Andover-Jacket/p/300410966;ApparelUKSnowAndoverJcktBannerComponent
-;;ApparelUKSnowBeaconJcktBannerComponent;Apparel UK Snow Beacon Jacket Banner Component;Categories/Snowwear-men/Snow-Jackets/BeaconJacket/p/300441355;ApparelUKSnowBeaconJcktBannerComponent
-;;ApparelUKSnowTropeBeanieBannerComponent;Apparel UK Snow Trop Beanie Banner Component;Categories/Accessories/Beanies/Trope-Beanie/p/300415713;ApparelUKSnowTropeBeanieBannerComponent
-;;ApparelUKSnowSludgeJcktBannerComponent;Apparel UK Snow Sludge Jacket Banner Component;Categories/Snowwear-youth/Snow-Jackets-youth/Sludge-Jacket-youth/p/300410422;ApparelUKSnowSludgeJcktBannerComponent
+;;apparelusSnowBeanieBannerComponent;Apparel US Snow Beanie Banner Component;Categories/Accessories/Beanies/The-Life-Beanie/p/300476946;apparelusSnowBeanieBannerComponent
+;;apparelusSnowKryptonBannerComponent;Apparel US Snow Krypton Banner Component;Categories/Freeski/Ski-Boots/KyrptonRampage-11-12/p/300467248;apparelusSnowKryptonBannerComponent
+;;apparelusSnowAndoverJcktBannerComponent;Apparel US Snow Andover Jacket Banner Component;Categories/Snowwear-men/Snow-Jackets/Andover-Jacket/p/300410966;apparelusSnowAndoverJcktBannerComponent
+;;apparelusSnowBeaconJcktBannerComponent;Apparel US Snow Beacon Jacket Banner Component;Categories/Snowwear-men/Snow-Jackets/BeaconJacket/p/300441355;apparelusSnowBeaconJcktBannerComponent
+;;apparelusSnowTropeBeanieBannerComponent;Apparel US Snow Trop Beanie Banner Component;Categories/Accessories/Beanies/Trope-Beanie/p/300415713;apparelusSnowTropeBeanieBannerComponent
+;;apparelusSnowSludgeJcktBannerComponent;Apparel US Snow Sludge Jacket Banner Component;Categories/Snowwear-youth/Snow-Jackets-youth/Sludge-Jacket-youth/p/300410422;apparelusSnowSludgeJcktBannerComponent
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
 ;;snowCategoryPagePreview;text/png;snowCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/SnowCategoryPage.png
@@ -945,13 +945,13 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 
 ###### Not Found Page Start ######
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(&componentRef);;;
-;;ApparelUK-MiddleContent-Errorpage;Apparel UK Middle Content Slot for Error Page;true;ApparelUKErrorpageBannerComponent;;;
+;;apparelus-MiddleContent-Errorpage;Apparel US Middle Content Slot for Error Page;true;apparelusErrorpageBannerComponent;;;
 
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='notFound'];contentSlot(uid,$contentCV)[unique=true]
-;;ApparelUK-MiddleContent-Errorpage;MiddleContent;;ApparelUK-MiddleContent-Errorpage
+;;apparelus-MiddleContent-Errorpage;MiddleContent;;apparelus-MiddleContent-Errorpage
 
 INSERT_UPDATE SimpleResponsiveBannerComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef
-;;ApparelUKErrorpageBannerComponent;Apparel UK Error Page Banner Component;ApparelUKErrorpageBannerComponent
+;;apparelusErrorpageBannerComponent;Apparel US Error Page Banner Component;apparelusErrorpageBannerComponent
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
 ;;notFoundPagePreview;text/png;NotFoundPage.png;$jarResourceCms/preview-images/apparel_uk/NotFoundPage.png;;;
@@ -1021,16 +1021,16 @@ INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;pa
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);children(uid,$contentCV)[mode=append];links(uid, $contentCV);&nodeRef;
 ;SiteRootNode;;SiteRootNode;root;;;SiteRootNode;
 
-## level 2 -- Apparel UK Site: child of SiteRootNode ##
+## level 2 -- Apparel US Site: child of SiteRootNode ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);children(uid,$contentCV)[mode=append];links(uid, $contentCV);&nodeRef;
-;ApparelUKNavNode;;Apparel UK Site;SiteRootNode;;;ApparelUKNavNode;
+;apparelusNavNode;;Apparel US Site;SiteRootNode;;;apparelusNavNode;
 
-## level 3 -- My Account, Order, Categories, Footer Pages: children of ApparelUKNavNode ##
+## level 3 -- My Account, Order, Categories, Footer Pages: children of apparelusNavNode ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;MyAccountNavNode;;My Account;ApparelUKNavNode;;MyAccountNavNode
-;OrderNavNode;;Order;ApparelUKNavNode;;OrderNavNode
-;ApparelUKCategoryNavNode;;Categories;ApparelUKNavNode;;ApparelUKCategoryNavNode
-;FooterNavNode;;Footer Pages;ApparelUKNavNode;;FooterNavNode
+;MyAccountNavNode;;My Account;apparelusNavNode;;MyAccountNavNode
+;OrderNavNode;;Order;apparelusNavNode;;OrderNavNode
+;apparelusCategoryNavNode;;Categories;apparelusNavNode;;apparelusCategoryNavNode
+;FooterNavNode;;Footer Pages;apparelusNavNode;;FooterNavNode
 
 ## level 4 -- Personal Details etc. : children of MyAccountNavNode ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
@@ -1081,13 +1081,13 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;QuickOrderLink;Quick Order Link;/quickOrder;;QuickOrderLink;;
 ;;ImportSavedCartLink;Import Saved Cart Link;/import/csv/saved-cart;;ImportSavedCartLink;;
 
-## level 4 -- Brands, Streetwear menu etc. : children of ApparelUKCategoryNavNode ##
+## level 4 -- Brands, Streetwear menu etc. : children of apparelusCategoryNavNode ##
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
-;BrandsNavNode;;All Brands;ApparelUKCategoryNavNode;;BrandsNavNode
-;StreetwearNavigationNode;;Streetwear Menu;ApparelUKCategoryNavNode;;StreetwearNavigationNode
-;SnowNavigationNode;;Snow Menu;ApparelUKCategoryNavNode;;SnowNavigationNode
-;AccessoriesNavigationNode;;Accessories Menu;ApparelUKCategoryNavNode;;AccessoriesNavigationNode
-;StreetwearYouthNavNode;;Youth Menu;ApparelUKCategoryNavNode;;StreetwearYouthNavNode
+;BrandsNavNode;;All Brands;apparelusCategoryNavNode;;BrandsNavNode
+;StreetwearNavigationNode;;Streetwear Menu;apparelusCategoryNavNode;;StreetwearNavigationNode
+;SnowNavigationNode;;Snow Menu;apparelusCategoryNavNode;;SnowNavigationNode
+;AccessoriesNavigationNode;;Accessories Menu;apparelusCategoryNavNode;;AccessoriesNavigationNode
+;StreetwearYouthNavNode;;Youth Menu;apparelusCategoryNavNode;;StreetwearYouthNavNode
 # entries of the above navigation nodes
 INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
 ;BrandsNavNodeEntry;;Brands Navigation Node Entry;BrandsNavNode;AllBrandsLink;

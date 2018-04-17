@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the CMS Site configuration for the Apparel UK Store
+# Import the CMS Site configuration for the Apparel US Store
 #
 $productCatalog=myProductCatalog
 $contentCatalog=trainingstoreContentCatalog
@@ -60,7 +60,7 @@ INSERT_UPDATE SiteTheme;code[unique=true]
 ;black
 
 # CMS Site
-INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=apparelUKPromoGrp]
+INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
 ;$siteUid;black;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$siteUidSiteMapConfig;;true;$storefrontContextRoot/?site=$siteUid;homepage;language
 
 INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[append];

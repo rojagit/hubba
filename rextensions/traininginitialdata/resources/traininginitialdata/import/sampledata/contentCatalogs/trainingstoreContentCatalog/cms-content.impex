@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# ImpEx for Apparel UK Site CMS Content
+# ImpEx for Apparel US Site CMS Content
 #
 $contentCatalog=trainingstoreContentCatalog
 $contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
@@ -18,8 +18,8 @@ $productCatalog=myProductCatalog
 $productCatalogName=my Product Catalog
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $picture=media(code, $contentCV) ;
-$siteResource=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:'org.training.initialdata.constants.TrainingInitialDataConstants/trainingstoreimport/sampledata/cockpits/cmscockpit
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/cockpits/cmscockpit
 
 # Load the storefront context root config param
 $storefrontContextRoot=$config-storefrontContextRoot
@@ -286,54 +286,54 @@ INSERT_UPDATE MiniCartComponent;$contentCV[unique=true];uid[unique=true];name;&c
 # CMS Navigation Nodes
 INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);children(uid,$contentCV)[mode=append];links(uid, $contentCV);&nodeRef
 ;root;;root;;;;root;
-;AcceleratorNavNode;;Accelerator Pages;ApparelUKNavNode;;AboutAcceleratorLink,FAQLink;AcceleratorNavNode
-;CategoriesNavNode;;All Categories;ApparelUKNavNode;;;CategoriesNavNode
-;BrandsNavNode;;All Brands;ApparelUKNavNode;;;BrandsNavNode
+;AcceleratorNavNode;;Accelerator Pages;apparelusNavNode;;AboutAcceleratorLink,FAQLink;AcceleratorNavNode
+;CategoriesNavNode;;All Categories;apparelusNavNode;;;CategoriesNavNode
+;BrandsNavNode;;All Brands;apparelusNavNode;;;BrandsNavNode
 ;SiteRootNode;;SiteRootNode;root;;;SiteRootNode;
 ;AllBrandsNavNode;;Brand Links;BrandsNavNode;;667Link,686Link,69SlamLink,adidasOriginalsLink,AlMerrickLink,AlienWorkshopLink,AnalogLink,AnonLink,ArmadaLink,BenchLink,BillabongLink,BlueTomatoLink,BurtonLink,CarharttLink,DCLink,DaineseLink,DakineLink,DalbelloLink,droidLink,ElementLink,ElmLink,F2-FTWOLink,FemipleasureLink,FoursquareLink,FoxLink,HorsefeathersLink,HurleyLink,LandingLink,NikeLink,Nike6.0Link,NixonLink,OakleyLink,OrageLink,PYUALink,PlayboardLink,ProTecLink,QuiksilverLink,RedLink,ReefLink,RipCurlLink,RoxyLink,SessionsLink,SpecialBlendLink,TokoLink,VIVOLink,VansLink,VolcomLink,VonZipperLink,WLDLink,ZimtsternLink;AllBrandsNavNode;
 ;AllCategoriesNavNode;;Category Links;CategoriesNavNode;;ClothesLink,OthersLink,CapsLink,SkiGearLink,SunglassesLink,ShoesLink,GogglesLink,ShirtsLink,SnowLink,StreetwearLink,SurfLink,HelmetLink,ToolsLink,GuidesLink,BackpacksLink;AllCategoriesNavNode;
-;ApparelUKNavNode;;Apparel UK Site;SiteRootNode;;HomepageNavLink;ApparelUKNavNode;
+;apparelusNavNode;;Apparel US Site;SiteRootNode;;HomepageNavLink;apparelusNavNode;
 ;BackpacksBrandsNavNode;;Backpacks Brand Links;BackpacksNavNode;;DakineBackpacksLink;BackpacksBrandsNavNode;
-;BackpacksNavNode;;Backpacks Category;ApparelUKNavNode;;;BackpacksNavNode;
+;BackpacksNavNode;;Backpacks Category;apparelusNavNode;;;BackpacksNavNode;
 ;CapsNavNode;;Caps Category;ClothesCategoriesNavNode;;;CapsNavNode;
 ;ClothesCategoriesNavNode;;Clothes Category Links;ClothesNavNode;;CapsLink,HelmetLink,ShirtsLink,ShoesLink,SunglassesLink;ClothesCategoriesNavNode;
-;ClothesNavNode;;Clothes Category;ApparelUKNavNode;;;ClothesNavNode;
-;FollowUsNavNode;;Follow Us Pages;ApparelUKNavNode;;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode;
+;ClothesNavNode;;Clothes Category;apparelusNavNode;;;ClothesNavNode;
+;FollowUsNavNode;;Follow Us Pages;apparelusNavNode;;AgileCommerceBlogLink,LinkedInLink,FacebookLink,TwitterLink;FollowUsNavNode;
 ;GogglesNavNode;;Goggles Category;SkiGearCategoriesNavNode;;;GogglesNavNode;
-;GuidesNavNode;;Guides Category;ApparelUKNavNode;;;GuidesNavNode;
+;GuidesNavNode;;Guides Category;apparelusNavNode;;;GuidesNavNode;
 ;HelmetNavNode;;Helmet Category;ClothesCategoriesNavNode;;;HelmetNavNode;
-;HybrisNavNode;;Hybris Pages;ApparelUKNavNode;;AboutHybrisLink,ContactUsLink;HybrisNavNode;
-;OthersNavNode;;Others Category;ApparelUKNavNode;;;OthersNavNode;
+;HybrisNavNode;;Hybris Pages;apparelusNavNode;;AboutHybrisLink,ContactUsLink;HybrisNavNode;
+;OthersNavNode;;Others Category;apparelusNavNode;;;OthersNavNode;
 ;ShirtsBrandsNavNode;;Shirts Brand Links;ShirtsNavNode;;PlayboardShirtsLink,DaineseShirtsLink;ShirtsBrandsNavNode;
 ;ShirtsNavNode;;Shirts Category;ClothesCategoriesNavNode;;;ShirtsNavNode;
 ;ShoesBrandsNavNode;;Shoes Brand Links;ShoesNavNode;;VansShoesLink,F2-FTWOShoesLink;ShoesBrandsNavNode;
 ;ShoesNavNode;;Shoes Category;ClothesCategoriesNavNode;;;ShoesNavNode;
 ;SiteRootNode;;SiteRootNode;root;;;SiteRootNode;
 ;SkiGearCategoriesNavNode;;Ski Gear Category Links;SkiGearNavNode;;GogglesLink,ToolsLink;SkiGearCategoriesNavNode;
-;SkiGearNavNode;;Ski Gear Category;ApparelUKNavNode;;;SkiGearNavNode;
+;SkiGearNavNode;;Ski Gear Category;apparelusNavNode;;;SkiGearNavNode;
 ;SunglassesBrandsNavNode;;Sunglasses Brand Links;SunglassesNavNode;;VonZipperSunglassesLink,FoxSunglassesLink,RoxySunglassesLink,AnonSunglassesLink,QuiksilverSunglassesLink;SunglassesBrandsNavNode;
 ;SunglassesNavNode;;Sunglasses Category;ClothesCategoriesNavNode;;;SunglassesNavNode;
 ;ToolsNavNode;;Tools Category;SkiGearCategoriesNavNode;;;ToolsNavNode;
 ;StreetwearMenNavNodeMenu;;Streetwear Men Menu;;;StreetwearMenBagsLink,StreetwearMensBeltsLink,StreetwearMenShortsLink,StreetwearMenTShirtsLink;StreetwearMenNavNodeMenu;
 ;StreetwearWomenNavNodeMenu;;Streetwear Women Menu;;;StreetwearWomenBagsLink,StreetwearWomenPantsLink,StreetwearWomenTShirtsLink,StreetwearWomenTopsLink,StreetwearWomenSkirtsLink;StreetwearWomenNavNodeMenu;
 ;StreetwearYouthNavNodeMenu;;Streetwear Youth Menu;;;StreetwearYouthBoardshortsLink,StreetwearYouthTShirtsLink;StreetwearYouthNavNodeMenu;
-;StreetwearYouthNavNode;;Youth Menu;ApparelUKNavNode;;;StreetwearYouthNavNode;
+;StreetwearYouthNavNode;;Youth Menu;apparelusNavNode;;;StreetwearYouthNavNode;
 ;StreetwearYouthBoardshortsNavNode;;Youth Board Brand Links;StreetwearYouthNavNode;;StreetwearYouthBoardshortsBillabongLink,StreetwearYouthBoardshorts69SlamLink,StreetwearYouthBoardshortsQuiksilverLink,StreetwearYouthBoardshortsVolcomLink,BrowseAllStreetwearYouthBoardshortsLink;StreetwearYouthBoardshortsNavNode;
 ;StreetwearYouthTShirtNavNode;;Youth TShirt Brand Link;StreetwearYouthNavNode;;StreetwearYouthTShirtsBillabongLink,StreetwearYouthTShirtsBlueTomatoLink,StreetwearYouthTShirtsBurtonLink,StreetwearYouthTShirtsDCLink,StreetwearYouthTShirtsQuiksilverLink,BrowseAllStreetwearYouthTShirtsLink;StreetwearYouthTShirtNavNode;
 ;SnowwearMenNavNodeMenu;;Snowwear Men Menu;;;SnowwearMensJacketsLink,SnowwearMenPantsLink;SnowwearMenNavNodeMenu;
 ;SnowwearWomenNavNodeMenu;;Snowwear Women Menu;;;SnowwearWomensJacketsLink,SnowwearWomensPantsLink;SnowwearWomenNavNodeMenu;
 ;SnowwearYouthNavNodeMenu;;Snowwear Youth Menu;;;SnowwearYouthJacketsLink,SnowwearYouthPantsLink;SnowwearYouthNavNodeMenu;
 ;SnowKitNavNodeMenu;;Snow Kit Menu;;;SnowboardsLink,BindingsLink,HelmetsLink,ToolsLink;SnowKitNavNodeMenu;
-;StreetwearNavigationNode;;Streetwear Menu;ApparelUKNavNode;StreetwearMenNavNodeMenu,StreetwearWomenNavNodeMenu,StreetwearYouthNavNodeMenu;;StreetwearNavigationNode;
-;SnowNavigationNode;;Snow Menu;ApparelUKNavNode;SnowwearMenNavNodeMenu,SnowwearWomenNavNodeMenu,SnowwearYouthNavNodeMenu,SnowKitNavNodeMenu;;SnowNavigationNode;
-;AccessoriesNavigationNode;;Accessories Menu;ApparelUKNavNode;;;AccessoriesNavigationNode;
+;StreetwearNavigationNode;;Streetwear Menu;apparelusNavNode;StreetwearMenNavNodeMenu,StreetwearWomenNavNodeMenu,StreetwearYouthNavNodeMenu;;StreetwearNavigationNode;
+;SnowNavigationNode;;Snow Menu;apparelusNavNode;SnowwearMenNavNodeMenu,SnowwearWomenNavNodeMenu,SnowwearYouthNavNodeMenu,SnowKitNavNodeMenu;;SnowNavigationNode;
+;AccessoriesNavigationNode;;Accessories Menu;apparelusNavNode;;;AccessoriesNavigationNode;
 ;AccessoriesMenNavNodeMenu;;Accessories Men Menu;AccessoriesNavigationNode;;AccessoriesBandanasLink,AccessoriesBeaniesLink,AccessoriesBeltsLink,AccessoriesCapsLink,AccessoriesGlovesLink,AccessoriesSocksLink,AccessoriesWatchesLink,BrowseAllAccessoriesLink;AccessoriesMenNavNodeMenu;
 ;AccessoriesWomenNavNodeMenu;;Accessories Women Menu;AccessoriesNavigationNode;;AccessoriesWomenBagsLink,AccessoriesWomenBeltsLink,AccessoriesWomenWatchesLink,BrowseAllAccessoriesWomenLink;AccessoriesWomenNavNodeMenu;
 ;SurfTShirtNavNodeMenu;;Surf T-Shirt Menu;SurfNavigationNode;;TShirtsAlienWorkshopLink,TShirtsBillabongLink,TShirtsBurtonLink,TShirtsBlueTomatoLink,TShirtsCarharttLink,TShirtsDCLink,TShirtsElementLink,TShirtsHorsefeathersLink,TShirtsQuiksilverLink,TShirtsRoxyLink,TShirtsVolcomLink,TShirtsZimtsternLink,TShirtsBrowseAllLink;SurfTShirtNavNodeMenu;
 ;SurfSandalsNavNodeMenu;;Surf Sandals Menu;SurfNavigationNode;;SandalsReefLink,SandalsRoxyLink,SandalsVolcomLink,BrowseAllSandalsLink;SurfSandalsNavNodeMenu;
 ;SurfTShadesNavNodeMenu;;Surf Shades Menu;SurfNavigationNode;;ShadesAnonLink,ShadesFoxLink,ShadesRoxyLink,ShadesQuiksilverLink,ShadesVonZipperLink,ShadesBrowseAllLink;SurfTShadesNavNodeMenu;
 ;SurfBoardsNavNodeMenu;;Surf Boards Menu;SurfNavigationNode;;BoardsAlMerrickLink,BoardsSkimOneLink,BoardsSouthpointLink,BoardsSurftechLink,BoardsBrowseAllLink;SurfBoardsNavNodeMenu;
-;SurfNavigationNode;;Surf Menu;ApparelUKNavNode;;;SurfNavigationNode;
+;SurfNavigationNode;;Surf Menu;apparelusNavNode;;;SurfNavigationNode;
 ;AccountLeftNavNode;;My Account;SiteRootNode;;AccountProfileLink,AccountAddressBookLink,AccountPaymentDetailsLink,AccountOrderHistoryLink;AccountLeftNavNode
 ;AccountProfileNavNode;;Profile;AccountLeftNavNode;;AccountPersonalDetailsLink,AccountUpdatePasswordLink;AccountProfileNavNode
 ;AccountAddressBookNavNode;;Address Book;AccountLeftNavNode;;AccountManageAddressLink;AccountAddressBookNavNode
@@ -526,7 +526,7 @@ UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];previewImage(code, 
 ;;productList;productListPagePreview;;;;;
 
 
-###### Apparel UK Homepage
+###### Apparel US Homepage
 
 # ImageMapComponent
 INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;imageMapHTML[lang=en];&componentRef;urlLink;;
@@ -534,11 +534,11 @@ INSERT_UPDATE ImageMapComponent;$contentCV[unique=true];uid[unique=true];name;im
 
 # ContentSlot
 INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;cmsComponents(uid,$contentCV);;;
-;;Section1Slot-ApparelUKHomepage;Section1 Slot for ApparelUKHomepage;true;SummerClassicsBanner;;;
+;;Section1Slot-apparelusHomepage;Section1 Slot for apparelusHomepage;true;SummerClassicsBanner;;;
 
 # ContentSlotForPage
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='homepage'];contentSlot(uid,$contentCV)[unique=true];;;
-;;Section1-ApparelUKHomepage;Section1;;Section1Slot-ApparelUKHomepage;;;
+;;Section1-apparelusHomepage;Section1;;Section1Slot-apparelusHomepage;;;
 
 
 ###### Apparel Sunglasses Category Landing Page
@@ -688,7 +688,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='BrandsCategoryPage'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;Section2-Brands;Section2;;Section2Slot-Brands;;;
 
-# Apparel UK FAQ Page
+# Apparel US FAQ Page
 
 # CMS Paragraph Component (Contact information)
 # CMSParagraphComponent
@@ -706,7 +706,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;Section2A-FAQ;Section2A;;Section2ASlot-FAQ;;;
 ;;Section2B-FAQ;Section2B;;Section2BSlot-FAQ;;;
 
- # Apparel UK Order Expired Page
+ # Apparel US Order Expired Page
 
  # CMSParagraphComponent
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;
@@ -723,7 +723,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ;;Section2A-OrderExpired;Section2A;;Section2ASlot-OrderExpired;;;
 ;;Section2B-OrderExpired;Section2B;;Section2BSlot-OrderExpired;;;
 
-# Apparel UK Terms And Conditions Page
+# Apparel US Terms And Conditions Page
 
 # CMSParagraphComponent
 INSERT_UPDATE CMSParagraphComponent;$contentCV[unique=true];uid[unique=true];name;&componentRef;;;;

@@ -9,9 +9,9 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 # ImpEx for Promotions for Apparel Store
-#% impex.setLocale( Locale.GERMAN ); 
+#% impex.setLocale( Locale.GERMAN );
 
-$defaultPromoGrp=apparelUKPromoGrp
+$defaultPromoGrp=apparelusPromoGrp
 $productCatalog=myProductCatalog
 $catalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Online])[default=$productCatalog:Online]
 $regulargroup=regulargroup

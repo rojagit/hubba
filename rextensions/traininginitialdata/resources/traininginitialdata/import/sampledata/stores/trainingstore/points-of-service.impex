@@ -8,8 +8,8 @@
 # Information and shall use it only in accordance with the terms of the
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
-# ImpEx for Apparel UK Stores
-#% impex.setLocale( Locale.GERMAN ); 
+# ImpEx for Apparel US Stores
+#% impex.setLocale( Locale.GERMAN );
 
 $storeUid=trainingstore
 $contentCatalog=trainingstoreContentCatalog
@@ -47,14 +47,14 @@ INSERT_UPDATE WeekdayOpeningDay;openingSchedule(code)[unique=true];dayOfWeek(cod
 ;$weekendHours;SUNDAY   ; 10:00; 16:00
 
 INSERT_UPDATE SpecialOpeningDay;openingSchedule(code)[unique=true];date[unique=true,dateformat=dd.MM.yyyy];closed;openingTime[dateformat=hh:mm];closingTime[dateformat=hh:mm]
-;$standardHours; 01.01.2014 ;true     
-;$standardHours; 29.03.2014 ;true     
-;$standardHours; 01.04.2014 ;true     
-;$standardHours; 06.05.2014 ;true     
-;$standardHours; 27.05.2014 ;true     
-;$standardHours; 26.08.2014 ;true     
-;$standardHours; 26.12.2014 ;true     
-;$standardHours; 25.12.2014 ;true     
+;$standardHours; 01.01.2014 ;true
+;$standardHours; 29.03.2014 ;true
+;$standardHours; 01.04.2014 ;true
+;$standardHours; 06.05.2014 ;true
+;$standardHours; 27.05.2014 ;true
+;$standardHours; 26.08.2014 ;true
+;$standardHours; 26.12.2014 ;true
+;$standardHours; 25.12.2014 ;true
 
 ;$weekendHours; 01.01.2014 ;true
 ;$weekendHours; 29.03.2014 ;true
