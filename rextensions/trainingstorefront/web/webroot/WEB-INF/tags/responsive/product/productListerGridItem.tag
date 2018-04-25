@@ -24,7 +24,7 @@
 					<c:out escapeXml="false" value="${ycommerce:sanitizeHTML(product.name)}" />
 				</a>
 			</ycommerce:testId>
-		
+
 			<c:if test="${not empty product.potentialPromotions}">
 				<div class="promo">
 					<c:forEach items="${product.potentialPromotions}" var="promotion">
@@ -32,7 +32,7 @@
 					</c:forEach>
 				</div>
 			</c:if>
-			
+
 			<ycommerce:testId code="product_productPrice">
 				<div class="price"><product:productListerItemPrice product="${product}"/></div>
 			</ycommerce:testId>

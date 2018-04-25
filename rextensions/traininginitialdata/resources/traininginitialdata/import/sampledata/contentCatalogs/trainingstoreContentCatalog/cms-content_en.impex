@@ -14,9 +14,9 @@
 #
 
 $contentCatalog=trainingstoreContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 $productCatalog=myProductCatalog
-$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
 $picture=media(code, $contentCV)
 $siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants&/traininginitialdata/import/sampledata/contentCatalogs/$contentCatalog
 $jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants&/traininginitialdata/import/sampledata/cockpits/cmscockpit
@@ -32,11 +32,11 @@ $storefrontContextRoot=$config-storefrontContextRoot
 
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];folder(qualifier)[default='images'];altText
-;;/images/theme/logo-hybris.png;logo-hybris.png;$siteResource/images/theme/logo-hybris.png;image/png;;"hybris Accelerator"
+;;/images/theme/setvnow.png;setvnow.png;$siteResource/images/theme/setvnow.png;image/png;;"hybris Accelerator"
 
 # Site Logo Component
 UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
-;;SiteLogoComponent;/images/theme/logo-hybris.png
+;;SiteLogoComponent;/images/theme/setvnow.png
 
 
 # CMS Link Components

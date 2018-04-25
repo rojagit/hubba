@@ -13,7 +13,7 @@
 #
 $productCatalog=myProductCatalog
 $contentCatalog=trainingstoreContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Staged]
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 $defaultLanguage=en
 $storeUid=trainingstore
 $siteUid=trainingstore
@@ -24,6 +24,7 @@ $siteName=Training Store USA
 $siteMapLangCur=enUsd
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
 $customSiteMapUrls=/Categories/c/categories?q=:relevance:allPromotions:BOGOFApparel:allPromotions:10DiscountShoes:allPromotions:MultiBuyApparel:allPromotions:PerfectPartnerApparel:allPromotions:ProductBundleApparel,/Categories/Streetwear-youth/T-Shirts-youth/c/270100?q=%3Arelevance%3Abrand%3ABurton%3AswatchColors%3ABLACK&text=#,/Categories/Accessories/c/220000?q=%3Arelevance%3Abrand%3AQuiksilver%3AswatchColors%3AGREEN&text=#,/Brands/Fox/c/Fox?q=%3Arelevance%3AswatchColors%3ABLACK%3Agender%3AMALE,/Categories/Snowwear-women/Snow-Jackets-women/c/200100?q=%3Arelevance%3AswatchColors%3ABLACK%3Abrand%3AWLD
+
 
 # Import config properties into impex macros
 UPDATE GenericItem[processor=de.hybris.platform.commerceservices.impex.impl.ConfigPropertyImportProcessor];pk[unique=true]
@@ -62,7 +63,7 @@ INSERT_UPDATE SiteTheme;code[unique=true]
 
 # CMS Site
 INSERT_UPDATE CMSSite;uid[unique=true];name[lang=$defaultLanguage];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
-;$siteUid;$siteName;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;
+;$siteUid;$siteName;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;language
 
 INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
 ;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$

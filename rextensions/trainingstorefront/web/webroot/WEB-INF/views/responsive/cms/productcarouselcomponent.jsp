@@ -43,7 +43,6 @@
 							<c:url value="${product.url}" var="productUrl"/>
 
 							<div class="carousel__item">
-							<c:out value="YYY ${product.url}"/>
 
 								<a href="${productUrl}">
 									<div class="carousel__item--thumb">
