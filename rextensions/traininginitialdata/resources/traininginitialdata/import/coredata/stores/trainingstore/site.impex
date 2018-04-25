@@ -13,14 +13,14 @@
 #
 $productCatalog=myProductCatalog
 $contentCatalog=trainingstoreContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Staged]
 $defaultLanguage=en
 $storeUid=trainingstore
 $siteUid=trainingstore
 $webServiceSiteUid=$siteUidWS
 $siteMapUrlLimitPerFile=50000
 $promoGrp=myPromoGrp
-
+$siteName=Training Store USA
 $siteMapLangCur=enUsd
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
 $customSiteMapUrls=/Categories/c/categories?q=:relevance:allPromotions:BOGOFApparel:allPromotions:10DiscountShoes:allPromotions:MultiBuyApparel:allPromotions:PerfectPartnerApparel:allPromotions:ProductBundleApparel,/Categories/Streetwear-youth/T-Shirts-youth/c/270100?q=%3Arelevance%3Abrand%3ABurton%3AswatchColors%3ABLACK&text=#,/Categories/Accessories/c/220000?q=%3Arelevance%3Abrand%3AQuiksilver%3AswatchColors%3AGREEN&text=#,/Brands/Fox/c/Fox?q=%3Arelevance%3AswatchColors%3ABLACK%3Agender%3AMALE,/Categories/Snowwear-women/Snow-Jackets-women/c/200100?q=%3Arelevance%3AswatchColors%3ABLACK%3Abrand%3AWLD
@@ -35,7 +35,7 @@ $storefrontContextRoot=$config-storefrontContextRoot
 
 # SiteMap Configuration
 INSERT_UPDATE SiteMapLanguageCurrency;&siteMapLanguageCurrency;language(isoCode)[unique=true];currency(isocode)[unique=true];
-;enUSD;en;USD;
+;enUsd;en;USD;
 
 INSERT_UPDATE CatalogUnawareMedia;&siteMapMediaId;code[unique=true];realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];mime[default='text/plain']
 ;$siteUid-siteMapMedia;$siteUid-siteMapMedia;siteMapTemplate.vm;$jarResource/site-siteMapTemplate.vm;
@@ -57,17 +57,18 @@ INSERT_UPDATE SiteMapConfig;&siteMapConfigId;configId[unique=true];siteMapLangua
 
 # Do not remove this until we completely get rid of black and blue for all user experience
 INSERT_UPDATE SiteTheme;code[unique=true]
-;black
+;alpha
+
 
 # CMS Site
-INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
-;$siteUid;black;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$siteUidSiteMapConfig;;true;$storefrontContextRoot/?site=$siteUid;homepage;language
+INSERT_UPDATE CMSSite;uid[unique=true];name[lang=$defaultLanguage];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
+;$siteUid;$siteName;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;
 
-INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[append];
+INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
 ;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$
-;$siteUid;,(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
-;$siteUid;,(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/,*$
-;$siteUid;,(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
+;$siteUid;(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
+;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/,*$
+;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
 
 
 

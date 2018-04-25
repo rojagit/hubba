@@ -18,8 +18,8 @@ $productCatalog=myProductCatalog
 $productCatalogName=my Product Catalog
 $productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $picture=media(code, $contentCV) ;
-$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/contentCatalogs/$contentCatalog
-$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants/trainingstore/import/sampledata/cockpits/cmscockpit
+$siteResource=jar:org.training.initialdata.constants.TrainingInitialDataConstants&/traininginitialdata/import/sampledata/contentCatalogs/$contentCatalog
+$jarResourceCms=jar:org.training.initialdata.constants.TrainingInitialDataConstants&/traininginitialdata/import/sampledata/cockpits/cmscockpit
 
 # Load the storefront context root config param
 $storefrontContextRoot=$config-storefrontContextRoot
@@ -448,31 +448,31 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];cmsComponents
 # Preview Image for use in the CMS Cockpit for special ContentPages
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
-;;accountPagePreview;text/png;AccountPage.png;$jarResourceCms/preview-images/apparel_uk/AccountPage.png;;;
-;;addEditAddressPagePreview;text/png;AddEditAddressPage.png;$jarResourceCms/preview-images/apparel_uk/AddEditAddressPage.png;;;
-;;addressBookPagePreview;text/png;AddressBook.png;$jarResourceCms/preview-images/apparel_uk/AddressBookPage.png;;;
-;;cartPagePreview;text/png;CartPage.png;$jarResourceCms/preview-images/apparel_uk/CartPage.png;;;
-;;checkoutLoginPagePreview;text/png;CheckoutLoginPage.png;$jarResourceCms/preview-images/apparel_uk/CheckoutLoginPage.png;;;
-;;defaultCategoryPagePreview;text/png;DefaultCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/DefaultCategoryPage.png;;;
-;;frequentlyAskedQuestionsPage;text/png;FrequentlyAskedQuestionsPage.png;$jarResourceCms/preview-images/apparel_uk/FrequentlyAskedQuestionsPage.png;;;
-;;termsAndConditionsPage;text/png;TermsAndConditionsPage.png;$jarResourceCms/preview-images/apparel_uk/TermsAndConditionsPage.png;;;
-;;homepagePreview;text/png;Homepage.png;$jarResourceCms/preview-images/apparel_uk/Homepage.png;;;
-;;loginPagePreview;text/png;LoginPage.png;$jarResourceCms/preview-images/apparel_uk/LoginPage.png;;;
-;;multiStepCheckoutSummaryPagePreview;text/png;MultiStepCheckoutSummaryPage.png;$jarResourceCms/preview-images/apparel_uk/MultiStepCheckoutSummaryPage.png;;;
-;;notFoundPagePreview;text/png;NotFoundPage.png;$jarResourceCms/preview-images/apparel_uk/NotFoundPage.png;;;
-;;orderConfirmationPagePreview;text/png;OrderConfirmationPage.png;$jarResourceCms/preview-images/apparel_uk/OrderConfirmationPage.png;;;
-;;orderDetailsPagePreview;text/png;OrderDetailsPage.png;$jarResourceCms/preview-images/apparel_uk/OrderDetailsPage.png;;;
-;;orderHistoryPagePreview;text/png;OrderHistoryPage.png;$jarResourceCms/preview-images/apparel_uk/OrderHistoryPage.png;;;
-;;paymentDetailsPagePreview;text/png;PaymentDetailsPage.png;$jarResourceCms/preview-images/apparel_uk/PaymentDetailsPage.png;;;
-;;productDetailsPagePreview;text/png;ProductDetailsPage.png;$jarResourceCms/preview-images/apparel_uk/ProductDetailsPage.png;;;
-;;productGridPagePreview;text/png;ProductGridPage.png;$jarResourceCms/preview-images/apparel_uk/ProductGridPage.png;;;
-;;productListPagePreview;text/png;ProductListPage.png;$jarResourceCms/preview-images/apparel_uk/ProductListPage.png;;;
-;;profilePagePreview;text/png;ProfilePage.png;$jarResourceCms/preview-images/apparel_uk/ProfilePage.png;;;
-;;searchResultsEmptyPagePreview;text/png;SearchResultsEmptyPage.png;$jarResourceCms/preview-images/apparel_uk/SearchResultsEmptyPage.png;;;
-;;searchResultsPagePreview;text/png;SearchResultsPage.png;$jarResourceCms/preview-images/apparel_uk/SearchResultsPage.png;;;
-;;storefinderPagePreview;text/png;StoreFinderPage.png;$jarResourceCms/preview-images/apparel_uk/StoreFinderPage.png;;;
-;;updateForgottenPasswordPagePreview;text/png;UpdateForgottenPasswordPage.png;$jarResourceCms/preview-images/apparel_uk/UpdateForgottenPasswordPage.png;;;
-;;orderExpiredPagePreview;text/png;OrderExpiredPage.png;$jarResourceCms/preview-images/apparel_uk/OrderExpiredPage.png;;;
+;;accountPagePreview;text/png;AccountPage.png;$jarResourceCms/preview-images/trainingstore/AccountPage.png;;;
+;;addEditAddressPagePreview;text/png;AddEditAddressPage.png;$jarResourceCms/preview-images/trainingstore/AddEditAddressPage.png;;;
+;;addressBookPagePreview;text/png;AddressBook.png;$jarResourceCms/preview-images/trainingstore/AddressBookPage.png;;;
+;;cartPagePreview;text/png;CartPage.png;$jarResourceCms/preview-images/trainingstore/CartPage.png;;;
+;;checkoutLoginPagePreview;text/png;CheckoutLoginPage.png;$jarResourceCms/preview-images/trainingstore/CheckoutLoginPage.png;;;
+;;defaultCategoryPagePreview;text/png;DefaultCategoryPage.png;$jarResourceCms/preview-images/trainingstore/DefaultCategoryPage.png;;;
+;;frequentlyAskedQuestionsPage;text/png;FrequentlyAskedQuestionsPage.png;$jarResourceCms/preview-images/trainingstore/FrequentlyAskedQuestionsPage.png;;;
+;;termsAndConditionsPage;text/png;TermsAndConditionsPage.png;$jarResourceCms/preview-images/trainingstore/TermsAndConditionsPage.png;;;
+;;homepagePreview;text/png;Homepage.png;$jarResourceCms/preview-images/trainingstore/Homepage.png;;;
+;;loginPagePreview;text/png;LoginPage.png;$jarResourceCms/preview-images/trainingstore/LoginPage.png;;;
+;;multiStepCheckoutSummaryPagePreview;text/png;MultiStepCheckoutSummaryPage.png;$jarResourceCms/preview-images/trainingstore/MultiStepCheckoutSummaryPage.png;;;
+;;notFoundPagePreview;text/png;NotFoundPage.png;$jarResourceCms/preview-images/trainingstore/NotFoundPage.png;;;
+;;orderConfirmationPagePreview;text/png;OrderConfirmationPage.png;$jarResourceCms/preview-images/trainingstore/OrderConfirmationPage.png;;;
+;;orderDetailsPagePreview;text/png;OrderDetailsPage.png;$jarResourceCms/preview-images/trainingstore/OrderDetailsPage.png;;;
+;;orderHistoryPagePreview;text/png;OrderHistoryPage.png;$jarResourceCms/preview-images/trainingstore/OrderHistoryPage.png;;;
+;;paymentDetailsPagePreview;text/png;PaymentDetailsPage.png;$jarResourceCms/preview-images/trainingstore/PaymentDetailsPage.png;;;
+;;productDetailsPagePreview;text/png;ProductDetailsPage.png;$jarResourceCms/preview-images/trainingstore/ProductDetailsPage.png;;;
+;;productGridPagePreview;text/png;ProductGridPage.png;$jarResourceCms/preview-images/trainingstore/ProductGridPage.png;;;
+;;productListPagePreview;text/png;ProductListPage.png;$jarResourceCms/preview-images/trainingstore/ProductListPage.png;;;
+;;profilePagePreview;text/png;ProfilePage.png;$jarResourceCms/preview-images/trainingstore/ProfilePage.png;;;
+;;searchResultsEmptyPagePreview;text/png;SearchResultsEmptyPage.png;$jarResourceCms/preview-images/trainingstore/SearchResultsEmptyPage.png;;;
+;;searchResultsPagePreview;text/png;SearchResultsPage.png;$jarResourceCms/preview-images/trainingstore/SearchResultsPage.png;;;
+;;storefinderPagePreview;text/png;StoreFinderPage.png;$jarResourceCms/preview-images/trainingstore/StoreFinderPage.png;;;
+;;updateForgottenPasswordPagePreview;text/png;UpdateForgottenPasswordPage.png;$jarResourceCms/preview-images/trainingstore/UpdateForgottenPasswordPage.png;;;
+;;orderExpiredPagePreview;text/png;OrderExpiredPage.png;$jarResourceCms/preview-images/trainingstore/OrderExpiredPage.png;;;
 
 # Site-wide Homepage
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];previewImage(code, $contentCV);linkComponents(uid, $contentCV);;;;;
@@ -545,7 +545,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
-;;sunglassesCategoryPagePreview;text/png;SunglassesCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/SunglassesCategoryPage.png;;;
+;;sunglassesCategoryPagePreview;text/png;SunglassesCategoryPage.png;$jarResourceCms/preview-images/trainingstore/SunglassesCategoryPage.png;;;
 
 # CategoryPage
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV);
@@ -572,7 +572,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
-;;shirtsCategoryPage;text/png;ShirtsCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/ShirtsCategoryPage.png;;;
+;;shirtsCategoryPage;text/png;ShirtsCategoryPage.png;$jarResourceCms/preview-images/trainingstore/ShirtsCategoryPage.png;;;
 
 # CategoryPage
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV);
@@ -664,7 +664,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
-;;brandsCategoryPage;text/png;BrandsCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/BrandsCategoryPage.png;;;
+;;brandsCategoryPage;text/png;BrandsCategoryPage.png;$jarResourceCms/preview-images/trainingstore/BrandsCategoryPage.png;;;
 
 #CategoryPage
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV);
@@ -756,7 +756,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ###### Apparel Surf Collection Landing Page
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
-;;surfCategoryPagePreviewUK;text/png;surfCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/surfCategoryPage.png
+;;surfCategoryPagePreviewUK;text/png;surfCategoryPage.png;$jarResourceCms/preview-images/trainingstore/surfCategoryPage.png
 
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
 ;;SurfCategoryPage;Surf Category Page;LandingPage2Template;false;;surfCategoryPagePreviewUK
@@ -777,7 +777,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ###### Apparel Ski Collection Landing Page
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
-;;snowCategoryPagePreviewUK;text/png;snowCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/SnowCategoryPage.png
+;;snowCategoryPagePreviewUK;text/png;snowCategoryPage.png;$jarResourceCms/preview-images/trainingstore/SnowCategoryPage.png
 
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
 ;;SnowCategoryPage;Snow Category Page;LandingPage2Template;false;;snowCategoryPagePreviewUK
@@ -798,7 +798,7 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 ###### Apparel Street Collection Landing Page
 
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images']
-;;streetCategoryPagePreviewUK;text/png;streetCategoryPage.png;$jarResourceCms/preview-images/apparel_uk/streetCategoryPage.png
+;;streetCategoryPagePreviewUK;text/png;streetCategoryPage.png;$jarResourceCms/preview-images/trainingstore/streetCategoryPage.png
 
 INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);defaultPage;approvalStatus(code)[default='approved'];previewImage(code, $contentCV)
 ;;StreetCategoryPage;Street Category Page;LandingPage2Template;false;;streetCategoryPagePreviewUK
@@ -819,71 +819,71 @@ INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];positi
 # Brand banners
 # Media
 INSERT_UPDATE Media;$contentCV[unique=true];code[unique=true];mime;realfilename;@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator][forceWrite=true];folder(qualifier)[default='images'];;
-;;apparel-category-banner;;apparel-category-banner.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-category-banner.jpg;;;
-;;apparel-brand-banner-69 Slam;;apparel-brand-banner_69slam.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_69slam.jpg;;;
-;;apparel-brand-banner-667;;apparel-brand-banner_667.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_667.jpg;;;
-;;apparel-brand-banner-686;;apparel-brand-banner_686.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_686.jpg;;;
-;;apparel-brand-banner-adidas;;apparel-brand-banner_adidas.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_adidas.jpg;;;
-;;apparel-brand-banner-Alien Workshop;;apparel-brand-banner_alienworkshop.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_alienworkshop.jpg;;;
-;;apparel-brand-banner-Al Merrick;;apparel-brand-banner_almerrick.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_almerrick.jpg;;;
-;;apparel-brand-banner-Analog;;apparel-brand-banner_analog.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_analog.jpg;;;
-;;apparel-brand-banner-Anon;;apparel-brand-banner_anon.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_anon.jpg;;;
-;;apparel-brand-banner-Armada;;apparel-brand-banner_armada.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_armada.jpg;;;
-;;apparel-brand-banner-Bench;;apparel-brand-banner_bench.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_bench.jpg;;;
-;;apparel-brand-banner-Billabong;;apparel-brand-banner_billabong.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_billabong.jpg;;;
-;;apparel-brand-banner-Blue Tomato;;apparel-brand-banner_bluetomato.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_bluetomato.jpg;;;
-;;apparel-brand-banner-Burton;;apparel-brand-banner_burton.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_burton.jpg;;;
-;;apparel-brand-banner-Carhartt;;apparel-brand-banner_carhartt.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_carhartt.jpg;;;
-;;apparel-brand-banner-Dainese;;apparel-brand-banner_dainese.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_dainese.jpg;;;
-;;apparel-brand-banner-Dalbello;;apparel-brand-banner_dalbello.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_dalbello.jpg;;;
-;;apparel-brand-banner-DC;;apparel-brand-banner_dc.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_dc.jpg;;;
-;;apparel-brand-banner-droid;;apparel-brand-banner_droid.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_droid.jpg;;;
-;;apparel-brand-banner-Element;;apparel-brand-banner_element.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_element.jpg;;;
-;;apparel-brand-banner-Elm;;apparel-brand-banner_elm.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_elm.jpg;;;
-;;apparel-brand-banner-Femipleasure;;apparel-brand-banner_femipleasure.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_femipleasure.jpg;;;
-;;apparel-brand-banner-Foursquare;;apparel-brand-banner_foursquare.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_foursquare.jpg;;;
-;;apparel-brand-banner-Fox;;apparel-brand-banner_fox.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_fox.jpg;;;
-;;apparel-brand-banner-F2-FTWO;;apparel-brand-banner_ftwo.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_ftwo.jpg;;;
-;;apparel-brand-banner-Horsefeathers;;apparel-brand-banner_horsefeathers.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_horsefeathers.jpg;;;
-;;apparel-brand-banner-Hurley;;apparel-brand-banner_hurley.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_hurley.jpg;;;
-;;apparel-brand-banner-Landing;;apparel-brand-banner_landing.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_landing.jpg;;;
-;;apparel-brand-banner-Nike;;apparel-brand-banner_nike.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_nike.jpg;;;
-;;apparel-brand-banner-Nike 6.0;;apparel-brand-banner_nike6.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_nike6.jpg;;;
-;;apparel-brand-banner-Nixon;;apparel-brand-banner_nixon.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_nixon.jpg;;;
-;;apparel-brand-banner-Oakley;;apparel-brand-banner_oakley.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_oakley.jpg;;;
-;;apparel-brand-banner-Orage;;apparel-brand-banner_orage.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_orage.jpg;;;
-;;apparel-brand-banner-Playboard;;apparel-brand-banner_playboard.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_playboard.jpg;;;
-;;apparel-brand-banner-Pro Tec;;apparel-brand-banner_protec.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_protec.jpg;;;
-;;apparel-brand-banner-PYUA;;apparel-brand-banner_pyua.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_pyua.jpg;;;
-;;apparel-brand-banner-Quiksilver;;apparel-brand-banner_quicksilver.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_quicksilver.jpg;;;
-;;apparel-brand-banner-Red;;apparel-brand-banner_red.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_red.jpg;;;
-;;apparel-brand-banner-Reef;;apparel-brand-banner_reef.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_reef.jpg;;;
-;;apparel-brand-banner-Rip Curl;;apparel-brand-banner_ripcurl.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_ripcurl.jpg;;;
-;;apparel-brand-banner-Roxy;;apparel-brand-banner_roxy.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_roxy.jpg;;;
-;;apparel-brand-banner-Sessions;;apparel-brand-banner_sessions.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_sessions.jpg;;;
-;;apparel-brand-banner-Special Blend;;apparel-brand-banner_specialblend.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_specialblend.jpg;;;
-;;apparel-brand-banner-Toko;;apparel-brand-banner_toko.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_toko.jpg;;;
-;;apparel-brand-banner-Vans;;apparel-brand-banner_vans.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_vans.jpg;;;
-;;apparel-brand-banner-VIVO;;apparel-brand-banner_vivo.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_vivo.jpg;;;
-;;apparel-brand-banner-Volcom;;apparel-brand-banner_volcom.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_volcom.jpg;;;
-;;apparel-brand-banner-Von Zipper;;apparel-brand-banner_vonzipper.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_vonzipper.jpg;;;
-;;apparel-brand-banner-WeSC;;apparel-brand-banner_wesc.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_wesc.jpg;;;
-;;apparel-brand-banner-WLD;;apparel-brand-banner_wld.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_wld.jpg;;;
-;;apparel-brand-banner-Zimtstern;;apparel-brand-banner_zimtstern.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_zimtstern.jpg;;;
-;;apparel-brand-banner-Aesthetiker;;apparel-brand-banner_aesthetiker.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_aesthetiker.jpg;;;
-;;apparel-brand-banner-Dakine;;apparel-brand-banner_dakine.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_dakine.jpg;;;
-;;apparel-brand-banner-GoPro Cam;;apparel-brand-banner_gopro.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_gopro.jpg;;;
-;;apparel-brand-banner-Nikita;;apparel-brand-banner_nikita.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_nikita.jpg;;;
-;;apparel-brand-banner-Periplus AC+Ion Guides;;apparel-brand-banner_periplus.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_periplus.jpg;;;
-;;apparel-brand-banner-Ride;;apparel-brand-banner_ride.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_ride.jpg;;;
-;;apparel-brand-banner-Skim One;;apparel-brand-banner_skmone.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_skmone.jpg;;;
-;;apparel-brand-banner-Skullcandy;;apparel-brand-banner_skullcandy.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_skullcandy.jpg;;;
-;;apparel-brand-banner-Southpoint;;apparel-brand-banner_southpoint.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_southpoint.jpg;;;
-;;apparel-brand-banner-Spy;;apparel-brand-banner_spy.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_spy.jpg;;;
-;;apparel-brand-banner-Surftech;;apparel-brand-banner_surftech.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_surftech.jpg;;;
-;;apparel-brand-banner-adidas eyewear;;apparel-brand-banner_adidas-eyewear.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_adidas-eyewear.jpg;;;
-;;apparel-brand-banner-TSG;;apparel-brand-banner_tsg.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_tsg.jpg;;;
-;;apparel-brand-banner-adidas Originals;;apparel-brand-banner_adidas-originals.jpg;$jarResourceCms/brand-images/apparel_uk/apparel-brand-banner_adidas-originals.jpg;;;
+;;apparel-category-banner;;apparel-category-banner.jpg;$jarResourceCms/brand-images/trainingstore/apparel-category-banner.jpg;;;
+;;apparel-brand-banner-69 Slam;;apparel-brand-banner_69slam.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_69slam.jpg;;;
+;;apparel-brand-banner-667;;apparel-brand-banner_667.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_667.jpg;;;
+;;apparel-brand-banner-686;;apparel-brand-banner_686.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_686.jpg;;;
+;;apparel-brand-banner-adidas;;apparel-brand-banner_adidas.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_adidas.jpg;;;
+;;apparel-brand-banner-Alien Workshop;;apparel-brand-banner_alienworkshop.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_alienworkshop.jpg;;;
+;;apparel-brand-banner-Al Merrick;;apparel-brand-banner_almerrick.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_almerrick.jpg;;;
+;;apparel-brand-banner-Analog;;apparel-brand-banner_analog.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_analog.jpg;;;
+;;apparel-brand-banner-Anon;;apparel-brand-banner_anon.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_anon.jpg;;;
+;;apparel-brand-banner-Armada;;apparel-brand-banner_armada.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_armada.jpg;;;
+;;apparel-brand-banner-Bench;;apparel-brand-banner_bench.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_bench.jpg;;;
+;;apparel-brand-banner-Billabong;;apparel-brand-banner_billabong.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_billabong.jpg;;;
+;;apparel-brand-banner-Blue Tomato;;apparel-brand-banner_bluetomato.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_bluetomato.jpg;;;
+;;apparel-brand-banner-Burton;;apparel-brand-banner_burton.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_burton.jpg;;;
+;;apparel-brand-banner-Carhartt;;apparel-brand-banner_carhartt.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_carhartt.jpg;;;
+;;apparel-brand-banner-Dainese;;apparel-brand-banner_dainese.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_dainese.jpg;;;
+;;apparel-brand-banner-Dalbello;;apparel-brand-banner_dalbello.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_dalbello.jpg;;;
+;;apparel-brand-banner-DC;;apparel-brand-banner_dc.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_dc.jpg;;;
+;;apparel-brand-banner-droid;;apparel-brand-banner_droid.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_droid.jpg;;;
+;;apparel-brand-banner-Element;;apparel-brand-banner_element.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_element.jpg;;;
+;;apparel-brand-banner-Elm;;apparel-brand-banner_elm.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_elm.jpg;;;
+;;apparel-brand-banner-Femipleasure;;apparel-brand-banner_femipleasure.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_femipleasure.jpg;;;
+;;apparel-brand-banner-Foursquare;;apparel-brand-banner_foursquare.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_foursquare.jpg;;;
+;;apparel-brand-banner-Fox;;apparel-brand-banner_fox.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_fox.jpg;;;
+;;apparel-brand-banner-F2-FTWO;;apparel-brand-banner_ftwo.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_ftwo.jpg;;;
+;;apparel-brand-banner-Horsefeathers;;apparel-brand-banner_horsefeathers.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_horsefeathers.jpg;;;
+;;apparel-brand-banner-Hurley;;apparel-brand-banner_hurley.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_hurley.jpg;;;
+;;apparel-brand-banner-Landing;;apparel-brand-banner_landing.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_landing.jpg;;;
+;;apparel-brand-banner-Nike;;apparel-brand-banner_nike.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_nike.jpg;;;
+;;apparel-brand-banner-Nike 6.0;;apparel-brand-banner_nike6.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_nike6.jpg;;;
+;;apparel-brand-banner-Nixon;;apparel-brand-banner_nixon.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_nixon.jpg;;;
+;;apparel-brand-banner-Oakley;;apparel-brand-banner_oakley.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_oakley.jpg;;;
+;;apparel-brand-banner-Orage;;apparel-brand-banner_orage.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_orage.jpg;;;
+;;apparel-brand-banner-Playboard;;apparel-brand-banner_playboard.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_playboard.jpg;;;
+;;apparel-brand-banner-Pro Tec;;apparel-brand-banner_protec.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_protec.jpg;;;
+;;apparel-brand-banner-PYUA;;apparel-brand-banner_pyua.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_pyua.jpg;;;
+;;apparel-brand-banner-Quiksilver;;apparel-brand-banner_quicksilver.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_quicksilver.jpg;;;
+;;apparel-brand-banner-Red;;apparel-brand-banner_red.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_red.jpg;;;
+;;apparel-brand-banner-Reef;;apparel-brand-banner_reef.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_reef.jpg;;;
+;;apparel-brand-banner-Rip Curl;;apparel-brand-banner_ripcurl.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_ripcurl.jpg;;;
+;;apparel-brand-banner-Roxy;;apparel-brand-banner_roxy.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_roxy.jpg;;;
+;;apparel-brand-banner-Sessions;;apparel-brand-banner_sessions.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_sessions.jpg;;;
+;;apparel-brand-banner-Special Blend;;apparel-brand-banner_specialblend.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_specialblend.jpg;;;
+;;apparel-brand-banner-Toko;;apparel-brand-banner_toko.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_toko.jpg;;;
+;;apparel-brand-banner-Vans;;apparel-brand-banner_vans.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_vans.jpg;;;
+;;apparel-brand-banner-VIVO;;apparel-brand-banner_vivo.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_vivo.jpg;;;
+;;apparel-brand-banner-Volcom;;apparel-brand-banner_volcom.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_volcom.jpg;;;
+;;apparel-brand-banner-Von Zipper;;apparel-brand-banner_vonzipper.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_vonzipper.jpg;;;
+;;apparel-brand-banner-WeSC;;apparel-brand-banner_wesc.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_wesc.jpg;;;
+;;apparel-brand-banner-WLD;;apparel-brand-banner_wld.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_wld.jpg;;;
+;;apparel-brand-banner-Zimtstern;;apparel-brand-banner_zimtstern.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_zimtstern.jpg;;;
+;;apparel-brand-banner-Aesthetiker;;apparel-brand-banner_aesthetiker.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_aesthetiker.jpg;;;
+;;apparel-brand-banner-Dakine;;apparel-brand-banner_dakine.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_dakine.jpg;;;
+;;apparel-brand-banner-GoPro Cam;;apparel-brand-banner_gopro.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_gopro.jpg;;;
+;;apparel-brand-banner-Nikita;;apparel-brand-banner_nikita.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_nikita.jpg;;;
+;;apparel-brand-banner-Periplus AC+Ion Guides;;apparel-brand-banner_periplus.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_periplus.jpg;;;
+;;apparel-brand-banner-Ride;;apparel-brand-banner_ride.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_ride.jpg;;;
+;;apparel-brand-banner-Skim One;;apparel-brand-banner_skmone.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_skmone.jpg;;;
+;;apparel-brand-banner-Skullcandy;;apparel-brand-banner_skullcandy.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_skullcandy.jpg;;;
+;;apparel-brand-banner-Southpoint;;apparel-brand-banner_southpoint.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_southpoint.jpg;;;
+;;apparel-brand-banner-Spy;;apparel-brand-banner_spy.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_spy.jpg;;;
+;;apparel-brand-banner-Surftech;;apparel-brand-banner_surftech.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_surftech.jpg;;;
+;;apparel-brand-banner-adidas eyewear;;apparel-brand-banner_adidas-eyewear.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_adidas-eyewear.jpg;;;
+;;apparel-brand-banner-TSG;;apparel-brand-banner_tsg.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_tsg.jpg;;;
+;;apparel-brand-banner-adidas Originals;;apparel-brand-banner_adidas-originals.jpg;$jarResourceCms/brand-images/trainingstore/apparel-brand-banner_adidas-originals.jpg;;;
 
 
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef

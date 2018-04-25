@@ -9,6 +9,8 @@
 
 <div class="product__listing product__grid">
     <c:forEach items="${searchPageData.results}" var="product" varStatus="status">
+    <c:out value="RRR ${product.url}"/>
+
         <product:productListerGridItem product="${product}" />
     </c:forEach>
 </div>

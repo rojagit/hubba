@@ -22,7 +22,7 @@
 							</div>
 						</div>
 						<c:forEach items="${productData}" var="product">
-
+<c:out value="XXX ${product.url}"/>
 							<c:url value="${product.url}/quickView" var="productQuickViewUrl"/>
 							<div class="carousel__item">
 								<a href="${productQuickViewUrl}" class="js-reference-item">
@@ -43,6 +43,8 @@
 							<c:url value="${product.url}" var="productUrl"/>
 
 							<div class="carousel__item">
+							<c:out value="YYY ${product.url}"/>
+
 								<a href="${productUrl}">
 									<div class="carousel__item--thumb">
 										<product:productPrimaryImage product="${product}" format="product"/>
