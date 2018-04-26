@@ -6,6 +6,7 @@ class Configuration
 {
     def separator = get_path_separator()
     def config_dir = convert_to_os_path(get_attribute("framework.config.dir"))
+
     def template_dir = new File("$config_dir${separator}template")
     def environment = get_attribute("build.environment")
     def hybris_config_dir = convert_to_os_path(get_attribute("hybris.config.dir", "hybris/config"))
@@ -13,9 +14,11 @@ class Configuration
 
     def config() {
 //        ant.mkdir("hybris/bin/platform/.sass-cache");
+            ant.echo "1HALLELUJAH ...acting sassy" + template_dir
+
         def hybrisDir = new File("hybris/bin/platform/.sass-cache")
         if (!hybrisDir.exists()) {
-            ant.echo "HALLELUJAH ...acting sassy" +
+            ant.echo "HALLELUJAH ...acting sassy" + template_dir
             hybrisDir.mkdir()
         }
 
@@ -38,7 +41,7 @@ class Configuration
         }
         
         ant.copy(todir: "${hybris_config_dir}", overwrite: true, failonerror: false) {
-            fileset(dir: "config${separator}template", includes: "**/*")
+            fileset(dir: "${template_dir}", includes: "**/*")
         }
 
         if (!environment || environment == "\${env}") {
@@ -49,7 +52,7 @@ class Configuration
         ant.copy(todir: "${hybris_config_dir}", overwrite: true, failonerror: false) {
             fileset(file: "${config_dir}${separator}${environment}${separator}local.properties")
             fileset(file: "${config_dir}${separator}${environment}${separator}localextensions.xml")
-            fileset(file: "${config_dir}${separator}${environment}${separator}/tomcat/*")
+            //fileset(file: "${config_dir}${separator}${environment}${separator}/tomcat/*")
         }
 
         if (environment == "local") {
