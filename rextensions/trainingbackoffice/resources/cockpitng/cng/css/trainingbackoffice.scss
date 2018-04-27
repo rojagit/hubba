@@ -24,7 +24,7 @@ body {
 }
 
 .yw-systemBarContainer .yw-statusToolbar div.yw-logoContainer {
-    background: url('images/my_bg.png');
+    background: url('images/my_bg2.png');
     background-position: 0 -28px;
     width: 200px;
     height: 34px;
@@ -42,8 +42,8 @@ body {
 .yw-systemBarContainer .yw-statusToolbar .widget_cnt .z-toolbarbutton,
 .yw-systemBarContainer .yw-statusToolbar a.z-toolbarbutton,
 .yw-perspective-popup tr.z-treerow {
-    &:hover, 
-    &:focus, 
+    &:hover,
+    &:focus,
     &:active {
         background-color: $systembar_hover-bg-color;
     }
