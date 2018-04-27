@@ -34,8 +34,6 @@ INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[de
 
 # Currencies
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
-;GBP;1;2;£
-;EUR;1;2;€
 ;USD;1,4;2;$
 ;JPY;120;0;¥
 

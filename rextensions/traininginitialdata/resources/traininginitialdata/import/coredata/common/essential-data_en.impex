@@ -24,8 +24,6 @@ UPDATE Language;isocode[unique=true];name[lang=$lang]
 
 # Currencies
 UPDATE Currency;isocode[unique=true];name[lang=$lang]
- ;EUR;"Euro"
- ;GBP;"Pound"
  ;JPY;"Japanese Yen"
  ;USD;"US Dollar"
 

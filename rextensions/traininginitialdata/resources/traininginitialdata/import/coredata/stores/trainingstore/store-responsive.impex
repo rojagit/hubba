@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Create the Responsive Apparel UK Store
+# Create the Responsive Apparel US Store
 #
 $productCatalog=myProductCatalog
 $currencies=USD
@@ -35,6 +35,6 @@ INSERT_UPDATE BaseStore;uid[unique=true];catalogs(id);currencies(isocode);net;ta
 ;$storeUid;$productCatalog;$currencies;$net;uk-taxes;miles;$defaultCurrency;$languages;$defaultLanguage;$deliveryCountries;$orderProcessCode;$pickupInStoreMode;$paymentProvider;$expressCheckoutEnabled;300;$checkoutFlowGroup;$returnProcessCode;
 
 INSERT_UPDATE BaseStore2DeliveryModeRel;source(uid)[unique=true];target(code)[unique=true]
-;trainingstore;fedex-homey
+;trainingstore;fedex-home
 ;trainingstore;pickup
 ;trainingstore;free-standard-shipping

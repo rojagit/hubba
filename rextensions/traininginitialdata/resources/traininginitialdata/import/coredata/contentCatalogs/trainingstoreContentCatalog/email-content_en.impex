@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-#  Import the CMS content for the Apparel UK site emails
+#  Import the CMS content for the Apparel US site emails
 #
 
 # Import config properties into impex macros for modulegen

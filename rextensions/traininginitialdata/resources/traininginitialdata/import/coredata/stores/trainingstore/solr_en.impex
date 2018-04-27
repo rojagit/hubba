@@ -9,11 +9,11 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the Solr configuration for the Apparel UK store
+# Import the Solr configuration for the Apparel US store
 #
 
 # Index Type
-$solrIndexedType=apparelProductType
+$solrIndexedType=trainingstoreProductType
 
 # Language
 $lang=en
