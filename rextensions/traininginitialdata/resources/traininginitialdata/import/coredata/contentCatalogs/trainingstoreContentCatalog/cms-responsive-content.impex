@@ -114,6 +114,9 @@ INSERT_UPDATE CategoryPage;$contentCV[unique=true];uid[unique=true];name;masterT
 ;;SurfCategoryPage;Surf Category Page;LandingPage2Template;false
 ###### LandingPage2Template end ######
 
+# Site Logo Component
+UPDATE SimpleBannerComponent;$contentCV[unique=true];uid[unique=true];$picture[lang=$lang]
+;;SiteLogoComponent;/theme/rrlogo.svg
 
 ###### ProductDetailsPageTemplate begin ######
 INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]

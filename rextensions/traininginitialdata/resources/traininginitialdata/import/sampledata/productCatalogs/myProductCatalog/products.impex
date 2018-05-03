@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 # ImpEx for Importing Products into Apparel Store
-#% impex.setLocale( Locale.GERMAN ); 
+#% impex.setLocale( Locale.GERMAN );
 
 # Macros / Replacement Parameter definitions
 $productCatalog=myProductCatalog
@@ -17,7 +17,7 @@ $productCatalogName=my Product Catalog
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
 $baseProduct=baseProduct(code, catalogVersion(catalog(id[default='$productCatalog']),version[default='Staged']))
 $approved=approvalstatus(code)[default='approved']
-$taxGroup=Europe1PriceFactory_PTG(code)[default=eu-vat-full]
+$taxGroup=Europe1PriceFactory_PTG(code)[default=us-sales-tax-full]
 
 # Apparel products use Variants with a structure:
 # ApparelProduct > ApparelStyleVariantProduct > ApparelSizeVariantProduct

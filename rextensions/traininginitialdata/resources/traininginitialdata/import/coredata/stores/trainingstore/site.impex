@@ -61,16 +61,20 @@ INSERT_UPDATE SiteTheme;code[unique=true]
 ;alpha
 
 
+#INSERT_UPDATE CMSSite;uid[unique=true];name[lang=$defaultLanguage];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
+#;$siteUid;$siteName;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;language
+
+#INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
+#;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$
+#;$siteUid;(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
+##;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/.*$
+#;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
+#;$siteUid;(?i)^https?://api\.rackroomshoes\.local(:[\d]+)?/rest/.*$
+#;$siteUid;(?i)^https?://localhost(:[\d]+)?/rest/.*$
+#;$siteUid;(?i)^https?://rackroomshoes\.[^/]+(|/.*|\?.*)$
+#;$siteUid;(?i)^https?://hybrrs\.[^/]+(|/.*|\?.*)$
+#;$siteUid;(?i)^https?://uat.rackroomshoes\.[^/]+(|/.*|\?.*)$
 # CMS Site
-INSERT_UPDATE CMSSite;uid[unique=true];name[lang=$defaultLanguage];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
-;$siteUid;$siteName;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$storeUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;language
-
-INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
-;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$
-;$siteUid;(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
-;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/,*$
-;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
-
 
 
 # Cart Cleanup CronJobs

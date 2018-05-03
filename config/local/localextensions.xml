@@ -16,9 +16,9 @@
     <extension name="solrfacetsearch" />
     <extension name="backofficesolrsearch" />
 
-
+<!--
     <extension name='electronicsstore'/>
-<!--    <extension name='apparelstore'/>-->
+    <extension name='apparelstore'/>-->
     <extension name='acceleratorwebservicesaddon'/>
     <extension name='orderselfserviceaddon'/>
     <extension name='customersupportbackoffice'/>

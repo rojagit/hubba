@@ -62,6 +62,8 @@ INSERT_UPDATE SiteMapConfig;&siteMapConfigId;configId[unique=true];siteMapLangua
 ;$siteUidSiteMapConfig;$siteUidSiteMapConfig;$siteMapLangCur;$siteMapPage;$siteUid-siteMapTemplate;$customSiteMapUrls;
 
 # CMS Site;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
+#REMOVE CMSSite;uid[unique=true]
+#;trainingstore
 
 INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
 ;$siteUid;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$siteUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;language
@@ -69,7 +71,7 @@ INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);con
 INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
 ;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$
 ;$siteUid;(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
-;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/,*$
+#;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/.*$ ERROR - unclosed group &(*$@#$*^*@#$
 ;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
 
 # Cart Cleanup CronJobs

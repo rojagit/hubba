@@ -46,7 +46,7 @@ UPDATE CreditCardType;code[unique=true];name[lang=$lang]
  ;switch;"Switch"
  ;visa;"Visa"
 
-# DistanceUnits for Storelocator 
+# DistanceUnits for Storelocator
 UPDATE DistanceUnit;code[unique=true];name[lang=$lang]
  ;km;"km"
  ;miles;"miles"
@@ -64,9 +64,6 @@ UPDATE MediaFormat;qualifier[unique=true];name[lang=$lang];
 # Product Tax Groups
 UPDATE ProductTaxGroup;code[unique=true];name[lang=$lang]
  ;ca-sales-tax-full;"CA Sales Tax"
- ;eu-vat-full;"EU Full Tax rate"
- ;eu-vat-half;"EU Half Tax rate"
- ;jp-vat-full;"JP Consumption Tax"
  ;us-sales-tax-full;"US Sales Tax"
 
 # User Tax Groups
@@ -80,11 +77,6 @@ UPDATE UserTaxGroup;code[unique=true];name[lang=$lang]
 # Tax
 UPDATE Tax;code[unique=true];name[lang=$lang]
  ;ca-sales-tax-full;"Sales Tax"
- ;de-vat-full;"DE VAT full"
- ;de-vat-half;"DE VAT half"
- ;jp-vat-full;"Consumption Tax"
- ;uk-vat-full;"UK VAT full"
- ;uk-vat-half;"UK VAT half"
  ;us-sales-tax-full;"Sales Tax"
 
 # Consginment statuses
