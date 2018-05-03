@@ -1,7 +1,7 @@
 /*
  * [y] hybris Platform
  *
- * Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ * Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
  *
  * This software is the confidential and proprietary information of SAP
  * ("Confidential Information"). You shall not disclose such Confidential
@@ -21,6 +21,7 @@ public class GuestRegisterForm
 	private String orderCode;
 	private String uid;
 	private ConsentForm consentForm;
+	private boolean termsCheck;
 
 	/**
 	 * @return the pwd
@@ -101,5 +102,24 @@ public class GuestRegisterForm
 	{
 		this.consentForm = consentForm;
 	}
+
+	/**
+	 *
+	 * @return termsCheck
+	 */
+	public boolean isTermsCheck()
+	{
+		return termsCheck;
+	}
+
+	/**
+	 *
+	 * @param termsCheck
+	 */
+	public void setTermsCheck(final boolean termsCheck)
+	{
+		this.termsCheck = termsCheck;
+	}
+
 
 }

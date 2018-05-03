@@ -1,7 +1,7 @@
 /*
  * [y] hybris Platform
  *
- * Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ * Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
  *
  * This software is the confidential and proprietary information of SAP
  * ("Confidential Information"). You shall not disclose such Confidential
@@ -25,6 +25,7 @@ public class RegisterForm
 	private String captcha;
 	private String mobileNumber;
 	private ConsentForm consentForm;
+	private boolean termsCheck;
 
 	/**
 	 * @return the titleCode
@@ -156,5 +157,15 @@ public class RegisterForm
 	public void setConsentForm(final ConsentForm consentForm)
 	{
 		this.consentForm = consentForm;
+	}
+
+	public boolean isTermsCheck()
+	{
+		return termsCheck;
+	}
+
+	public void setTermsCheck(final boolean termsCheck)
+	{
+		this.termsCheck = termsCheck;
 	}
 }
