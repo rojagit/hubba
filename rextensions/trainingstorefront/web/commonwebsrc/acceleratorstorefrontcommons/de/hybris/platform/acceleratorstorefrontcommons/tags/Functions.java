@@ -1,7 +1,7 @@
 /*
  * [y] hybris Platform
  *
- * Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ * Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
  *
  * This software is the confidential and proprietary information of SAP
  * ("Confidential Information"). You shall not disclose such Confidential
@@ -42,6 +42,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -52,9 +54,9 @@ import org.apache.log4j.Logger;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
+import org.springframework.web.util.JavaScriptUtils;
 
 import com.sap.security.core.server.csi.XSSEncoder;
-import org.springframework.web.util.JavaScriptUtils;
 
 
 /**
@@ -274,20 +276,21 @@ public class Functions
 
 	/**
 	 * Test if entry or grouped entry belongs to consumed entry
+	 * 
 	 * @param consumed
 	 * @param entry
 	 * @return true if consumed entry and entry/grouped entry corresponds to each other otherwise false
 	 */
-	public static boolean isConsumedByEntry(PromotionOrderEntryConsumedData consumed,OrderEntryData entry)
+	public static boolean isConsumedByEntry(PromotionOrderEntryConsumedData consumed, OrderEntryData entry)
 	{
 		final Integer consumendEntryNumber = consumed.getOrderEntryNumber();
-		if( CollectionUtils.isEmpty(entry.getEntries()))
+		if (CollectionUtils.isEmpty(entry.getEntries()))
 		{
-			return  consumendEntryNumber == entry.getEntryNumber();
+			return consumendEntryNumber.equals(entry.getEntryNumber());
 		}
 		else
 		{
-			return entry.getEntries().stream().anyMatch(e -> e.getEntryNumber() == consumendEntryNumber);
+			return entry.getEntries().stream().anyMatch(e -> e.getEntryNumber().equals(consumendEntryNumber));
 		}
 	}
 
@@ -322,7 +325,8 @@ public class Functions
 		}
 		else
 		{
-			return entry.getEntries().stream().anyMatch(e -> doesAppliedPromotionExistForOrderEntry(cart, e.getEntryNumber().intValue()));
+			return entry.getEntries().stream()
+					.anyMatch(e -> doesAppliedPromotionExistForOrderEntry(cart, e.getEntryNumber().intValue()));
 		}
 	}
 
@@ -349,15 +353,17 @@ public class Functions
 	 *           the entry
 	 * @return true if there is an potential promotion for the entry or entry group
 	 */
-	public static boolean doesPotentialPromotionExistForOrderEntryOrOrderEntryGroup(final CartData cart, final OrderEntryData entry)
+	public static boolean doesPotentialPromotionExistForOrderEntryOrOrderEntryGroup(final CartData cart,
+			final OrderEntryData entry)
 	{
-		if(CollectionUtils.isEmpty(entry.getEntries()))
+		if (CollectionUtils.isEmpty(entry.getEntries()))
 		{
 			return doesPotentialPromotionExistForOrderEntry(cart, entry.getEntryNumber().intValue());
 		}
 		else
 		{
-			return entry.getEntries().stream().anyMatch( e ->  doesPotentialPromotionExistForOrderEntry(cart, e.getEntryNumber().intValue()));
+			return entry.getEntries().stream()
+					.anyMatch(e -> doesPotentialPromotionExistForOrderEntry(cart, e.getEntryNumber().intValue()));
 		}
 	}
 
@@ -443,6 +449,28 @@ public class Functions
 			}
 			return valueToBeEncoded;
 		}
+	}
+
+	/**
+	 * Validates that tag is a valid HTML tag name
+	 * 
+	 * @param tag
+	 *           HTML tag name
+	 * @return tag if valid, div if it is not valid.
+	 */
+	public static String sanitizeHtmlTagName(final String tag)
+	{
+		final String defaultTag = "div";
+		if (StringUtils.isNotBlank(tag))
+		{
+			final Pattern pattern = Pattern.compile("[A-Za-z0-9-_:]+");
+			final Matcher matcher = pattern.matcher(tag);
+			if (matcher.matches())
+			{
+				return tag;
+			}
+		}
+		return defaultTag;
 	}
 
 	/**

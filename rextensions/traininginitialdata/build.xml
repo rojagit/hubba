@@ -2,7 +2,7 @@
 <!--
  [y] hybris Platform
 
- Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ Copyright (c) 2018 SAP SE or an SAP affiliate company. All rights reserved.
 
  This software is the confidential and proprietary information of SAP
  ("Confidential Information"). You shall not disclose such Confidential
@@ -26,11 +26,9 @@
 
           IF YOU WANT TO ADAPT THE BUILD PROCESS, CREATE A FILE
           CALLED buildcallbacks.xml IN YOUR EXTENSION.
-          PLEASE ALSO REFER TO THE DOCUMENTATION ON THE HYBRIS DEVNET
-          (https://wiki.hybris.com/x/YIVvAg).
+          PLEASE ALSO REFER TO THE DOCUMENTATION ON THE HYBRIS HELP SITE
+          (https://help.hybris.com/6.4.0/hcd/8b6ded0d86691014a6fab18e171c1f91.html).
 
-          For a sample buildcallbacks.xml file,
-          please refer to the hybris Management Console (platform/ext/hmc).
 
  *** WARNING *** WARNING *** WARNING *** WARNING *** WARNING *** WARNING *** WARNING ***
 -->

@@ -1,7 +1,7 @@
 /*
  * [y] hybris Platform
  *
- * Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ * Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
  *
  * This software is the confidential and proprietary information of SAP
  * ("Confidential Information"). You shall not disclose such Confidential
@@ -54,8 +54,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 {
 	/**
 	 * We use this suffix pattern because of an issue with Spring 3.1 where a Uri value is incorrectly extracted if it
-	 * contains on or more '.' characters. Please see https://jira.springsource.org/browse/SPR-6164 for a discussion on
-	 * the issue and future resolution.
+	 * contains on or more '.' characters. Please see https://jira.springsource.org/browse/SPR-6164 for a discussion on the
+	 * issue and future resolution.
 	 */
 	protected static final String CATEGORY_CODE_PATH_VARIABLE_PATTERN = "/{categoryCode:.*}";
 	protected static final String PRODUCT_GRID_PAGE = "category/productGridPage";
@@ -86,8 +86,7 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 	}
 
 
-	protected String performSearchAndGetResultsPage(final String categoryCode, final String searchQuery,
-			final int page, // NOSONAR
+	protected String performSearchAndGetResultsPage(final String categoryCode, final String searchQuery, final int page, // NOSONAR
 			final ShowMode showMode, final String sortCode, final Model model, final HttpServletRequest request,
 			final HttpServletResponse response) throws UnsupportedEncodingException
 	{
@@ -138,8 +137,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 			model.addAttribute(ThirdPartyConstants.SeoRobots.META_ROBOTS, ThirdPartyConstants.SeoRobots.NOINDEX_FOLLOW);
 		}
 
-		final String metaKeywords = MetaSanitizerUtil.sanitizeKeywords(category.getKeywords().stream()
-				.map(keywordModel -> keywordModel.getKeyword()).collect(Collectors.toSet()));
+		final String metaKeywords = MetaSanitizerUtil.sanitizeKeywords(
+				category.getKeywords().stream().map(keywordModel -> keywordModel.getKeyword()).collect(Collectors.toSet()));
 		final String metaDescription = MetaSanitizerUtil.sanitizeDescription(category.getDescription());
 		setUpMetaData(model, metaKeywords, metaDescription);
 
@@ -148,8 +147,7 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 	}
 
 	/**
-	 * Creates empty search results in case {@code doSearch} throws an exception in order to avoid stacktrace on
-	 * storefront.
+	 * Creates empty search results in case {@code doSearch} throws an exception in order to avoid stacktrace on storefront.
 	 *
 	 * @param categoryCode
 	 *           category code
@@ -267,8 +265,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 		private boolean showCategoriesOnly;
 		private ProductCategorySearchPageData<SearchStateData, ProductData, CategoryData> searchPageData;
 
-		public CategorySearchEvaluator(final String categoryCode, final String searchQuery, final int page,
-				final ShowMode showMode, final String sortCode, final CategoryPageModel categoryPage)
+		public CategorySearchEvaluator(final String categoryCode, final String searchQuery, final int page, final ShowMode showMode,
+				final String sortCode, final CategoryPageModel categoryPage)
 		{
 			this.categoryCode = categoryCode;
 			this.searchQueryData.setValue(searchQuery);
@@ -305,6 +303,8 @@ public class AbstractCategoryPageController extends AbstractSearchPageController
 
 				final PageableData pageableData = createPageableData(page, getSearchPageSize(), sortCode, showMode);
 				searchPageData = getProductSearchFacade().categorySearch(categoryCode, searchState, pageableData);
+				//Encode SearchPageData
+				searchPageData = (ProductCategorySearchPageData) encodeSearchPageData(searchPageData);
 			}
 		}
 

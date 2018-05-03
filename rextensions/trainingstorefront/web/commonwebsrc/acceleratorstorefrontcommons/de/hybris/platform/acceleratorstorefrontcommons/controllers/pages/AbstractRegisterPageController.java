@@ -1,7 +1,7 @@
 /*
  * [y] hybris Platform
  *
- * Copyright (c) 2017 SAP SE or an SAP affiliate company.  All rights reserved.
+ * Copyright (c) 2018 SAP SE or an SAP affiliate company.  All rights reserved.
  *
  * This software is the confidential and proprietary information of SAP
  * ("Confidential Information"). You shall not disclose such Confidential
@@ -143,6 +143,7 @@ public abstract class AbstractRegisterPageController extends AbstractPageControl
 	{
 		if (bindingResult.hasErrors())
 		{
+			form.setTermsCheck(false);
 			model.addAttribute(form);
 			model.addAttribute(new LoginForm());
 			model.addAttribute(new GuestForm());
@@ -167,6 +168,7 @@ public abstract class AbstractRegisterPageController extends AbstractPageControl
 		catch (final DuplicateUidException e)
 		{
 			LOGGER.warn("registration failed: ", e);
+			form.setTermsCheck(false);
 			model.addAttribute(form);
 			model.addAttribute(new LoginForm());
 			model.addAttribute(new GuestForm());
