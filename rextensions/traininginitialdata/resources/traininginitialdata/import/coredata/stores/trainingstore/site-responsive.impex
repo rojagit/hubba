@@ -9,18 +9,19 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Import the Responsive CMS Site configuration for the Apparel UK Store
+# Import the Responsive CMS Site configuration for the Apparel US Store
 #
 $productCatalog=myProductCatalog
 $contentCatalog=trainingstoreContentCatalog
-$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
 $defaultLanguage=en
 $storeUid=trainingstore
 $siteUid=trainingstore
 $webServiceSiteUid=$siteUidWS
 $siteMapUrlLimitPerFile=50000
+$promoGrp=myPromoGrp
 
-$siteMapLangCur=enGbp
+$siteMapLangCur=enUsd
 $siteMapPage=Homepage,Product,CategoryLanding,Category,Store,Content,Custom
 $customSiteMapUrls=/Categories/c/categories?q=:relevance:allPromotions:BOGOFApparel:allPromotions:10DiscountShoes:allPromotions:MultiBuyApparel:allPromotions:PerfectPartnerApparel:allPromotions:ProductBundleApparel,/Categories/Streetwear-youth/T-Shirts-youth/c/270100?q=%3Arelevance%3Abrand%3ABurton%3AswatchColors%3ABLACK&text=#,/Categories/Accessories/c/220000?q=%3Arelevance%3Abrand%3AQuiksilver%3AswatchColors%3AGREEN&text=#,/Brands/Fox/c/Fox?q=%3Arelevance%3AswatchColors%3ABLACK%3Agender%3AMALE,/Categories/Snowwear-women/Snow-Jackets-women/c/200100?q=%3Arelevance%3AswatchColors%3ABLACK%3Abrand%3AWLD
 
@@ -60,9 +61,18 @@ INSERT_UPDATE SiteMapPage;&siteMapPage;code(code)[unique=true];frequency(code)[u
 INSERT_UPDATE SiteMapConfig;&siteMapConfigId;configId[unique=true];siteMapLanguageCurrencies(&siteMapLanguageCurrency);siteMapPages(&siteMapPage);siteMapTemplate(&siteMapRenderer)[unique=true];customUrls;
 ;$siteUidSiteMapConfig;$siteUidSiteMapConfig;$siteMapLangCur;$siteMapPage;$siteUid-siteMapTemplate;$customSiteMapUrls;
 
-# CMS Site
-INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);urlPatterns;active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=apparelUKPromoGrp]
-;$siteUid;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$siteUidSiteMapConfig;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$,(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$,(?i)^https?://apparel\.uk\.[^/]+(|/.*|\?.*)$;true;$storefrontContextRoot/?site=$siteUid;homepage;language
+# CMS Site;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
+#REMOVE CMSSite;uid[unique=true]
+#;trainingstore
+
+INSERT_UPDATE CMSSite;uid[unique=true];theme(code);channel(code);stores(uid);contentCatalogs(id);defaultCatalog(id);defaultLanguage(isoCode);siteMapConfig(&siteMapConfigId);active;previewURL;startingPage(uid,$contentCV);urlEncodingAttributes;defaultPromotionGroup(Identifier)[default=$promoGrp]
+;$siteUid;alpha;B2C;$storeUid;$contentCatalog;$productCatalog;$defaultLanguage;$siteUidSiteMapConfig;true;$storefrontContextRoot/?site=$siteUid;homepage;language
+
+INSERT_UPDATE CMSSite;uid[unique=true];urlPatterns[mode=append];
+;$siteUid;(?i)^https?://[^/]+(/[^?]*)?\?(.*\&)?(site=$siteUid)(|\&.*)$
+;$siteUid;(?i)^https?://$siteUid\.[^/]+(|/.*|\?.*)$
+#;$siteUid;(?i)^https?://api\.$siteUid\.local(:[\d]+?/rest/.*$ ERROR - unclosed group &(*$@#$*^*@#$
+;$siteUid;(?i)^https?://localhost\.[^/]+(|/.*|\?.*)$
 
 # Cart Cleanup CronJobs
 INSERT_UPDATE CartRemovalCronJob;code[unique=true];job(code)[default=cartRemovalJob];sites(uid)[default=$siteUid];sessionLanguage(isoCode)[default=en]

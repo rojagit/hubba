@@ -135,12 +135,10 @@ public class BatchIntegrationTest extends ServicelayerTest
 				{
 					writer.print("1231");
 					writer.print(SEPARATOR);
-					writer.println("EUR");
 				}
 			});
 			Assert.assertEquals(1, product.getEurope1Prices().size());
 			final PriceRowModel prize = product.getEurope1Prices().iterator().next();
-			Assert.assertEquals("EUR", prize.getCurrency().getIsocode());
 			Assert.assertEquals(Double.valueOf(1231), prize.getPrice());
 			Assert.assertFalse(prize.getNet().booleanValue());
 			Assert.assertEquals("pieces", prize.getUnit().getCode());

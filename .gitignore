@@ -44,12 +44,13 @@ Desktop.ini
 rextensions/*.class
 gensrc/
 /hybris
-trainingstorebackoffice_bof.jar
+trainingbackoffice_bof.jar
+rextensions/trainingbackoffice/resources/backoffice/trainingbackoffice_bof.jar
 rextensions/*/bin
 rextensions/*/hmc/bin
 rextensions/*/build.xml
 rextensions/*/classes/
-rextensions/*/extensioninfo.xsd
+rextensions/*/rextensioninfo.xsd
 rextensions/*/gensrc/
 rextensions/*/jaxbgensrc/
 rextensions/*/platformhome.properties

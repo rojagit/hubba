@@ -16,6 +16,7 @@
 
 <c:choose>
 	<c:when test="${not empty primaryImage}">
+
 		<c:url value="${primaryImage.url}" var="primaryImageUrl" context="${originalContextPath}"/>
 		<c:choose>
 			<c:when test="${not empty primaryImage.altText}">

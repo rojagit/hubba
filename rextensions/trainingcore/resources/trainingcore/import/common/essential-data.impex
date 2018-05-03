@@ -34,8 +34,6 @@ INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[de
 
 # Currencies
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
-;GBP;1;2;£
-;EUR;1;2;€
 ;USD;1,4;2;$
 ;JPY;120;0;¥
 
@@ -78,25 +76,14 @@ INSERT_UPDATE MediaFormat;qualifier[unique=true]
 
 # Tax & Tax Groups
 INSERT_UPDATE UserTaxGroup;code[unique=true]
-;de-taxes
-;jp-taxes
-;uk-taxes
 ;us-taxes
 ;ca-taxes
 
 INSERT_UPDATE ProductTaxGroup;code[unique=true]
-;jp-vat-full
-;eu-vat-full
-;eu-vat-half
 ;us-sales-tax-full
 ;ca-sales-tax-full
 
 INSERT_UPDATE Tax;code[unique=true];value;currency(isocode)
-;de-vat-full;19
-;de-vat-half;7
-;jp-vat-full;5
-;uk-vat-full;20
-;uk-vat-half;5
 ;us-sales-tax-full;0
 ;ca-sales-tax-full;0
 

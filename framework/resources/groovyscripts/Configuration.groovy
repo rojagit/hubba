@@ -6,25 +6,28 @@ class Configuration
 {
     def separator = get_path_separator()
     def config_dir = convert_to_os_path(get_attribute("framework.config.dir"))
+
     def template_dir = new File("$config_dir${separator}template")
     def environment = get_attribute("build.environment")
-    def hybris_config_dir = convert_to_os_path(get_attribute("hybris.config.dir", "hybris/config"))
+    def hybris_config_dir = convert_to_os_path(get_attribute("hybris.config.dir", "../hybris/config"))
     def baseDir = get_attribute("basedir")
 
     def config() {
 //        ant.mkdir("hybris/bin/platform/.sass-cache");
-        def hybrisDir = new File("hybris/bin/platform/.sass-cache")
+            ant.echo "1HALLELUJAH ...acting sassy" + template_dir
+
+        def hybrisDir = new File("../hybris/bin/platform/.sass-cache")
         if (!hybrisDir.exists()) {
-            ant.echo "HALLELUJAH ...acting sassy" +
+            ant.echo "HALLELUJAH ...acting sassy" + template_dir
             hybrisDir.mkdir()
         }
 
         ant.echo hybrisDir
         def dbdrivers_dir = convert_to_os_path(get_attribute("framework.dbdrivers.dir"))
-        def hybris_db_dir = convert_to_os_path(get_attribute("hybris.db.dir", "hybris/bin/platform/lib/dbdriver"))
+        def hybris_db_dir = convert_to_os_path(get_attribute("hybris.db.dir", "../hybris/bin/platform/lib/dbdriver"))
 
         def corelibs_dir = convert_to_os_path(get_attribute("framework.core-libs.dir"))
-        def hybris_corelibs_dir = convert_to_os_path(get_attribute("hybris.core-libs.dir", "hybris/bin/platform/ext/core/lib"))
+        def hybris_corelibs_dir = convert_to_os_path(get_attribute("hybris.core-libs.dir", "../hybris/bin/platform/ext/core/lib"))
 
         ant.delete(dir: "${hybris_config_dir}", failonerror: false)
         ant.mkdir(dir: "${hybris_config_dir}")
@@ -36,9 +39,9 @@ class Configuration
         ant.copy(todir: "${hybris_corelibs_dir}", overwrite: true, failonerror: true) {
             fileset(dir: "${corelibs_dir}", includes: "**/*")
         }
-        
+
         ant.copy(todir: "${hybris_config_dir}", overwrite: true, failonerror: false) {
-            fileset(dir: "config${separator}template", includes: "**/*")
+            fileset(dir: "${template_dir}", includes: "**/*")
         }
 
         if (!environment || environment == "\${env}") {
@@ -49,7 +52,7 @@ class Configuration
         ant.copy(todir: "${hybris_config_dir}", overwrite: true, failonerror: false) {
             fileset(file: "${config_dir}${separator}${environment}${separator}local.properties")
             fileset(file: "${config_dir}${separator}${environment}${separator}localextensions.xml")
-            fileset(file: "${config_dir}${separator}${environment}${separator}/tomcat/*")
+            //fileset(file: "${config_dir}${separator}${environment}${separator}/tomcat/*")
         }
 
         if (environment == "local") {
@@ -99,14 +102,15 @@ class Configuration
             ant.echo "ignore already in place."
         }
     }
+    //D:\pub\rnd\h\now\hubba\framework\resources\groovyscripts\Configuration.groovy
 
     //needs to be refactored dir shift messes with pathing
     void setup_template_dir() {
-        def path_to_hybris_template_dir = "../../../hybris/bin/platform/resources/configtemplates/develop"
+        def path_to_hybris_template_dir = "../../../../hybris/bin/platform/resources/configtemplates/develop"
         def hybris_template_dir = new File(convert_to_os_path(path_to_hybris_template_dir))
         ant.copy(todir: template_dir) { fileset(dir: hybris_template_dir) }
 
-        def path_to_hybris_ext_file = "../../../hybris/bin/platform"
+        def path_to_hybris_ext_file = "../../../../hybris/bin/platform"
         def hybris_template_ext_file = new File(convert_to_os_path(path_to_hybris_ext_file))
         ant.copy(todir: template_dir) { fileset(dir: hybris_template_ext_file , includes: "extensions.xml") }
 

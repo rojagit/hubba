@@ -16,7 +16,6 @@ INSERT_UPDATE Unit;unitType[unique=true];code[unique=true];name[lang=de];name[la
 ;pieces;pieces;pieces;pieces;1
 
 INSERT_UPDATE Currency;isocode[unique=true];name[lang=de];name[lang=en];active;base;conversion;digits;symbol
-;EUR;Euro;Euro;true;true;1;2;€
 
 INSERT_UPDATE Title;code[unique=true];name[lang=de];name[lang=en];;
 ;dr;Dr.;dr.;;
@@ -28,7 +27,6 @@ INSERT_UPDATE UserGroup;uid[unique=true];groups(uid);
 ;customergroup;
 
 INSERT_UPDATE Customer;uid[unique=true];customerID;name;description;sessionLanguage(isocode);sessionCurrency(isocode);groups(uid);password
-;dejol;K2006-C0007;Max de Jol;;en;EUR;customergroup;1234
 
 INSERT_UPDATE Catalog;id[unique=true];name[lang=de];name[lang=en];defaultCatalog;
 ;photoCatalog;Photo Catalog;Photo Catalog;true
@@ -65,7 +63,6 @@ INSERT_UPDATE ProductReference;qualifier;source(code, $catalogversion)[unique=tr
 ;cam2lense;camera2;lense;SPAREPART;true;1;true
 
 INSERT_UPDATE Order;code[unique=true];date[dateformat=yyyy-MM-dd HH:mm:ss,forceWrite=true];net;currency(isocode);calculated;user(uid)
-;orderRefdejol;2011-04-27 18:54:00;false;EUR;false;dejol
 
 INSERT_UPDATE OrderEntry;order(Order.code)[unique=true];creationTime[dateformat=yyyy-MM-dd HH:mm:ss];product(code,$catalogversion)[unique=true];quantity;unit(code)
 ;orderRefdejol;2011-04-27 18:54:00;camera1;1;pieces

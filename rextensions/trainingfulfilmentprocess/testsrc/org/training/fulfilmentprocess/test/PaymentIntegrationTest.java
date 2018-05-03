@@ -311,7 +311,7 @@ public class PaymentIntegrationTest extends ServicelayerTest
 		}
 
 		final PaymentTransactionModel paymentTransaction = paymentService.authorize("code4" + codeNo++, BigDecimal.ONE,
-				Currency.getInstance("EUR"), deliveryAddress, deliveryAddress, card).getPaymentTransaction();
+				Currency.getInstance("USD"), deliveryAddress, deliveryAddress, card).getPaymentTransaction();
 
 		cart.setPaymentTransactions(Collections.singletonList(paymentTransaction));
 		modelService.save(cart);

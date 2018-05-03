@@ -9,7 +9,7 @@
 # license agreement you entered into with SAP.
 # -----------------------------------------------------------------------
 #
-# Create the Apparel UK Store
+# Create the Apparel US Store
 #
 $productCatalog=myProductCatalog
 $currencies=USD

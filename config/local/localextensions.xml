@@ -4,7 +4,7 @@
     <!--<path autoload="true" dir="${HYBRIS_BIN_DIR}/../../rextensions/"/>-->
 
     <extension name='mcc'/>
-    <!--<extension name='hmc'/>-->
+<!--    <extension name='hmc'/>-->
 
     <extension name='adaptivesearchsolr'/>
     <extension name='adaptivesearchbackoffice'/>
@@ -16,9 +16,9 @@
     <extension name="solrfacetsearch" />
     <extension name="backofficesolrsearch" />
 
-
+<!--
     <extension name='electronicsstore'/>
-<!--    <extension name='apparelstore'/>-->
+    <extension name='apparelstore'/>-->
     <extension name='acceleratorwebservicesaddon'/>
     <extension name='orderselfserviceaddon'/>
     <extension name='customersupportbackoffice'/>
@@ -65,7 +65,6 @@
     <extension name='ordermanagementwebservices' />
     <extension name='warehousingbackoffice' />
     <!--<extension name='yacceleratorordermanagement' />-->
-
 
 
 
