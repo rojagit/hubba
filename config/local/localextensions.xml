@@ -4,7 +4,7 @@
     <!--<path autoload="true" dir="${HYBRIS_BIN_DIR}/../../rextensions/"/>-->
 
     <extension name='mcc'/>
-    <extension name='hmc'/>
+<!--    <extension name='hmc'/>-->
 
     <extension name='adaptivesearchsolr'/>
     <extension name='adaptivesearchbackoffice'/>
@@ -68,13 +68,13 @@
 
 
 
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingcockpits'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingcore'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingfacades'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingfulfilmentprocess'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/traininginitialdata'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingstorefront'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingtest'/>
-    <extension dir='${HYBRIS_BIN_DIR}/../../hubba/rextensions/trainingbackoffice'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingcockpits'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingcore'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingfacades'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingfulfilmentprocess'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/traininginitialdata'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingstorefront'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingtest'/>
+    <extension dir='${HYBRIS_BIN_DIR}/../../rextensions/trainingbackoffice'/>
   </extensions>
 </hybrisconfig>
