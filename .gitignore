@@ -14,7 +14,7 @@ hs_err_pid*
 .idea/
 *.iml
 *.iws
-hybris4intellij.properties
+#hybris4intellij.properties
 ######################
 # Windows
 ######################
@@ -41,36 +41,37 @@ Desktop.ini
 ######################
 # SAP Hybris
 ######################
-extensions/*.class
+rextensions/*.class
 gensrc/
 /hybris
-rackroombackoffice_bof.jar
-extensions/*/bin
-extensions/*/hmc/bin
-extensions/*/build.xml
-extensions/*/classes/
-extensions/*/extensioninfo.xsd
-extensions/*/gensrc/
-extensions/*/jaxbgensrc/
-extensions/*/platformhome.properties
-extensions/*/resources/items.xsd
-extensions/*/resources/beans.xsd
-extensions/*/web/testclasses/
-extensions/*/.settings/
-extensions/*/web/webroot/WEB-INF/classes
-extensions/*/resources/*/*-testclasses.xml
-extensions/*/resources/*/*-webtestclasses.xml
-extensions/*/web/commonwebsrc/acceleratorstorefrontcommons/*
+trainingbackoffice_bof.jar
+rextensions/trainingbackoffice/resources/backoffice/trainingbackoffice_bof.jar
+rextensions/*/bin
+rextensions/*/hmc/bin
+rextensions/*/build.xml
+rextensions/*/classes/
+rextensions/*/rextensioninfo.xsd
+rextensions/*/gensrc/
+rextensions/*/jaxbgensrc/
+rextensions/*/platformhome.properties
+rextensions/*/resources/items.xsd
+rextensions/*/resources/beans.xsd
+rextensions/*/web/testclasses/
+rextensions/*/.settings/
+rextensions/*/web/webroot/WEB-INF/classes
+rextensions/*/resources/*/*-testclasses.xml
+rextensions/*/resources/*/*-webtestclasses.xml
+rextensions/*/web/commonwebsrc/acceleratorstorefrontcommons/*
 
-extensions/rackroomstorefront/web/commonwebsrc/acceleratorstorefrontcommons/*
-extensions/rackroomstorefront/web/addonsrc/*
-extensions/rackroomstorefront/web/webroot/_ui/addons/*
-extensions/rackroomstorefront/web/webroot/WEB-INF/views/addons/*
-extensions/rackroomstorefront/web/webroot/WEB-INF/tags/addons/*
-extensions/rackroomstorefront/web/webroot/*/addons/*
-extensions/rackroomstorefront/web/webroot/WEB-INF/messages/addons/*
-extensions/rackroomstorefront/web/webroot/WEB-INF/tld/addons/*
-extensions/rackroomstorefront/web/webroot/WEB-INF/_ui-src/addons/*
+rextensions/trainingstorefront/web/commonwebsrc/acceleratorstorefrontcommons/*
+rextensions/trainingstorefront/web/addonsrc/*
+rextensions/trainingstorefront/web/webroot/_ui/addons/*
+rextensions/trainingstorefront/web/webroot/WEB-INF/views/addons/*
+rextensions/trainingstorefront/web/webroot/WEB-INF/tags/addons/*
+rextensions/trainingstorefront/web/webroot/*/addons/*
+rextensions/trainingstorefront/web/webroot/WEB-INF/messages/addons/*
+rextensions/trainingstorefront/web/webroot/WEB-INF/tld/addons/*
+rextensions/trainingstorefront/web/webroot/WEB-INF/_ui-src/addons/*
 
 # jrebel
 rebel.xml
