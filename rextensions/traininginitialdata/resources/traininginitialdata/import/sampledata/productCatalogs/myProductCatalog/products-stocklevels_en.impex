@@ -19,16 +19,16 @@ $lang=en
 
 # Create Vendor for Apparel Store
 UPDATE Vendor;code[unique=true];name[lang=$lang]
- ;apparello;Apparello;
+ ;papparello;Papparello;
 
 
 # Create some Warehouses for the Vendor
 UPDATE Warehouse;code[unique=true];name[lang=$lang]
- ;ap_us_warehouse_e;Warehouse US East;
- ;ap_us_warehouse_n;Warehouse US North;
- ;ap_us_warehouse_s;Warehouse US South;
- ;ap_us_warehouse_w;Warehouse US West;
- ;ap_warehouse_e;Warehouse East;
- ;ap_warehouse_n;Warehouse North;
- ;ap_warehouse_s;Warehouse South;
- ;ap_warehouse_w;Warehouse West;
+ ;warehouse_e;Warehouse US East;
+ ;warehouse_n;Warehouse US North;
+ ;warehouse_s;Warehouse US South;
+ ;warehouse_w;Warehouse US West;
+ ;warehouse_e;Warehouse East;
+ ;warehouse_n;Warehouse North;
+ ;warehouse_s;Warehouse South;
+ ;warehouse_w;Warehouse West;

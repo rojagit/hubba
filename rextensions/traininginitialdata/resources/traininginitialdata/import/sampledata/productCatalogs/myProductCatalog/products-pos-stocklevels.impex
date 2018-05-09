@@ -14,7 +14,7 @@
 $productCatalog=myProductCatalog
 $productCatalogName=my Product Catalog
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
-$vendor=apparello
+$vendor=papparello
 
 # Create some Warehouses for the Vendor
 INSERT_UPDATE Warehouse;code[unique=true];vendor(code)[default=$vendor];default[default='false']

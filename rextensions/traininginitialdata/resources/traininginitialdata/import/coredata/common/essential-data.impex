@@ -39,11 +39,11 @@ INSERT_UPDATE SiteMapLanguageCurrency;&siteMapLanguageCurrency;language(isoCode)
 
 # Vendor
 INSERT_UPDATE Vendor;code[unique=true];name
-;default;Default Vendor
+;papparello;Oong Appan Da
 
 # Warehouse
 INSERT_UPDATE Warehouse;code[unique=true];name;vendor(code)[default=default];default[default=true]
-;default;Default Warehouse;
+;papparello;Oong Appan Da;
 ;warehouse_s;Warehouse South;
 ;warehouse_e;Warehouse East;
 ;warehouse_w;Warehouse West;
