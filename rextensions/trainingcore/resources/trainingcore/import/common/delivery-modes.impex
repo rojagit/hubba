@@ -11,7 +11,7 @@
 #
 # Import Delivery Modes / Zones
 #
-#% impex.setLocale(Locale.GERMAN)
+#% impex.setLocale(Locale.ENGLISH)
 
 # Currencies
 $jpCurrency=JPY

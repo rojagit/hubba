@@ -43,7 +43,7 @@
 		</c:if>
 		<c:if test="${isForceInStock}">
 			<c:set var="productStockLevel">
-				<spring:theme code="product.variants.available"/>
+				<spring:theme code="product.variants.available"/>QQQWWW
 			</c:set>
 		</c:if>
 		<div class="stock-wrapper clearfix">

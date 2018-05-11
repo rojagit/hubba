@@ -16,7 +16,7 @@
 		</label>
 		<input type="text" maxlength="3" size="1" id="qtyInput" name="qtyInput" class="qty" value="1">
 	</c:if>
-	
+
 	<c:if test="${product.stock.stockLevel gt 0}">
 		<c:set var="productStockLevel">${product.stock.stockLevel}&nbsp;
 			<spring:theme code="product.variants.in.stock"/>
@@ -32,13 +32,13 @@
 			<spring:theme code="product.variants.available"/>
 		</c:set>
 	</c:if>
-
+QAS
 	<ycommerce:testId code="productDetails_productInStock_label">
 		<p class="stock_message">${productStockLevel}</p>
 	</ycommerce:testId>
-	
+
 	<product:productFutureAvailability product="${product}" futureStockEnabled="${futureStockEnabled}" />
-	
+
 </div>
 
 

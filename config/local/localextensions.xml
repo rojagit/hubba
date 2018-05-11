@@ -56,8 +56,8 @@
     <extension name='promotionengineatddtests'/>
     <extension name='textfieldconfiguratortemplateatddtests'/>
     <extension name='pcmbackofficesamplesaddon'/>
-    <extension name='datahubadapter' />
-    <extension name='datahubbackoffice' />
+    <!--<extension name='datahubadapter' />-->
+    <!--<extension name='datahubbackoffice' />-->
     <extension name='y2ysync' />
     <extension name='y2ysyncbackoffice' />
     <extension name='ordermanagementaddon' />

@@ -16,7 +16,7 @@
 <div class="quick-view-popup">
 
 	<div class="product-image">
-		<a  href="${productUrl}"> 
+		<a  href="${productUrl}">
 			<product:productPrimaryImage product="${product}" format="product" />
 		</a>
 	</div>
@@ -47,16 +47,16 @@
 		<div class="price">
 			<format:fromPrice priceData="${product.price}" />
 		</div>
-		
+
 	</div>
 
 	<div class="addtocart-component">
-		<product:quickViewProductVariantSelector />	
+		<product:quickViewProductVariantSelector />
 
 		<c:url value="/cart/add" var="addToCartUrl"/>
 		<form:form method="post" class="add_to_cart_form" action="${addToCartUrl}">
 		<input type="hidden" name="productCodePost" value="${fn:escapeXml(product.code)}"/>
-			
+
 		<c:if test="${empty quickViewShowAddToCart ? true : quickViewShowAddToCart}">
 
 				<div class="qty-selector input-group js-qty-selector">
@@ -68,7 +68,7 @@
 						<button class="btn btn-primary js-qty-selector-plus" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 					</span>
 				</div>
-				
+
 				<c:if test="${product.stock.stockLevel gt 0}">
 					<c:set var="productStockLevel">${product.stock.stockLevel}&nbsp;
 						<spring:theme code="product.variants.in.stock"/>
@@ -81,7 +81,7 @@
 				</c:if>
 				<c:if test="${product.stock.stockLevelStatus.code eq 'inStock' and empty product.stock.stockLevel}">
 					<c:set var="productStockLevel">
-						<spring:theme code="product.variants.available"/>
+						<spring:theme code="product.variants.available"/>RRR
 					</c:set>
 				</c:if>
 				<div class="stock-status">
@@ -114,6 +114,5 @@
 			<c:remove var="actionUrl"/>
 		</c:if>
 
-	</div>	
+	</div>
 </div>
-	

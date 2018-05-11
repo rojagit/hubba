@@ -171,7 +171,7 @@
                                         </c:if>
                                         <c:if test="${(variantSize.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus eq 'inStock')}">
                                             <c:set var="stockLevel"><spring:theme
-                                                    code="product.variants.available"/></c:set>
+                                                    code="product.variants.available"/></c:set>SSS
                                         </c:if>
                                         <c:if test="${(variantSize.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus ne 'inStock')}">
                                             <c:set var="stockLevel"><spring:theme code="product.variants.out.of.stock"/></c:set>
@@ -197,7 +197,8 @@
                 </c:if>
             </div>
         </c:if>
-        <c:if test="${not empty variantOptions}">
+                            <c:out var="${variantOption.stock.stockLevel}"/>SSS
+                                    <c:if test="${not empty variantOptions}">
             <div class="variant-section">
                 <div class="variant-selector">
                     <div class="variant-name">
@@ -225,6 +226,7 @@
                             <c:if test="${(variantOption.stock.stockLevel le 0) and (variantSize.stock.stockLevelStatus ne 'inStock')}">
                                 <c:set var="stockLevel"><spring:theme code="product.variants.out.of.stock"/></c:set>
                             </c:if>
+                            <c:out var="${variantOption.stock.stockLevel}"/>SSS
                             <c:choose>
                                 <c:when test="${product.purchasable and product.stock.stockLevelStatus.code ne 'outOfStock' }">
                                     <c:set var="showAddToCart" value="${true}" scope="session"/>
