@@ -1,4 +1,4 @@
-*.class
+﻿*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -18,10 +18,10 @@ hs_err_pid*
 ######################
 # Windows
 ######################
- 
+
 # Windows image file caches
-Thumbs.db 
- 
+Thumbs.db
+
 # Folder config file
 Desktop.ini
 
@@ -30,10 +30,10 @@ Desktop.ini
 ######################
 .DS_Store
 .svn
- 
+
 # Thumbnails
 ._*
- 
+
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
@@ -41,6 +41,7 @@ Desktop.ini
 ######################
 # SAP Hybris
 ######################
+
 rextensions/*.class
 gensrc/
 /hybris
